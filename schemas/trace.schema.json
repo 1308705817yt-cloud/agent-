@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "span_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "node": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "enum": [
+        "node",
+        "tool",
+        "llm",
+        "task"
+      ]
+    },
+    "input": {},
+    "output": {},
+    "error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "function": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "state_before": {
+      "type": "object"
+    },
+    "state_after": {
+      "type": "object"
+    },
+    "input_schema": {
+      "type": [
+        "object",
+        "boolean"
+      ]
+    },
+    "output_schema": {
+      "type": [
+        "object",
+        "boolean"
+      ]
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "expected": {},
+          "actual": {}
+        },
+        "required": [
+          "name",
+          "passed"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "task_status": {
+      "enum": [
+        "completed",
+        "failed",
+        "unknown"
+      ]
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "run_id",
+    "span_id",
+    "node",
+    "kind"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "project_name": "customer-agent-demo",
+  "source_paths": ["agent.py"],
+  "tools": {
+    "lookup_customer": {
+      "input_schema": {
+        "type": "object",
+        "properties": {"customer_id": {"type": "string", "pattern": "^C[0-9]{3}$"}},
+        "required": ["customer_id"],
+        "additionalProperties": false
+      },
+      "aliases": {"user_id": "customer_id"}
+    }
+  },
+  "checks": {"loop_threshold": 3, "preserve_state_keys": []},
+  "validation": {
+    "commands": [
+      {"name": "customer_lookup", "kind": "target", "argv": ["{python}", "checks.py", "target"], "timeout_seconds": 20},
+      {"name": "existing_features", "kind": "regression", "argv": ["{python}", "checks.py", "regression"], "timeout_seconds": 20}
+    ],
+    "repetitions": 2,
+    "docker_image": "python:3.11-slim"
+  },
+  "policy": {
+    "protected_paths": ["checks.py", "record_trace.py", "doctor.json"],
+    "max_candidates": 3,
+    "max_changed_files": 2,
+    "max_changed_lines": 30,
+    "max_model_calls": 8,
+    "max_context_chars": 48000
+  }
+}
