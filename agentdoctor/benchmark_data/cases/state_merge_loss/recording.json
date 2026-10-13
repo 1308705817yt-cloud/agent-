@@ -1,0 +1,12 @@
+{
+  "kwargs": {
+    "state": {
+      "request_id": "visible-request",
+      "constraints": [
+        "read_only"
+      ],
+      "completed": false
+    }
+  },
+  "capture_state": true
+}

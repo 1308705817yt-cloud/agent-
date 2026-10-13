@@ -1,0 +1,35 @@
+{
+  "kwargs": {
+    "items": [
+      3,
+      3,
+      1
+    ]
+  },
+  "output_count_from": "items",
+  "state_source": {
+    "path": "workflow/graph.py",
+    "function": "execute"
+  },
+  "bindings": [
+    {
+      "module": "workflow.graph",
+      "function": "execute",
+      "kind": "node",
+      "source": {
+        "path": "workflow/graph.py",
+        "function": "execute"
+      }
+    },
+    {
+      "module": "workflow.worker",
+      "function": "fetch",
+      "kind": "tool",
+      "source": {
+        "path": "workflow/worker.py",
+        "function": "fetch"
+      },
+      "tool": "fetch"
+    }
+  ]
+}

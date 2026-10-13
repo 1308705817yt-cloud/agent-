@@ -1,0 +1,506 @@
+{
+  "version": "independent-v2",
+  "cases": [
+    {
+      "id": "argument_alias",
+      "family": "parameters",
+      "expected": [
+        {
+          "category": "tool_argument_schema",
+          "path": "subject.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 7
+            },
+            "expected": 49
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 11
+            },
+            "expected": 77
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "argument_type",
+      "family": "parameters",
+      "expected": [
+        {
+          "category": "tool_argument_schema",
+          "path": "subject.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 7
+            },
+            "expected": 49
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 11
+            },
+            "expected": 77
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "argument_valid",
+      "family": "parameters",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 7
+            },
+            "expected": 49
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 11
+            },
+            "expected": 77
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "state_merge_loss",
+      "family": "state_merge",
+      "expected": [
+        {
+          "category": "state_invariant",
+          "path": "subject.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "unseen-request",
+                "constraints": [
+                  "no_email",
+                  "keep_currency"
+                ],
+                "completed": false
+              }
+            },
+            "expected": {
+              "request_id": "unseen-request",
+              "constraints": [
+                "no_email",
+                "keep_currency"
+              ],
+              "completed": true
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "unseen-request",
+                "constraints": [
+                  "no_email",
+                  "keep_currency"
+                ],
+                "completed": false,
+                "extra": 13
+              }
+            },
+            "expected": {
+              "request_id": "unseen-request",
+              "constraints": [
+                "no_email",
+                "keep_currency"
+              ],
+              "completed": true,
+              "extra": 13
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "state_merge_valid",
+      "family": "state_merge",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "unseen-request",
+                "constraints": [
+                  "no_email",
+                  "keep_currency"
+                ],
+                "completed": false
+              }
+            },
+            "expected": {
+              "request_id": "unseen-request",
+              "constraints": [
+                "no_email",
+                "keep_currency"
+              ],
+              "completed": true
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "unseen-request",
+                "constraints": [
+                  "no_email",
+                  "keep_currency"
+                ],
+                "completed": false,
+                "extra": 13
+              }
+            },
+            "expected": {
+              "request_id": "unseen-request",
+              "constraints": [
+                "no_email",
+                "keep_currency"
+              ],
+              "completed": true,
+              "extra": 13
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "loop_missing_stop",
+      "family": "termination",
+      "expected": [
+        {
+          "category": "possible_loop",
+          "path": "subject.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 6
+            },
+            "expected": {
+              "attempts": 1,
+              "done": true
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 1
+            },
+            "expected": {
+              "attempts": 1,
+              "done": true
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "loop_stops",
+      "family": "termination",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 6
+            },
+            "expected": {
+              "attempts": 1,
+              "done": true
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 1
+            },
+            "expected": {
+              "attempts": 1,
+              "done": true
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "intentional_polling",
+      "family": "termination",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 6
+            },
+            "expected": {
+              "attempts": 6,
+              "done": false
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "max_steps": 1
+            },
+            "expected": {
+              "attempts": 1,
+              "done": false
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "prompt_conflict",
+      "family": "prompt",
+      "expected": [
+        {
+          "category": "prompt_conflict",
+          "path": "prompt.txt"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "value": 17
+            },
+            "expected": {
+              "answer": 17
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "value": -9
+            },
+            "expected": {
+              "answer": -9
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    },
+    {
+      "id": "prompt_consistent",
+      "family": "prompt",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "value": 17
+            },
+            "expected": {
+              "answer": 17
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "value": -9
+            },
+            "expected": {
+              "answer": -9
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 29
+            },
+            "expected": 39
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -30
+            },
+            "expected": -20
+          }
+        ]
+      }
+    }
+  ]
+}

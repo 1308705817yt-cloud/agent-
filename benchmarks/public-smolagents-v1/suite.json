@@ -1,0 +1,512 @@
+{
+  "version": "public-smolagents-v1",
+  "provenance": {
+    "repository": "https://github.com/huggingface/smolagents",
+    "commit": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+    "upstream_zip_sha256": "d169c08c5b2f4f24f2e27d445cde08ea5099246caa02fcd4f8a46c4d53df3f26",
+    "scope": "Unmodified upstream package, local Python executor used by CodeAgent; no live target LLM. Public issue suggestions and hidden tests excluded from repair context."
+  },
+  "cases": [
+    {
+      "id": "loop_else_fault",
+      "family": "public_smolagents",
+      "issue": "https://github.com/huggingface/smolagents/issues/2782",
+      "expected": [
+        {
+          "category": "other",
+          "path": "smolagents/local_python_executor.py"
+        }
+      ],
+      "upstream_manifest": {
+        "__init__.py": "efac0cfd51f49d083a25297eb4cad6c498d28616f615095cf1c154c49b963254",
+        "_function_type_hints_utils.py": "9ce6ce943a6ce86d6bfc8f9df084761a927c5799efee0aa6e13b1d804374a438",
+        "agent_types.py": "2a46ef484405d9a7f6316ae8608c3a9dda0f46fbdffedde8e5f94b0969ad9335",
+        "agents.py": "da0da2e258c346e28d97b3584dfe58dcd203fc20fbde6c6533e333f9b1a06352",
+        "cli.py": "c7cd04f6312242fbdb16917c48b9b5a672cb5a0652f9553c718b68dd3e2b5d62",
+        "default_tools.py": "84e0bcb9c2aae16f493fd0f9553da4d4442bcfc7f832be840228c4b8a3f9f14c",
+        "gradio_ui.py": "a3e601768f58523f59ee85e4770bab94b8ad1180184fa2c6b79a7234662d3590",
+        "local_python_executor.py": "41859e622bae8ad85ed861b7abef12b02f9106133a273c2f4d8a1e37a743d1ca",
+        "mcp_client.py": "ec0041193c0ea16100f0d911aab12ff92ccb165eb27aebee76550855836f8603",
+        "memory.py": "8089d5162069158bd548673b52fc4c2d15b91146ae29d503903cfde8f913418a",
+        "models.py": "e3510666f0a36d1d09d25d9d9f2e9cb0e0c09edc47ed599b0e52445bddf146e7",
+        "monitoring.py": "bce3de91526054e0f6f0b795ecca4e374dac5166aa66514d3b621ac4394659fa",
+        "remote_executors.py": "d14480b4dc512605df941594bd37e08aa19a92c18913775e9af7c71d5c209ab9",
+        "serialization.py": "1dea2a4e98136c822cad9d222e39e89cf2e680eca52b8bcdc022f1cb14e0344c",
+        "tool_validation.py": "f8655437dfaa30e3c05b49222d4495402358e022b743dd0b6a4c44e12ec1517c",
+        "tools.py": "0f7395444c1efa48d0995efacf07bc6b68e5bad75a4312b509604eb447aff5e8",
+        "utils.py": "19263b4d418d5b69e3dfc3d0789aa2dc58ba6902bed2b0f9296b15057a837dc6",
+        "vision_web_browser.py": "c7b2260468b7f95e86aa57d9106475184a5f39c30927ab8b6e9bafc0d3a2338d",
+        "prompts/code_agent.yaml": "28459ad8f3a0ffea3de76d6769d66253b54dcfcd8a86af5e806a2851ca2a4c03",
+        "prompts/structured_code_agent.yaml": "ccc44c1cc7277d619abb5982d4ec0ee9c78b428cfe1c458979ea457c7902838a",
+        "prompts/toolcalling_agent.yaml": "28820f24906dd3ee3faa8160945e00529dda2a39c9fa8b3362093c0560c4b8f7"
+      },
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 7\nfor i in []:\n    x = 0\nelse:\n    x += 11\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 18,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 8\nwhile False:\n    x = 0\nelse:\n    x += 13\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 21,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nfor i in range(5):\n    if i == 2:\n        continue\n    x += i\nelse:\n    x += 20\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 28,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nwhile x < 3:\n    x += 1\n    continue\nelse:\n    x += 40\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 43,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nfor i in range(4):\n    if i == 2:\n        break\n    x += i\nelse:\n    x += 100\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 1,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nwhile x < 4:\n    x += 1\n    if x == 2:\n        break\nelse:\n    x += 100\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 2,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 9",
+                "x + 2"
+              ]
+            },
+            "expected": [
+              {
+                "value": 9,
+                "logs": "",
+                "failed": false
+              },
+              {
+                "value": 11,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "print_reset_fault",
+      "family": "public_smolagents",
+      "issue": "https://github.com/huggingface/smolagents/issues/1998",
+      "expected": [
+        {
+          "category": "other",
+          "path": "smolagents/local_python_executor.py"
+        }
+      ],
+      "upstream_manifest": {
+        "__init__.py": "efac0cfd51f49d083a25297eb4cad6c498d28616f615095cf1c154c49b963254",
+        "_function_type_hints_utils.py": "9ce6ce943a6ce86d6bfc8f9df084761a927c5799efee0aa6e13b1d804374a438",
+        "agent_types.py": "2a46ef484405d9a7f6316ae8608c3a9dda0f46fbdffedde8e5f94b0969ad9335",
+        "agents.py": "da0da2e258c346e28d97b3584dfe58dcd203fc20fbde6c6533e333f9b1a06352",
+        "cli.py": "c7cd04f6312242fbdb16917c48b9b5a672cb5a0652f9553c718b68dd3e2b5d62",
+        "default_tools.py": "84e0bcb9c2aae16f493fd0f9553da4d4442bcfc7f832be840228c4b8a3f9f14c",
+        "gradio_ui.py": "a3e601768f58523f59ee85e4770bab94b8ad1180184fa2c6b79a7234662d3590",
+        "local_python_executor.py": "41859e622bae8ad85ed861b7abef12b02f9106133a273c2f4d8a1e37a743d1ca",
+        "mcp_client.py": "ec0041193c0ea16100f0d911aab12ff92ccb165eb27aebee76550855836f8603",
+        "memory.py": "8089d5162069158bd548673b52fc4c2d15b91146ae29d503903cfde8f913418a",
+        "models.py": "e3510666f0a36d1d09d25d9d9f2e9cb0e0c09edc47ed599b0e52445bddf146e7",
+        "monitoring.py": "bce3de91526054e0f6f0b795ecca4e374dac5166aa66514d3b621ac4394659fa",
+        "remote_executors.py": "d14480b4dc512605df941594bd37e08aa19a92c18913775e9af7c71d5c209ab9",
+        "serialization.py": "1dea2a4e98136c822cad9d222e39e89cf2e680eca52b8bcdc022f1cb14e0344c",
+        "tool_validation.py": "f8655437dfaa30e3c05b49222d4495402358e022b743dd0b6a4c44e12ec1517c",
+        "tools.py": "0f7395444c1efa48d0995efacf07bc6b68e5bad75a4312b509604eb447aff5e8",
+        "utils.py": "19263b4d418d5b69e3dfc3d0789aa2dc58ba6902bed2b0f9296b15057a837dc6",
+        "vision_web_browser.py": "c7b2260468b7f95e86aa57d9106475184a5f39c30927ab8b6e9bafc0d3a2338d",
+        "prompts/code_agent.yaml": "28459ad8f3a0ffea3de76d6769d66253b54dcfcd8a86af5e806a2851ca2a4c03",
+        "prompts/structured_code_agent.yaml": "ccc44c1cc7277d619abb5982d4ec0ee9c78b428cfe1c458979ea457c7902838a",
+        "prompts/toolcalling_agent.yaml": "28820f24906dd3ee3faa8160945e00529dda2a39c9fa8b3362093c0560c4b8f7"
+      },
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "print('heldout-old')",
+                "for x in :\n    pass",
+                "print('heldout-new')"
+              ]
+            },
+            "expected": [
+              {
+                "value": null,
+                "logs": "heldout-old\n",
+                "failed": false
+              },
+              {
+                "value": null,
+                "logs": "",
+                "failed": true
+              },
+              {
+                "value": null,
+                "logs": "heldout-new\n",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "n = 17\nprint(n)",
+                "x = (",
+                "n * 2"
+              ]
+            },
+            "expected": [
+              {
+                "value": null,
+                "logs": "17\n",
+                "failed": false
+              },
+              {
+                "value": null,
+                "logs": "",
+                "failed": true
+              },
+              {
+                "value": 34,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = (",
+                "y = ["
+              ]
+            },
+            "expected": [
+              {
+                "value": null,
+                "logs": "",
+                "failed": true
+              },
+              {
+                "value": null,
+                "logs": "",
+                "failed": true
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "print('one')",
+                "print('two')"
+              ]
+            },
+            "expected": [
+              {
+                "value": null,
+                "logs": "one\n",
+                "failed": false
+              },
+              {
+                "value": null,
+                "logs": "two\n",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "2 + 3"
+              ]
+            },
+            "expected": [
+              {
+                "value": 5,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 9",
+                "x + 2"
+              ]
+            },
+            "expected": [
+              {
+                "value": 9,
+                "logs": "",
+                "failed": false
+              },
+              {
+                "value": 11,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "loop_control",
+      "family": "public_smolagents",
+      "issue": "https://github.com/huggingface/smolagents/issues/2782",
+      "expected": [],
+      "upstream_manifest": {
+        "__init__.py": "efac0cfd51f49d083a25297eb4cad6c498d28616f615095cf1c154c49b963254",
+        "_function_type_hints_utils.py": "9ce6ce943a6ce86d6bfc8f9df084761a927c5799efee0aa6e13b1d804374a438",
+        "agent_types.py": "2a46ef484405d9a7f6316ae8608c3a9dda0f46fbdffedde8e5f94b0969ad9335",
+        "agents.py": "da0da2e258c346e28d97b3584dfe58dcd203fc20fbde6c6533e333f9b1a06352",
+        "cli.py": "c7cd04f6312242fbdb16917c48b9b5a672cb5a0652f9553c718b68dd3e2b5d62",
+        "default_tools.py": "84e0bcb9c2aae16f493fd0f9553da4d4442bcfc7f832be840228c4b8a3f9f14c",
+        "gradio_ui.py": "a3e601768f58523f59ee85e4770bab94b8ad1180184fa2c6b79a7234662d3590",
+        "local_python_executor.py": "41859e622bae8ad85ed861b7abef12b02f9106133a273c2f4d8a1e37a743d1ca",
+        "mcp_client.py": "ec0041193c0ea16100f0d911aab12ff92ccb165eb27aebee76550855836f8603",
+        "memory.py": "8089d5162069158bd548673b52fc4c2d15b91146ae29d503903cfde8f913418a",
+        "models.py": "e3510666f0a36d1d09d25d9d9f2e9cb0e0c09edc47ed599b0e52445bddf146e7",
+        "monitoring.py": "bce3de91526054e0f6f0b795ecca4e374dac5166aa66514d3b621ac4394659fa",
+        "remote_executors.py": "d14480b4dc512605df941594bd37e08aa19a92c18913775e9af7c71d5c209ab9",
+        "serialization.py": "1dea2a4e98136c822cad9d222e39e89cf2e680eca52b8bcdc022f1cb14e0344c",
+        "tool_validation.py": "f8655437dfaa30e3c05b49222d4495402358e022b743dd0b6a4c44e12ec1517c",
+        "tools.py": "0f7395444c1efa48d0995efacf07bc6b68e5bad75a4312b509604eb447aff5e8",
+        "utils.py": "19263b4d418d5b69e3dfc3d0789aa2dc58ba6902bed2b0f9296b15057a837dc6",
+        "vision_web_browser.py": "c7b2260468b7f95e86aa57d9106475184a5f39c30927ab8b6e9bafc0d3a2338d",
+        "prompts/code_agent.yaml": "28459ad8f3a0ffea3de76d6769d66253b54dcfcd8a86af5e806a2851ca2a4c03",
+        "prompts/structured_code_agent.yaml": "ccc44c1cc7277d619abb5982d4ec0ee9c78b428cfe1c458979ea457c7902838a",
+        "prompts/toolcalling_agent.yaml": "28820f24906dd3ee3faa8160945e00529dda2a39c9fa8b3362093c0560c4b8f7"
+      },
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nfor i in range(4):\n    if i == 2:\n        break\n    x += i\nelse:\n    x += 100\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 1,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 0\nwhile x < 4:\n    x += 1\n    if x == 2:\n        break\nelse:\n    x += 100\nx"
+              ]
+            },
+            "expected": [
+              {
+                "value": 2,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 9",
+                "x + 2"
+              ]
+            },
+            "expected": [
+              {
+                "value": 9,
+                "logs": "",
+                "failed": false
+              },
+              {
+                "value": 11,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "print_control",
+      "family": "public_smolagents",
+      "issue": "https://github.com/huggingface/smolagents/issues/1998",
+      "expected": [],
+      "upstream_manifest": {
+        "__init__.py": "efac0cfd51f49d083a25297eb4cad6c498d28616f615095cf1c154c49b963254",
+        "_function_type_hints_utils.py": "9ce6ce943a6ce86d6bfc8f9df084761a927c5799efee0aa6e13b1d804374a438",
+        "agent_types.py": "2a46ef484405d9a7f6316ae8608c3a9dda0f46fbdffedde8e5f94b0969ad9335",
+        "agents.py": "da0da2e258c346e28d97b3584dfe58dcd203fc20fbde6c6533e333f9b1a06352",
+        "cli.py": "c7cd04f6312242fbdb16917c48b9b5a672cb5a0652f9553c718b68dd3e2b5d62",
+        "default_tools.py": "84e0bcb9c2aae16f493fd0f9553da4d4442bcfc7f832be840228c4b8a3f9f14c",
+        "gradio_ui.py": "a3e601768f58523f59ee85e4770bab94b8ad1180184fa2c6b79a7234662d3590",
+        "local_python_executor.py": "41859e622bae8ad85ed861b7abef12b02f9106133a273c2f4d8a1e37a743d1ca",
+        "mcp_client.py": "ec0041193c0ea16100f0d911aab12ff92ccb165eb27aebee76550855836f8603",
+        "memory.py": "8089d5162069158bd548673b52fc4c2d15b91146ae29d503903cfde8f913418a",
+        "models.py": "e3510666f0a36d1d09d25d9d9f2e9cb0e0c09edc47ed599b0e52445bddf146e7",
+        "monitoring.py": "bce3de91526054e0f6f0b795ecca4e374dac5166aa66514d3b621ac4394659fa",
+        "remote_executors.py": "d14480b4dc512605df941594bd37e08aa19a92c18913775e9af7c71d5c209ab9",
+        "serialization.py": "1dea2a4e98136c822cad9d222e39e89cf2e680eca52b8bcdc022f1cb14e0344c",
+        "tool_validation.py": "f8655437dfaa30e3c05b49222d4495402358e022b743dd0b6a4c44e12ec1517c",
+        "tools.py": "0f7395444c1efa48d0995efacf07bc6b68e5bad75a4312b509604eb447aff5e8",
+        "utils.py": "19263b4d418d5b69e3dfc3d0789aa2dc58ba6902bed2b0f9296b15057a837dc6",
+        "vision_web_browser.py": "c7b2260468b7f95e86aa57d9106475184a5f39c30927ab8b6e9bafc0d3a2338d",
+        "prompts/code_agent.yaml": "28459ad8f3a0ffea3de76d6769d66253b54dcfcd8a86af5e806a2851ca2a4c03",
+        "prompts/structured_code_agent.yaml": "ccc44c1cc7277d619abb5982d4ec0ee9c78b428cfe1c458979ea457c7902838a",
+        "prompts/toolcalling_agent.yaml": "28820f24906dd3ee3faa8160945e00529dda2a39c9fa8b3362093c0560c4b8f7"
+      },
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "print('one')",
+                "print('two')"
+              ]
+            },
+            "expected": [
+              {
+                "value": null,
+                "logs": "one\n",
+                "failed": false
+              },
+              {
+                "value": null,
+                "logs": "two\n",
+                "failed": false
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "2 + 3"
+              ]
+            },
+            "expected": [
+              {
+                "value": 5,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "run",
+            "kwargs": {
+              "codes": [
+                "x = 9",
+                "x + 2"
+              ]
+            },
+            "expected": [
+              {
+                "value": 9,
+                "logs": "",
+                "failed": false
+              },
+              {
+                "value": 11,
+                "logs": "",
+                "failed": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

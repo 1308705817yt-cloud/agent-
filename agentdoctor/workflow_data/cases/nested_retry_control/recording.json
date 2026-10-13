@@ -1,0 +1,35 @@
+{
+  "kwargs": {
+    "ready_after": 99
+  },
+  "bindings": [
+    {
+      "module": "workflow.graph",
+      "function": "execute",
+      "kind": "node",
+      "source": {
+        "path": "workflow/graph.py",
+        "function": "execute"
+      }
+    },
+    {
+      "module": "workflow.graph",
+      "function": "step",
+      "kind": "node",
+      "source": {
+        "path": "workflow/graph.py",
+        "function": "step"
+      }
+    },
+    {
+      "module": "workflow.service",
+      "function": "status",
+      "kind": "tool",
+      "source": {
+        "path": "workflow/graph.py",
+        "function": "step"
+      },
+      "tool": "status"
+    }
+  ]
+}

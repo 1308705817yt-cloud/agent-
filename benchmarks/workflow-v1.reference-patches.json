@@ -1,0 +1,22 @@
+{
+  "dependency_contract_fault": {
+    "path": "workflow/codec.py",
+    "before": "return {\"quantity\": str(quantity)}",
+    "after": "return {\"quantity\": quantity}"
+  },
+  "async_state_merge_fault": {
+    "path": "workflow/graph.py",
+    "before": "return update",
+    "after": "return {**state, **update}"
+  },
+  "async_fanout_fault": {
+    "path": "workflow/graph.py",
+    "before": "return list({row[\"item\"]: row for row in rows}.values())",
+    "after": "return rows"
+  },
+  "nested_retry_fault": {
+    "path": "workflow/graph.py",
+    "before": "        status = await step(ready_after)\n",
+    "after": "        status = await step(ready_after)\n        if status[\"done\"]:\n            break\n"
+  }
+}

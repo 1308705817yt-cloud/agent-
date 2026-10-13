@@ -1,0 +1,773 @@
+{
+  "kind": "offline_semantic_response_replay",
+  "version": "0.5.2",
+  "created_at": "2026-10-13T08:13:47.019727+00:00",
+  "external_model_calls": 0,
+  "is_new_model_accuracy_measurement": false,
+  "limitations": [
+    "Original prompts, contexts and responses are unchanged; new prompt effectiveness is not measured.",
+    "Citation acceptance does not prove classification accuracy or causality; no patches or tests are rerun."
+  ],
+  "archives": [
+    {
+      "path": "benchmarks/codex-independent-v2-v0.5.1-2026-10-13.json",
+      "sha256": "f12c11ad378db8217ffaf54f48757a527b1c1b607243ddcb5417b6470c1bf319",
+      "unchanged": true,
+      "suite_version": "independent-v2",
+      "cases": [
+        {
+          "case_id": "argument_alias",
+          "historical_validation": "rejected",
+          "original_request_sha256": "b4ce7bc19072945a2ee4f2bfdd2a3b7ae980f8647fc04c6bceca7ef1c10cd7c7",
+          "response_content_sha256": "2d85784ab3015120e49a3e955ae623d7164daacea2558045214a9ac61fd3ff25",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 3,
+            "classified": 0
+          },
+          "fault_categories": [
+            "tool_argument_schema"
+          ],
+          "unclassified_symptoms": [
+            {
+              "id": "f_1b5410cc74ee",
+              "category": "execution_error",
+              "has_root_cause": true
+            },
+            {
+              "id": "f_d3f0af4bfd83",
+              "category": "execution_error",
+              "has_root_cause": true
+            }
+          ],
+          "citations": [
+            {
+              "finding_id": "f_8d27a41c381e",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 8,
+                "end_line": 9,
+                "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)\n",
+                "sha256": "a685ffba54e470f451135f964e13c541184e5724315a9703bccabfa06735c02c",
+                "source_id": "src_5a0038d7c29def8887b33b7b"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 8,
+                  "end_line": 9,
+                  "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)"
+                }
+              }
+            },
+            {
+              "finding_id": "f_1b5410cc74ee",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 8,
+                "end_line": 9,
+                "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)\n",
+                "sha256": "a685ffba54e470f451135f964e13c541184e5724315a9703bccabfa06735c02c",
+                "source_id": "src_5a0038d7c29def8887b33b7b"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 8,
+                  "end_line": 9,
+                  "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)"
+                }
+              }
+            },
+            {
+              "finding_id": "f_d3f0af4bfd83",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 8,
+                "end_line": 9,
+                "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)\n",
+                "sha256": "a685ffba54e470f451135f964e13c541184e5724315a9703bccabfa06735c02c",
+                "source_id": "src_5a0038d7c29def8887b33b7b"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 8,
+                  "end_line": 9,
+                  "text": "    arguments = {\"units\": quantity}\n    return price(**arguments)"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "argument_type",
+          "historical_validation": "rejected",
+          "original_request_sha256": "6adcecd3da27dfbb4c307c48e4b714739bdd8e635b5a4fda32354e9cd3f0e138",
+          "response_content_sha256": "aa9a73ba3d3d62342da2147c6522920118971a7087def6c19f3ae4e0caf5a7bf",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 3,
+            "classified": 0
+          },
+          "fault_categories": [
+            "tool_argument_schema"
+          ],
+          "unclassified_symptoms": [
+            {
+              "id": "f_bd16b97b37dc",
+              "category": "execution_error",
+              "has_root_cause": true
+            },
+            {
+              "id": "f_a1f572649f19",
+              "category": "execution_error",
+              "has_root_cause": true
+            }
+          ],
+          "citations": [
+            {
+              "finding_id": "f_0507e5826524",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 7,
+                "end_line": 9,
+                "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)\n",
+                "sha256": "4b0b06805e0728c14c032471a59a24b34fe00accc205138d58fa255460f83382",
+                "source_id": "src_7ccd914390295968fb30b2d5"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 7,
+                  "end_line": 9,
+                  "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)"
+                }
+              }
+            },
+            {
+              "finding_id": "f_bd16b97b37dc",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 7,
+                "end_line": 9,
+                "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)\n",
+                "sha256": "4b0b06805e0728c14c032471a59a24b34fe00accc205138d58fa255460f83382",
+                "source_id": "src_7ccd914390295968fb30b2d5"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 7,
+                  "end_line": 9,
+                  "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)"
+                }
+              }
+            },
+            {
+              "finding_id": "f_a1f572649f19",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 7,
+                "end_line": 9,
+                "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)\n",
+                "sha256": "4b0b06805e0728c14c032471a59a24b34fe00accc205138d58fa255460f83382",
+                "source_id": "src_7ccd914390295968fb30b2d5"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 7,
+                  "end_line": 9,
+                  "text": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "argument_valid",
+          "historical_validation": "accepted",
+          "original_request_sha256": "721d5335f62b4d57fcf28d64402a88364f53c11e4bf4e67eadde949a3c32570e",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "state_merge_loss",
+          "historical_validation": "rejected",
+          "original_request_sha256": "6d0ce810c7d976d4fccf4709cbeb61d2e23749891ba7aa284761904237c14813",
+          "response_content_sha256": "aad7d4fa250fa61ab66f632616dd33f0c233bae637733230f88e773c8cede574",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 1,
+            "classified": 0
+          },
+          "fault_categories": [
+            "state_invariant"
+          ],
+          "unclassified_symptoms": [],
+          "citations": [
+            {
+              "finding_id": "f_37a27bc5de9b",
+              "canonical": {
+                "path": "subject.py",
+                "start_line": 1,
+                "end_line": 3,
+                "text": "def run(state):\n    update = {\"completed\": True}\n    return update\n",
+                "sha256": "67df755bd546bc8601fd724875dba622e38b95762a1f7d58259c91ab8f2ba1b6",
+                "source_id": "src_8de23424a3f6a3d214eaa799"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "subject.py",
+                  "start_line": 1,
+                  "end_line": 3,
+                  "text": "def run(state):\n    update = {\"completed\": True}\n    return update"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "state_merge_valid",
+          "historical_validation": "accepted",
+          "original_request_sha256": "c17c6b864bd07f5487fe88b3ffeb20f2d9d1c0e9092ac544597da702ebc5fd1f",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "loop_missing_stop",
+          "historical_validation": "rejected",
+          "original_request_sha256": "07cb159ba1a6e700dbaed9c0e81998b92b71a13d1b645b1ca05b07ad33e51eb3",
+          "response_content_sha256": "5a54f108dd5a949a3055689a66b5239565ec40dae6a3b31a093ccba5e3cb6277",
+          "response_modified": false,
+          "validation": "rejected",
+          "error": "Root cause source must match one unique contiguous excerpt supplied to the model; line contents and ranges must agree",
+          "fault_categories": [
+            "possible_loop"
+          ],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "loop_stops",
+          "historical_validation": "accepted",
+          "original_request_sha256": "096949d77daef6d3e43b874c74910205ff34daf3ea67bd1eb1aef67f33dd4116",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "intentional_polling",
+          "historical_validation": "accepted",
+          "original_request_sha256": "d19defe3e35c7e6cd27118116c9493fdb9bb61fdd15bff5b03d64a3a1993adab",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "prompt_conflict",
+          "historical_validation": "accepted",
+          "original_request_sha256": "bca142a6158675fc2bc0d7693a3438bb3e54ba0070f3ce3a1ccf8de39a7f2bdf",
+          "response_content_sha256": "b2900bfa637efa3cf5bbc5b59080c0e539cf02222229beb20d05e5450aa249c1",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 1,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 1,
+            "classified": 0
+          },
+          "fault_categories": [
+            "prompt_conflict"
+          ],
+          "unclassified_symptoms": [
+            {
+              "id": "f_f02e4869ce86",
+              "category": "output_schema",
+              "has_root_cause": true
+            }
+          ],
+          "citations": [
+            {
+              "finding_id": "f_f02e4869ce86",
+              "canonical": {
+                "path": "prompt.txt",
+                "start_line": 1,
+                "end_line": 2,
+                "text": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n",
+                "sha256": "2c775bb0f362eda4591df19b571add088b614d078cdd2e3d93358a375d52366a",
+                "source_id": "src_0582557a73244fdc51cf48ab"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "prompt.txt",
+                  "start_line": 1,
+                  "end_line": 2,
+                  "text": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n"
+                }
+              }
+            },
+            {
+              "finding_id": "f_bdd8893b2dda",
+              "canonical": {
+                "path": "prompt.txt",
+                "start_line": 1,
+                "end_line": 2,
+                "text": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n",
+                "sha256": "2c775bb0f362eda4591df19b571add088b614d078cdd2e3d93358a375d52366a",
+                "source_id": "src_0582557a73244fdc51cf48ab"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "prompt.txt",
+                  "start_line": 1,
+                  "end_line": 2,
+                  "text": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "prompt_consistent",
+          "historical_validation": "accepted",
+          "original_request_sha256": "97440f69d31b669bc350c63be5a893a128f2ccac459b03955a7ed0ac77f13ec6",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        }
+      ]
+    },
+    {
+      "path": "benchmarks/codex-workflow-v1-v0.5.1-2026-10-13.json",
+      "sha256": "fbce6ee4f45807523b6f9cf79c4e2e50dfd67c082f8f8b6c47090797f02e4b49",
+      "unchanged": true,
+      "suite_version": "workflow-v1",
+      "cases": [
+        {
+          "case_id": "dependency_contract_fault",
+          "historical_validation": "accepted",
+          "original_request_sha256": "bd765dbb062d7c71d0cc169bade19a319acb2fb4526ec82ae39af7d21aab81d3",
+          "response_content_sha256": "d4b9303654a1fdfde8e6da4e9d582cce74b6ec17a9570e7e5438a8202fb24c3c",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 4,
+            "classified": 0
+          },
+          "fault_categories": [
+            "tool_argument_schema"
+          ],
+          "unclassified_symptoms": [
+            {
+              "id": "f_1774c3c55098",
+              "category": "execution_error",
+              "has_root_cause": true
+            },
+            {
+              "id": "f_dcfe959e8920",
+              "category": "execution_error",
+              "has_root_cause": true
+            },
+            {
+              "id": "f_7a4ec72f8916",
+              "category": "execution_error",
+              "has_root_cause": true
+            }
+          ],
+          "citations": [
+            {
+              "finding_id": "f_8dfac69ad97c",
+              "canonical": {
+                "path": "workflow/codec.py",
+                "start_line": 241,
+                "end_line": 243,
+                "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n",
+                "sha256": "6f3afc33f416f2181cb3a0d455ff38069f9974dee8ed76a9e5f324fa0c760585",
+                "source_id": "src_7b4a0260a0e1c1675bd461c4"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "workflow/codec.py",
+                  "start_line": 241,
+                  "end_line": 243,
+                  "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n"
+                }
+              }
+            },
+            {
+              "finding_id": "f_1774c3c55098",
+              "canonical": {
+                "path": "workflow/codec.py",
+                "start_line": 241,
+                "end_line": 243,
+                "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n",
+                "sha256": "6f3afc33f416f2181cb3a0d455ff38069f9974dee8ed76a9e5f324fa0c760585",
+                "source_id": "src_7b4a0260a0e1c1675bd461c4"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "workflow/codec.py",
+                  "start_line": 241,
+                  "end_line": 243,
+                  "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n"
+                }
+              }
+            },
+            {
+              "finding_id": "f_dcfe959e8920",
+              "canonical": {
+                "path": "workflow/codec.py",
+                "start_line": 241,
+                "end_line": 243,
+                "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n",
+                "sha256": "6f3afc33f416f2181cb3a0d455ff38069f9974dee8ed76a9e5f324fa0c760585",
+                "source_id": "src_7b4a0260a0e1c1675bd461c4"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "workflow/codec.py",
+                  "start_line": 241,
+                  "end_line": 243,
+                  "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n"
+                }
+              }
+            },
+            {
+              "finding_id": "f_7a4ec72f8916",
+              "canonical": {
+                "path": "workflow/codec.py",
+                "start_line": 241,
+                "end_line": 243,
+                "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n",
+                "sha256": "6f3afc33f416f2181cb3a0d455ff38069f9974dee8ed76a9e5f324fa0c760585",
+                "source_id": "src_7b4a0260a0e1c1675bd461c4"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "workflow/codec.py",
+                  "start_line": 241,
+                  "end_line": 243,
+                  "text": "def build_request(quantity):\n    \"\"\"Adapt a nonnegative integer quantity for the quote tool.\"\"\"\n    return {\"quantity\": str(quantity)}\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "async_state_merge_fault",
+          "historical_validation": "rejected",
+          "original_request_sha256": "a3465b51a669eb6bf2b07189186ec8c160f67f3a01e696f71260650ef14d0b1b",
+          "response_content_sha256": "4d5ffd33a4dfc81f5a09f51460c372e1a407a35d94d72b853ae3e3acca07802c",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 1,
+            "classified": 0
+          },
+          "fault_categories": [
+            "state_invariant"
+          ],
+          "unclassified_symptoms": [],
+          "citations": [
+            {
+              "finding_id": "f_344503460717",
+              "canonical": {
+                "path": "workflow/graph.py",
+                "start_line": 242,
+                "end_line": 245,
+                "text": "async def execute(state):\n    \"\"\"Merge the async balance update while retaining all existing request state.\"\"\"\n    update = await ledger.hydrate(state[\"units\"])\n    return update\n",
+                "sha256": "5998367f15735e700bfcb8b666de2cf3bc62e3c70863b67e1caca8afdcfb3210",
+                "source_id": "src_46cc0f44cfc9fd0bd62da462"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "workflow/graph.py",
+                  "start_line": 242,
+                  "end_line": 245,
+                  "text": "async def execute(state):\n    \"\"\"Merge the async balance update while retaining all existing request state.\"\"\"\n    update = await ledger.hydrate(state[\"units\"])\n    return update"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "async_fanout_fault",
+          "historical_validation": "rejected",
+          "original_request_sha256": "679f71d027511c8e4cf121412665feeb6f97f5254b6eacf1a2f4c1c55a745225",
+          "response_content_sha256": "6ad96ee3085c33a331a875033ff027dd4a4b288c5a7450aed96b4d4c6ce9e6f2",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 1,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [
+            {
+              "id": "f_4006f960f6e9",
+              "category": "task_assertion",
+              "has_root_cause": true
+            }
+          ],
+          "citations": [
+            {
+              "finding_id": "f_4006f960f6e9",
+              "canonical": {
+                "path": "workflow/graph.py",
+                "start_line": 245,
+                "end_line": 246,
+                "text": "    rows = await asyncio.gather(*(worker.fetch(item) for item in items))\n    return list({row[\"item\"]: row for row in rows}.values())\n",
+                "sha256": "15f83a46177b8cfdb2a369aac1e8810eab34b6bb77ebf481751ba1b75cc1569b",
+                "source_id": "src_5ca5c5751bbc4d164df3e12e"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "line_endings",
+                "submitted_source": {
+                  "path": "workflow/graph.py",
+                  "start_line": 245,
+                  "end_line": 246,
+                  "text": "    rows = await asyncio.gather(*(worker.fetch(item) for item in items))\n    return list({row[\"item\"]: row for row in rows}.values())"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "nested_retry_fault",
+          "historical_validation": "accepted",
+          "original_request_sha256": "5527d4b8e9163e19909b2bbf48d6d01bfc511cb3aa76c87c633c067d91218343",
+          "response_content_sha256": "4b0a5c22a08a7fa2a0209f4646e9ff5ba2b98a4d395c2971b31862d2930ba50e",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 1,
+            "classified": 0
+          },
+          "fault_categories": [
+            "possible_loop"
+          ],
+          "unclassified_symptoms": [],
+          "citations": [
+            {
+              "finding_id": "f_8eab437a3bfa",
+              "canonical": {
+                "path": "workflow/graph.py",
+                "start_line": 246,
+                "end_line": 251,
+                "text": "async def execute(ready_after):\n    \"\"\"Stop querying as soon as done; pending tasks exhaust at most MAX_ATTEMPTS.\"\"\"\n    service.reset()\n    for attempt in range(MAX_ATTEMPTS):\n        status = await step(ready_after)\n    return {\"done\": status[\"done\"], \"calls\": service.calls}\n",
+                "sha256": "994cad85eadac80f02bca613076bf47a18106824d0735d1b9da9857a7de6abc8",
+                "source_id": "src_6776e4c80fad337d6b6b4af7"
+              },
+              "audit": {
+                "protocol": "legacy_range_quote",
+                "normalization": "none",
+                "submitted_source": {
+                  "path": "workflow/graph.py",
+                  "start_line": 246,
+                  "end_line": 251,
+                  "text": "async def execute(ready_after):\n    \"\"\"Stop querying as soon as done; pending tasks exhaust at most MAX_ATTEMPTS.\"\"\"\n    service.reset()\n    for attempt in range(MAX_ATTEMPTS):\n        status = await step(ready_after)\n    return {\"done\": status[\"done\"], \"calls\": service.calls}\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "case_id": "dependency_contract_control",
+          "historical_validation": "accepted",
+          "original_request_sha256": "7c2b95da3f145864acb5054bf69d077acc80fadcdc55ab836ca0f187d91babdf",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "async_state_merge_control",
+          "historical_validation": "accepted",
+          "original_request_sha256": "daa0c8da367b3a8370c07ede5f8c9c03e5ab3eff292a6ffe23d07499d7ca6572",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "async_fanout_control",
+          "historical_validation": "accepted",
+          "original_request_sha256": "a7b86370e25a950b2e960078556858cb35b3d24629b5e3dd9318cf1ba6d24b40",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        },
+        {
+          "case_id": "nested_retry_control",
+          "historical_validation": "accepted",
+          "original_request_sha256": "d7583e025e6f3b2fbca88ef622b7608010442f3b533b3e6d53380e01c8a6324d",
+          "response_content_sha256": "81168019a0149e06ee762efe23c11351cd4a93651a9f3331eed0af48abbc69dc",
+          "response_modified": false,
+          "validation": "accepted",
+          "decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0,
+            "attributed": 0,
+            "classified": 0
+          },
+          "fault_categories": [],
+          "unclassified_symptoms": [],
+          "citations": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "responses": 18,
+    "previously_accepted": 12,
+    "accepted_now": 17,
+    "recovered": [
+      "argument_alias",
+      "argument_type",
+      "state_merge_loss",
+      "async_state_merge_fault",
+      "async_fanout_fault"
+    ],
+    "still_rejected": [
+      "loop_missing_stop"
+    ],
+    "newly_rejected": []
+  }
+}

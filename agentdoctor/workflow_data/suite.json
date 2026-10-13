@@ -1,0 +1,568 @@
+{
+  "version": "workflow-v1",
+  "design": "New synthetic multi-file and async workflows; same-project authored, not external production data.",
+  "cases": [
+    {
+      "id": "dependency_contract_fault",
+      "family": "dependency_contract",
+      "expected": [
+        {
+          "category": "tool_argument_schema",
+          "path": "workflow/codec.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 7
+            },
+            "expected": 49
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 11
+            },
+            "expected": 77
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 19
+            },
+            "expected": 133
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "async_state_merge_fault",
+      "family": "async_state_merge",
+      "expected": [
+        {
+          "category": "state_invariant",
+          "path": "workflow/graph.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "held",
+                "units": 7,
+                "messages": [
+                  "a",
+                  "b"
+                ]
+              }
+            },
+            "expected": {
+              "request_id": "held",
+              "units": 7,
+              "messages": [
+                "a",
+                "b"
+              ],
+              "balance": 63
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "second",
+                "units": 12,
+                "extra": true
+              }
+            },
+            "expected": {
+              "request_id": "second",
+              "units": 12,
+              "extra": true,
+              "balance": 108
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "async_fanout_fault",
+      "family": "async_fanout",
+      "expected": [
+        {
+          "category": "other",
+          "path": "workflow/graph.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                7,
+                1,
+                7,
+                2,
+                1
+              ]
+            },
+            "expected": [
+              {
+                "item": 7,
+                "value": 14
+              },
+              {
+                "item": 1,
+                "value": 2
+              },
+              {
+                "item": 7,
+                "value": 14
+              },
+              {
+                "item": 2,
+                "value": 4
+              },
+              {
+                "item": 1,
+                "value": 2
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                -3,
+                -3,
+                0
+              ]
+            },
+            "expected": [
+              {
+                "item": -3,
+                "value": -6
+              },
+              {
+                "item": -3,
+                "value": -6
+              },
+              {
+                "item": 0,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                11
+              ]
+            },
+            "expected": [
+              {
+                "item": 11,
+                "value": 22
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "nested_retry_fault",
+      "family": "nested_retry",
+      "expected": [
+        {
+          "category": "possible_loop",
+          "path": "workflow/graph.py"
+        }
+      ],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 2
+            },
+            "expected": {
+              "done": true,
+              "calls": 2
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 4
+            },
+            "expected": {
+              "done": true,
+              "calls": 4
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 5
+            },
+            "expected": {
+              "done": true,
+              "calls": 5
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 20
+            },
+            "expected": {
+              "done": false,
+              "calls": 5
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "dependency_contract_control",
+      "family": "dependency_contract",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 7
+            },
+            "expected": 49
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 11
+            },
+            "expected": 77
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "quantity": 19
+            },
+            "expected": 133
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "async_state_merge_control",
+      "family": "async_state_merge",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "held",
+                "units": 7,
+                "messages": [
+                  "a",
+                  "b"
+                ]
+              }
+            },
+            "expected": {
+              "request_id": "held",
+              "units": 7,
+              "messages": [
+                "a",
+                "b"
+              ],
+              "balance": 63
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "state": {
+                "request_id": "second",
+                "units": 12,
+                "extra": true
+              }
+            },
+            "expected": {
+              "request_id": "second",
+              "units": 12,
+              "extra": true,
+              "balance": 108
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "async_fanout_control",
+      "family": "async_fanout",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                7,
+                1,
+                7,
+                2,
+                1
+              ]
+            },
+            "expected": [
+              {
+                "item": 7,
+                "value": 14
+              },
+              {
+                "item": 1,
+                "value": 2
+              },
+              {
+                "item": 7,
+                "value": 14
+              },
+              {
+                "item": 2,
+                "value": 4
+              },
+              {
+                "item": 1,
+                "value": 2
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                -3,
+                -3,
+                0
+              ]
+            },
+            "expected": [
+              {
+                "item": -3,
+                "value": -6
+              },
+              {
+                "item": -3,
+                "value": -6
+              },
+              {
+                "item": 0,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "items": [
+                11
+              ]
+            },
+            "expected": [
+              {
+                "item": 11,
+                "value": 22
+              }
+            ]
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    },
+    {
+      "id": "nested_retry_control",
+      "family": "nested_retry",
+      "expected": [],
+      "heldout": {
+        "target": [
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 2
+            },
+            "expected": {
+              "done": true,
+              "calls": 2
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 4
+            },
+            "expected": {
+              "done": true,
+              "calls": 4
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 5
+            },
+            "expected": {
+              "done": true,
+              "calls": 5
+            }
+          },
+          {
+            "function": "run",
+            "kwargs": {
+              "ready_after": 20
+            },
+            "expected": {
+              "done": false,
+              "calls": 5
+            }
+          }
+        ],
+        "regression": [
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": 31
+            },
+            "expected": 41
+          },
+          {
+            "function": "stable",
+            "kwargs": {
+              "value": -23
+            },
+            "expected": -13
+          }
+        ]
+      }
+    }
+  ]
+}

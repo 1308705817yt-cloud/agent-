@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentdoctor-local"
-version = "0.1.0"
+version = "0.5.5"
 description = "Evidence-driven diagnosis and verified patch proposals for Python agents"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,4 +17,4 @@ agentdoctor = "agentdoctor.cli:main"
 packages = ["agentdoctor"]
 
 [tool.setuptools.package-data]
-agentdoctor = ["demo_project/*.py", "demo_project/*.json", "demo_project/*.jsonl"]
+agentdoctor = ["demo_project/*.py", "demo_project/*.json", "demo_project/*.jsonl", "benchmark_data/*.json", "benchmark_data/cases/*/*.py", "benchmark_data/cases/*/*.json", "benchmark_data/cases/*/*.txt", "workflow_data/*.json", "workflow_data/cases/*/*.py", "workflow_data/cases/*/*.json", "workflow_data/cases/*/workflow/*.py"]

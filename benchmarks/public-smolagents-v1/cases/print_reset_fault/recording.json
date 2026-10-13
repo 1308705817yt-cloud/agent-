@@ -1,0 +1,21 @@
+{
+  "kwargs": {
+    "codes": [
+      "print('first step')",
+      "if True print('invalid')"
+    ]
+  },
+  "expected": [
+    {
+      "value": null,
+      "logs": "first step\n",
+      "failed": false
+    },
+    {
+      "value": null,
+      "logs": "",
+      "failed": true
+    }
+  ],
+  "contract": "Each code step has its own output; valid Python loop semantics and persistent user variables must be preserved."
+}

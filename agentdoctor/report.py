@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 
 from .core import write_json
+from .evidence import command_passed
+from .taxonomy import classification_level
 
 
 def write_report(directory: Path, report: dict) -> None:
@@ -13,12 +15,18 @@ def write_report(directory: Path, report: dict) -> None:
     pretty = lambda value: esc(json.dumps(value, ensure_ascii=False, indent=2))
     findings = report.get("diagnosis", {}).get("findings", [])
     labels = {"verified": "验证通过", "diagnosed": "诊断完成", "rejected": "候选未通过", "inconclusive": "证据或验证不足"}
-    rows = "".join(f'<tr><td><span class="severity {esc(f["severity"])}">{esc(f["severity"])}</span></td><td><strong>{esc(f["category"])}</strong><br>{esc(f["summary"])}</td><td>{esc(", ".join(f["evidence"]))}<br><small>{esc(f.get("source", {}))}</small></td></tr>' for f in findings)
+    rows = ""
+    for issue in findings:
+        causes = "".join(f'<details><summary>根因假设：{esc(c["source"])}</summary><p>{esc(c["summary"])}</p><p>轨迹证据：{esc(", ".join(c["evidence"]))}</p><pre>{pretty(c["source_evidence"])}</pre><small>引用已核对；因果关系尚未证实。</small></details>' for c in issue.get("root_causes", []))
+        observed = issue.get("observed_source", issue.get("source", {}))
+        level = "症状" if classification_level(issue["category"]) == "symptom" else "故障分类"
+        links = {k: issue[k] for k in ("symptom_ids", "classified_by", "classification_bases") if issue.get(k)}
+        rows += f'<tr><td><span class="severity {esc(issue["severity"])}">{esc(issue["severity"])}</span></td><td><strong>{esc(issue["category"])}</strong>（{level}）<br>{esc(issue["summary"])}{("<pre>" + pretty(links) + "</pre>") if links else ""}</td><td>错误观察位置：{esc(observed)}<br><small>{esc(", ".join(issue["evidence"]))}</small>{causes or "<p>根因位置：尚未归因</p>"}</td></tr>'
     attempts = ""
     for attempt in report.get("attempts", []):
         attempts += f'<details open><summary>候选 {attempt["number"]} · {esc(attempt["status"])} · {esc(attempt["summary"])}</summary><p>{esc(attempt.get("reason", ""))}</p><pre>{pretty(attempt.get("proposal", {}))}</pre><details><summary>测试结果</summary><pre>{pretty(attempt.get("validation", {}))}</pre></details></details>'
     baseline_rows = report.get("baseline", {}).get("commands", []) if report.get("baseline") else []
-    successful = sum(r["returncode"] == 0 and not r["timed_out"] and not r["error"] for r in baseline_rows)
+    successful = sum(command_passed(r) for r in baseline_rows)
     document = f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
@@ -32,6 +40,7 @@ def write_report(directory: Path, report: dict) -> None:
 <section><h2>执行与验证范围</h2><p>{esc(report.get("executor_description", "仅静态诊断，没有执行被测项目。"))}</p><p>{esc(report["scope"])}</p><p>原始项目：{esc(report["project"])}</p><p>已验证补丁：{esc(report.get("verified_patch") or "无")}</p><p>模型：{esc(report["model"])}</p></section>
 <section><h2>问题与证据</h2><table><thead><tr><th>级别</th><th>观察结果</th><th>证据位置</th></tr></thead><tbody>{rows or '<tr><td colspan="3">当前检查没有发现问题；这不等于完整健康认证。</td></tr>'}</tbody></table></section>
 <section><h2>根因假设</h2><pre>{pretty(report.get("diagnosis", {}).get("hypotheses", []))}</pre></section>
+<section><details><summary>成功与失败轨迹对照</summary><pre>{pretty(report.get("diagnosis", {}).get("trace_comparisons", []))}</pre></details><details><summary>观察记录与告警归并</summary><pre>{pretty(report.get("diagnosis", {}).get("observations", []))}</pre><pre>{pretty(report.get("diagnosis", {}).get("analysis_decisions", []))}</pre></details></section>
 <section><h2>修复候选</h2>{attempts or '<p>尚无可验证的补丁。</p>'}</section>
 <section><details><summary>原版本测试结果</summary><pre>{pretty(report.get("baseline"))}</pre></details><details><summary>检查覆盖范围与提示</summary><pre>{pretty(report.get("diagnosis", {}).get("coverage", {}))}</pre><pre>{pretty(report.get("warnings", []))}</pre></details></section>
 <footer>本报告区分异常、根因假设和测试证据。源代码未自动合并；verified 仅表示配置的检查通过。时间为带时区的 ISO 8601 时间。</footer>

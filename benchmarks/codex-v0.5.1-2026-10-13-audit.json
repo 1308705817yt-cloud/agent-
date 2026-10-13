@@ -1,0 +1,767 @@
+{
+  "scope": "Each frozen suite run once; invalid semantic outputs count as unsuccessful in over_planned metrics. Original measured-only metrics retained separately.",
+  "provider": "codex",
+  "model": "codex-default; exact revision unpinned",
+  "runs": [
+    {
+      "suite": "workflow-v1",
+      "started_at": "2026-10-13T07:39:11.048296+00:00",
+      "finished_at": "2026-10-13T07:43:09.968801+00:00",
+      "complete": false,
+      "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+      "implementation_hash": "68ecb657a35f419d77703b99f505f460af4d8f4a1fb35983b6497a7c95349aad",
+      "implementation_unchanged": true,
+      "planned_cases": 8,
+      "evaluated_rows": 8,
+      "valid_diagnoses": 6,
+      "invalid_diagnoses": 2,
+      "legacy_success_over_planned": {
+        "numerator": 5,
+        "denominator": 8,
+        "value": 0.625
+      },
+      "root_success_over_planned": {
+        "numerator": 6,
+        "denominator": 8,
+        "value": 0.75
+      },
+      "fault_root_success_over_planned": {
+        "numerator": 2,
+        "denominator": 4,
+        "value": 0.5
+      },
+      "standard_metrics": {
+        "scheduled_cases": 8,
+        "measured_cases": 6,
+        "invalid_or_incomplete_cases": 2,
+        "diagnosed_cases": 6,
+        "repair_measured_cases": 4,
+        "diagnosis_accuracy": {
+          "numerator": 5,
+          "denominator": 6,
+          "value": 0.8333333333333334
+        },
+        "root_cause_diagnosis_accuracy": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "binary_detection_accuracy": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "detection_precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "detection_recall": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "repair_success_rate": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1.0
+        },
+        "candidate_regression_failure_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        },
+        "candidate_count": 4,
+        "incomplete_candidates": 0,
+        "delivered_count": 4,
+        "unassessed_deliveries": 0,
+        "false_verified_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        },
+        "confusion": {
+          "tp": 2,
+          "tn": 4,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "repair_breakdown": {
+        "faulty_cases": 4,
+        "case_outcomes": {
+          "no_patch_generated": 0,
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 4,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_attempts": 4,
+        "candidate_outcomes": {
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 4,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_origins": {
+          "model": 4,
+          "declared_alias": 0,
+          "unknown": 0
+        }
+      },
+      "calls": 12,
+      "audited_requests": 12,
+      "usage": {
+        "input_tokens": 152070,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2937,
+        "reasoning_output_tokens": 351
+      },
+      "candidate_commands": 24,
+      "candidate_commands_completed": 24,
+      "candidate_commands_passed": 24,
+      "candidate_case_executions": 52,
+      "model_output_problems": [
+        {
+          "case": "async_state_merge_fault",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "workflow/graph.py",
+              "start_line": 242,
+              "end_line": 245,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            }
+          ]
+        },
+        {
+          "case": "async_fanout_fault",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "workflow/graph.py",
+              "start_line": 245,
+              "end_line": 246,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "case": "dependency_contract_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": false,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "workflow/dispatch.py",
+                "function": "execute"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            }
+          ],
+          "error": null
+        },
+        {
+          "case": "async_state_merge_fault",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "state_invariant",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "async_fanout_fault",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "task_assertion",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "nested_retry_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "possible_loop",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "step"
+              },
+              "roots": [
+                {
+                  "path": "workflow/graph.py",
+                  "line": 246
+                }
+              ]
+            }
+          ],
+          "error": null
+        },
+        {
+          "case": "dependency_contract_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "async_state_merge_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "async_fanout_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "nested_retry_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "suite": "independent-v2",
+      "started_at": "2026-10-13T07:44:17.141324+00:00",
+      "finished_at": "2026-10-13T07:48:40.995676+00:00",
+      "complete": false,
+      "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+      "implementation_hash": "68ecb657a35f419d77703b99f505f460af4d8f4a1fb35983b6497a7c95349aad",
+      "implementation_unchanged": true,
+      "planned_cases": 10,
+      "evaluated_rows": 10,
+      "valid_diagnoses": 6,
+      "invalid_diagnoses": 4,
+      "legacy_success_over_planned": {
+        "numerator": 6,
+        "denominator": 10,
+        "value": 0.6
+      },
+      "root_success_over_planned": {
+        "numerator": 6,
+        "denominator": 10,
+        "value": 0.6
+      },
+      "fault_root_success_over_planned": {
+        "numerator": 1,
+        "denominator": 5,
+        "value": 0.2
+      },
+      "standard_metrics": {
+        "scheduled_cases": 10,
+        "measured_cases": 6,
+        "invalid_or_incomplete_cases": 4,
+        "diagnosed_cases": 6,
+        "repair_measured_cases": 5,
+        "diagnosis_accuracy": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "root_cause_diagnosis_accuracy": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "binary_detection_accuracy": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "detection_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
+        },
+        "detection_recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
+        },
+        "repair_success_rate": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "candidate_regression_failure_rate": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "candidate_count": 5,
+        "incomplete_candidates": 0,
+        "delivered_count": 5,
+        "unassessed_deliveries": 0,
+        "false_verified_rate": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "confusion": {
+          "tp": 1,
+          "tn": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "repair_breakdown": {
+        "faulty_cases": 5,
+        "case_outcomes": {
+          "no_patch_generated": 0,
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 5,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_attempts": 5,
+        "candidate_outcomes": {
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 5,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_origins": {
+          "model": 4,
+          "declared_alias": 1,
+          "unknown": 0
+        }
+      },
+      "calls": 14,
+      "audited_requests": 14,
+      "usage": {
+        "input_tokens": 152401,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3207,
+        "reasoning_output_tokens": 434
+      },
+      "candidate_commands": 30,
+      "candidate_commands_completed": 30,
+      "candidate_commands_passed": 30,
+      "candidate_case_executions": 58,
+      "model_output_problems": [
+        {
+          "case": "argument_alias",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "subject.py",
+              "start_line": 8,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            },
+            {
+              "path": "subject.py",
+              "start_line": 8,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            },
+            {
+              "path": "subject.py",
+              "start_line": 8,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            }
+          ]
+        },
+        {
+          "case": "argument_type",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "subject.py",
+              "start_line": 7,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            },
+            {
+              "path": "subject.py",
+              "start_line": 7,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            },
+            {
+              "path": "subject.py",
+              "start_line": 7,
+              "end_line": 9,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            }
+          ]
+        },
+        {
+          "case": "state_merge_loss",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "subject.py",
+              "start_line": 1,
+              "end_line": 3,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": true
+            }
+          ]
+        },
+        {
+          "case": "loop_missing_stop",
+          "operation": "semantic_analysis",
+          "status": "completed",
+          "semantic_validation": "rejected",
+          "error": "Root cause source must exactly match a contiguous excerpt supplied to the model",
+          "quote_checks": [
+            {
+              "path": "subject.py",
+              "start_line": 7,
+              "end_line": 10,
+              "exact": false,
+              "matches_if_final_line_ending_ignored": false
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "case": "argument_alias",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "argument_type",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "argument_valid",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "state_merge_loss",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "state_invariant",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "state_merge_valid",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "loop_missing_stop",
+          "faulty": true,
+          "diagnosis_valid": false,
+          "legacy_correct": false,
+          "root_correct": false,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "possible_loop",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": []
+            }
+          ],
+          "error": "Semantic analysis failed; inspect the engine report"
+        },
+        {
+          "case": "loop_stops",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "intentional_polling",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        },
+        {
+          "case": "prompt_conflict",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "output_schema",
+              "observed": {
+                "path": "prompt.txt"
+              },
+              "roots": [
+                {
+                  "path": "prompt.txt",
+                  "line": 1
+                }
+              ]
+            },
+            {
+              "category": "prompt_conflict",
+              "observed": {
+                "path": "prompt.txt"
+              },
+              "roots": [
+                {
+                  "path": "prompt.txt",
+                  "line": 1
+                }
+              ]
+            }
+          ],
+          "error": null
+        },
+        {
+          "case": "prompt_consistent",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null
+        }
+      ]
+    }
+  ]
+}

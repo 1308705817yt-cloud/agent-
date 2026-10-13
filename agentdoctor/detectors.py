@@ -1,22 +1,59 @@
 from __future__ import annotations
 
 import ast
+import copy
 import json
 from collections import defaultdict
 from pathlib import Path
 
 from .contracts import violations
+from .attribution import combine_causes
 from .core import DoctorError, digest, parse_json, read_text
 from .project import editable
+from .polling import bounded_pending_chain
 from .traces import evidence_id
+from .taxonomy import SYMPTOMS, classification_level
 
 
 def finding(category: str, severity: str, summary: str, spans: list[dict], *, details: dict | None = None, source: dict | None = None) -> dict:
     evidence = [evidence_id(s) for s in spans]
     identity = json.dumps([category, evidence, summary], sort_keys=True)
+    observed = copy.deepcopy(source if source is not None else (spans[0].get("source", {}) if spans else {}))
     return {"id": "f_" + digest(identity)[:12], "category": category, "severity": severity,
-            "summary": summary, "evidence": evidence, "source": source or (spans[0].get("source", {}) if spans else {}),
+            "summary": summary, "evidence": evidence, "source": observed,
+            "observed_source": copy.deepcopy(observed), "root_causes": [],
+            "classification_level": classification_level(category),
             "details": details or {}, "origin": "rule", "causal_status": "unconfirmed"}
+
+
+def merge_findings(findings: list[dict]) -> tuple[list[dict], dict[str, str]]:
+    """Merge overlapping reports of one category/location, retaining their evidence."""
+    merged, aliases = [], {}
+    priorities = {"low": 0, "medium": 1, "high": 2}
+    for original in findings:
+        issue = copy.deepcopy(original)
+        target = next((f for f in merged if f["category"] == issue["category"] and
+                       f["source"].get("path") == issue["source"].get("path") and
+                       f["source"].get("function") == issue["source"].get("function") and
+                       set(f["evidence"]) & set(issue["evidence"])), None)
+        if target is None:
+            merged.append(issue)
+            continue
+        if issue["id"] != target["id"]:
+            aliases[issue["id"]] = target["id"]
+        support = target.setdefault("supporting_findings", [{k:copy.deepcopy(target[k]) for k in ("id", "summary", "evidence", "details", "origin")}])
+        support.extend(issue.get("supporting_findings", [{k:copy.deepcopy(issue[k]) for k in ("id", "summary", "evidence", "details", "origin")}]))
+        target["evidence"] = list(dict.fromkeys(target["evidence"] + issue["evidence"]))
+        target["root_causes"] = combine_causes(target.get("root_causes", []), issue.get("root_causes", []))
+        for key in ("symptom_ids", "classified_by"):
+            if key in issue:
+                target[key] = list(dict.fromkeys(target.get(key, []) + issue[key]))
+        if "classification_bases" in issue:
+            target["classification_bases"] = combine_causes(target.get("classification_bases", []), issue["classification_bases"])
+        target["severity"] = max((target["severity"], issue["severity"]), key=priorities.get)
+        target["origins"] = sorted(set(target.get("origins", [target["origin"]]) + issue.get("origins", [issue["origin"]])))
+        target["occurrences"] = len(support)
+    return merged, aliases
 
 
 def detect(spans: list[dict], config: dict, project: Path, manifest: dict[str, str]) -> list[dict]:
@@ -58,6 +95,8 @@ def detect(spans: list[dict], config: dict, project: Path, manifest: dict[str, s
                 if key in before and (key not in after or before[key] != after[key]):
                     results.append(finding("state_invariant", "high", f"Configured invariant changed or disappeared: {key}", [span], details={"key": key, "before": before[key], "after": after.get(key)}))
         if span["kind"] == "tool":
+            # A graph can revisit a node under a fresh parent on every turn.
+            # Parent IDs delimit local polling budgets, not loop detection.
             loop_groups[(span["run_id"], span["node"], span["tool"])].append(span)
     threshold = config["checks"]["loop_threshold"]
     for group in loop_groups.values():
@@ -69,7 +108,14 @@ def detect(spans: list[dict], config: dict, project: Path, manifest: dict[str, s
             streak = streak + [span] if signature == last and not progressing else [span]
             last = signature
             if len(streak) == threshold:
-                results.append(finding("possible_loop", "medium", "Repeated identical tool outcomes suggest a loop; intentional polling is also possible", streak))
+                proof = bounded_pending_chain(group, spans, project, manifest)
+                if proof:
+                    observation = finding("bounded_polling", "low", "Pending responses exhausted finite budgets across the recorded call chain", proof["spans"], details={"budget": len(group), "basis": "static source and observed counts at every call-chain edge; not a general termination proof", "call_chain": proof["budgets"]})
+                    observation["disposition"] = "observation"
+                    results.append(observation)
+                    break
+                else:
+                    results.append(finding("possible_loop", "medium", "Repeated identical tool outcomes suggest a loop; intentional polling is also possible", streak))
     for relative in manifest:
         if relative.endswith(".py") and editable(relative, config):
             try:
@@ -83,6 +129,8 @@ def detect(spans: list[dict], config: dict, project: Path, manifest: dict[str, s
 
 
 def diagnose(findings: list[dict], spans: list[dict], reference: list[dict] | None = None) -> dict:
+    observations = [f for f in findings if f.get("disposition") == "observation"]
+    findings, _ = merge_findings([f for f in findings if f.get("disposition") != "observation"])
     groups = defaultdict(list)
     for issue in findings:
         groups[(issue["category"], issue["source"].get("path"), issue["details"].get("tool"))].append(issue)
@@ -99,7 +147,8 @@ def diagnose(findings: list[dict], spans: list[dict], reference: list[dict] | No
         hypotheses.append({"id": "h_" + digest(json.dumps([category, path, tool]))[:12], "status": "hypothesized",
                            "summary": recommendations.get(category, "Compare the observed behavior with the explicit task and node contracts."),
                            "finding_ids": [i["id"] for i in issues], "source_path": path,
-                           "occurrences": len(issues), "origin": "rule"})
+                           "evidence": list(dict.fromkeys(ref for i in issues for ref in i["evidence"])),
+                           "occurrences": sum(i.get("occurrences", 1) for i in issues), "origin": "rule"})
     hypotheses.sort(key=lambda h: (not any(i["severity"] == "high" for i in findings if i["id"] in h["finding_ids"]), -h["occurrences"]))
     comparisons = []
     if reference:
@@ -118,5 +167,6 @@ def diagnose(findings: list[dict], spans: list[dict], reference: list[dict] | No
                                 "failed_steps": len(failed), "reference_steps": len(successful),
                                 "first_difference": [evidence_id(s) for s in first] if first else [],
                                 "note": "Different schedules or model outputs may cause harmless sequence differences."})
-    return {"findings": findings, "hypotheses": hypotheses, "trace_comparisons": comparisons,
-            "coverage": {"spans": len(spans), "semantic_checks": "not_run", "source_checks": "Python AST only"}}
+    return {"findings": findings, "hypotheses": hypotheses, "trace_comparisons": comparisons, "observations": observations,
+            "coverage": {"spans": len(spans), "semantic_checks": "not_run", "source_checks": "Python AST only",
+                         "unclassified_symptoms": [f["id"] for f in findings if f["category"] in SYMPTOMS and not f.get("classified_by")]}}

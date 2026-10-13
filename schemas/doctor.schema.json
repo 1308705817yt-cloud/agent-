@@ -90,6 +90,51 @@
                 "type": "integer",
                 "minimum": 1,
                 "maximum": 600
+              },
+              "expected_cases": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "replay": {
+                "type": "object",
+                "properties": {
+                  "module": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cases_file": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "case_group": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "trace_functions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                  },
+                  "max_spans": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "module",
+                  "cases_file"
+                ],
+                "additionalProperties": false
               }
             },
             "required": [

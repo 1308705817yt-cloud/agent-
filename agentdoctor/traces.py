@@ -75,17 +75,43 @@ class TraceRecorder:
             stream.write(line + "\n")
 
     def wrap(self, name: str, function, *, kind: str = "node", tool: str | None = None, source: dict | None = None):
-        def begin(args, kwargs):
-            bound = inspect.signature(function).bind(*args, **kwargs)
-            # Serialize before execution so in-place mutations cannot erase the evidence.
-            inputs = parse_json(json.dumps(bound.arguments, ensure_ascii=False, allow_nan=False))
+        def begin():
             span = {"span_id": uuid.uuid4().hex, "parent_id": self._parent.get(), "node": name,
-                    "kind": kind, "input": inputs, "timestamp": utc_now()}
+                    "kind": kind, "timestamp": utc_now(), "metadata": {}}
             if tool:
                 span["tool"] = tool
             if source:
                 span["source"] = source
             return span, time.monotonic(), self._parent.set(span["span_id"])
+
+        def capture(span, args, kwargs):
+            # Establish the span before capture/binding so parameter errors cannot
+            # disappear. Keep the exact call separate from normalized arguments.
+            raw = parse_json(json.dumps({"args": args, "kwargs": kwargs}, ensure_ascii=False, allow_nan=False))
+            span["metadata"]["call"] = raw
+            span["input"] = raw["kwargs"] if not args else raw
+            span["metadata"]["input_encoding"] = "raw_keywords" if not args else "raw_call"
+            try:
+                signature = inspect.signature(function)
+                # Raw positional arguments need the same named-secret redaction
+                # as bound arguments, including when full binding will fail.
+                position = 0
+                for parameter in signature.parameters.values():
+                    if parameter.kind in (parameter.POSITIONAL_ONLY, parameter.POSITIONAL_OR_KEYWORD):
+                        if position < len(raw["args"]):
+                            raw["args"][position] = redact({parameter.name: raw["args"][position]})[parameter.name]
+                        position += 1
+                    elif parameter.kind == parameter.VAR_POSITIONAL:
+                        for index in range(position, len(raw["args"])):
+                            raw["args"][index] = redact({parameter.name: raw["args"][index]})[parameter.name]
+                bound = signature.bind(*args, **kwargs)
+            except (TypeError, ValueError) as exc:
+                span["metadata"]["binding_error"] = f"{type(exc).__name__}: {exc}"
+                # Invoke the actual callable to preserve its TypeError (or valid
+                # behavior when introspection is unavailable), including async.
+            else:
+                span["input"] = parse_json(json.dumps(bound.arguments, ensure_ascii=False, allow_nan=False))
+                span["metadata"]["input_encoding"] = "bound_arguments"
 
         def finish(span, started, token, output=None, error=None):
             self._parent.reset(token)
@@ -95,8 +121,9 @@ class TraceRecorder:
         if inspect.iscoroutinefunction(function):
             @functools.wraps(function)
             async def asynchronous(*args, **kwargs):
-                span, started, token = begin(args, kwargs)
+                span, started, token = begin()
                 try:
+                    capture(span, args, kwargs)
                     output = await function(*args, **kwargs)
                 except BaseException as exc:
                     finish(span, started, token, error=f"{type(exc).__name__}: {exc}")
@@ -107,8 +134,9 @@ class TraceRecorder:
 
         @functools.wraps(function)
         def synchronous(*args, **kwargs):
-            span, started, token = begin(args, kwargs)
+            span, started, token = begin()
             try:
+                capture(span, args, kwargs)
                 output = function(*args, **kwargs)
             except BaseException as exc:
                 finish(span, started, token, error=f"{type(exc).__name__}: {exc}")

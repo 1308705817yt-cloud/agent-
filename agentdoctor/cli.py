@@ -27,12 +27,39 @@ def _summary(report: dict):
                       "json": str(Path(report["workspace"]) / "report.json")}, ensure_ascii=False, indent=2))
 
 
+def _model_setup(arguments):
+    """One provider path for diagnosis, repair, and per-case benchmark clients."""
+    if arguments.provider == "none":
+        return None, None, None
+    name = arguments.model or ("codex-default" if arguments.provider == "codex" else os.environ.get(
+        "OPENAI_MODEL" if arguments.provider == "openai" else "OLLAMA_MODEL", ""))
+    if arguments.provider == "codex":
+        if arguments.base_url:
+            raise DoctorError("--base-url is not supported by the Codex CLI provider")
+        from .codex_cli import CodexCLIClient
+        model = CodexCLIClient(name)
+        metadata = model.preflight()
+        return model, lambda: CodexCLIClient(name, metadata=metadata.copy()), metadata
+    model = ModelClient(arguments.provider, name, arguments.base_url)
+    return model, lambda: ModelClient(arguments.provider, name, arguments.base_url), None
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="agentdoctor", description="Detect, diagnose, and verify bounded repairs for Python agents")
     parser.add_argument("--version", action="version", version=__version__)
     sub = parser.add_subparsers(dest="command", required=True)
     demo = sub.add_parser("demo", help="Run the bundled trusted broken-agent example without a model/API key")
     demo.add_argument("--output", type=Path, default=Path("artifacts/demo"))
+    benchmark = sub.add_parser("benchmark", help="Measure the independent synthetic fault/control suite")
+    benchmark.add_argument("--output", type=Path, default=Path("artifacts/benchmarks"))
+    benchmark.add_argument("--provider", choices=["none", "openai", "ollama", "codex"], default="none")
+    benchmark.add_argument("--model", default=None)
+    benchmark.add_argument("--base-url", default=None)
+    benchmark.add_argument("--executor", choices=["local", "docker"], default=None,
+                           help="Defaults to local for bundled rule-only fixtures, docker for model-generated patches")
+    benchmark.add_argument("--repetitions", type=int, default=1)
+    benchmark.add_argument("--dataset-lock", type=Path, help="Require the frozen case files to match this manifest")
+    benchmark.add_argument("--suite", choices=["independent-v2", "workflow-v1"], default="independent-v2")
     initialize = sub.add_parser("init", help="Write an integration config template; does not execute the project")
     initialize.add_argument("project", type=Path)
     inspect_parser = sub.add_parser("show", help="Inspect a saved report or run directory")
@@ -44,13 +71,24 @@ def main(argv: list[str] | None = None) -> int:
         command.add_argument("--reference", type=Path, help="Optional successful traces with matching metadata.task_id")
         command.add_argument("--config", default="doctor.json", help="Project-relative config path")
         command.add_argument("--output", type=Path)
-        command.add_argument("--provider", choices=["none", "openai", "ollama"], default="none")
+        command.add_argument("--provider", choices=["none", "openai", "ollama", "codex"], default="none")
         command.add_argument("--model", default=None)
         command.add_argument("--base-url", default=None)
         if name == "repair":
             command.add_argument("--executor", choices=["docker", "local"], default="docker", help="local executes trusted code with your account; it is not a security sandbox")
     arguments = parser.parse_args(argv)
     try:
+        if arguments.command == "benchmark":
+            from .benchmark import run_benchmark
+            model, factory, provider_metadata = _model_setup(arguments)
+            backend = arguments.executor or ("local" if arguments.provider == "none" else "docker")
+            report = run_benchmark(arguments.output, provider=arguments.provider, model_name=model.name if model else None,
+                                   executor=backend, model_factory=factory, repetitions=arguments.repetitions, progress=_progress,
+                                   dataset_lock=arguments.dataset_lock, provider_metadata=provider_metadata, suite_name=arguments.suite)
+            print(json.dumps({"complete": report["complete"], "metrics": report["metrics"], "repair_breakdown": report["repair_breakdown"],
+                              "report": str(Path(report["workspace"]) / "benchmark.json"),
+                              "cases": str(Path(report["workspace"]) / "cases.csv")}, ensure_ascii=False, indent=2))
+            return 0 if report["complete"] else 2
         if arguments.command == "init":
             project = arguments.project.resolve()
             project.mkdir(parents=True, exist_ok=True)
@@ -61,7 +99,7 @@ def main(argv: list[str] | None = None) -> int:
                               "tools": {}, "checks": {"loop_threshold": 3, "preserve_state_keys": []},
                               "validation": {"commands": [], "repetitions": 2, "docker_image": "python:3.11-slim"},
                               "policy": {"protected_paths": ["tests/**", "doctor.json"], "max_candidates": 3, "max_changed_files": 3, "max_changed_lines": 120, "max_model_calls": 8, "max_context_chars": 48000}})
-            print(f"Created {path}. Configure source_paths, tool contracts, and frozen target/regression checks.")
+            print(f"Created {path}. Configure source_paths, tool contracts, and frozen target/regression checks with expected_cases and completion evidence.")
             return 0
         if arguments.command == "show":
             path = arguments.report / "report.json" if arguments.report.is_dir() else arguments.report
@@ -79,10 +117,7 @@ def main(argv: list[str] | None = None) -> int:
             report = run(project, project / "trace.jsonl", mode="repair", output=output / "runs", executor="local", progress=_progress)
             write_json(output / "last-run.json", {"project": str(project), "workspace": report["workspace"], "status": report["status"]})
         else:
-            model = None
-            if arguments.provider != "none":
-                name = arguments.model or os.environ.get("OPENAI_MODEL" if arguments.provider == "openai" else "OLLAMA_MODEL", "")
-                model = ModelClient(arguments.provider, name, arguments.base_url)
+            model, _, _ = _model_setup(arguments)
             report = run(arguments.project, arguments.traces, mode=arguments.command, config_file=arguments.config,
                          output=arguments.output, executor=getattr(arguments, "executor", "docker"), model=model,
                          reference=arguments.reference, progress=_progress)

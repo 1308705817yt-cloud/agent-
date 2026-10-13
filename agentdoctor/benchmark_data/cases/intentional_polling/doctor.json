@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "project_name": "independent-agent-fixture",
+  "source_paths": [
+    "subject.py",
+    "evaluator.py"
+  ],
+  "tools": {
+    "probe": {
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  "checks": {
+    "loop_threshold": 3,
+    "preserve_state_keys": []
+  },
+  "validation": {
+    "commands": [
+      {
+        "name": "task_contract",
+        "kind": "target",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "target"
+        ],
+        "timeout_seconds": 15,
+        "expected_cases": [
+          "target:1",
+          "target:2"
+        ]
+      },
+      {
+        "name": "preserve_existing",
+        "kind": "regression",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "regression"
+        ],
+        "timeout_seconds": 15,
+        "expected_cases": [
+          "regression:1",
+          "regression:2"
+        ]
+      }
+    ],
+    "repetitions": 2,
+    "docker_image": "python:3.11-slim"
+  },
+  "policy": {
+    "max_candidates": 3,
+    "max_changed_files": 2,
+    "max_changed_lines": 60,
+    "max_model_calls": 5,
+    "max_context_chars": 48000,
+    "protected_paths": [
+      "recording.json"
+    ]
+  }
+}

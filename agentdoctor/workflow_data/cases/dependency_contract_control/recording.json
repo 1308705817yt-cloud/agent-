@@ -1,0 +1,35 @@
+{
+  "kwargs": {
+    "quantity": 3
+  },
+  "bindings": [
+    {
+      "module": "workflow.codec",
+      "function": "build_request",
+      "kind": "node",
+      "source": {
+        "path": "workflow/codec.py",
+        "function": "build_request"
+      }
+    },
+    {
+      "module": "workflow.service",
+      "function": "quote",
+      "kind": "tool",
+      "source": {
+        "path": "workflow/service.py",
+        "function": "quote"
+      },
+      "tool": "quote"
+    },
+    {
+      "module": "workflow.dispatch",
+      "function": "execute",
+      "kind": "node",
+      "source": {
+        "path": "workflow/dispatch.py",
+        "function": "execute"
+      }
+    }
+  ]
+}

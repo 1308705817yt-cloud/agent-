@@ -1,0 +1,543 @@
+{
+  "created_at": "2026-10-13T10:13:13.555835+00:00",
+  "agentdoctor_version": "0.5.4",
+  "historical_archives_unchanged": true,
+  "scope": "Same eight supplemental scenarios, budgets, seed proposals, archived diagnoses and oracle inputs as v0.5.3; no post-result tuning.",
+  "groups": [
+    {
+      "group": "retry",
+      "archive": "codex-retry-v0.5.4-2026-10-13.json",
+      "implementation_hash": "0e835459b2576e83467e5014e51996ded27e9b028564afe4b382bbe9cd6d70b6",
+      "complete": true,
+      "cases_and_acceptance_unchanged": true,
+      "planned_cases": 3,
+      "diagnosis_valid": 3,
+      "diagnoses_are_archived_replays": true,
+      "root_success_over_all_planned": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "controls_passed": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "context_blocked_cases": 0,
+      "external_calls": 3,
+      "usage": {
+        "input_tokens": 40454,
+        "cached_input_tokens": 18816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 726,
+        "reasoning_output_tokens": 0
+      },
+      "model_candidate_outcomes": {
+        "repaired": 3
+      },
+      "no_patch_generated_cases": 0,
+      "empty_patch_responses": 0,
+      "failed_case_outcomes": {},
+      "false_verified": 0,
+      "cases": [
+        {
+          "id": "dependency-v053",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": true,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "archived_semantic_response",
+              "chars": 10511,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "injected_known_wrong_candidate",
+              "chars": 16787,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 1744,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 17320,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 2277,
+              "omitted_history": 1
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "injected_seed",
+              "outcome": "visible_test_failed",
+              "commands": 6,
+              "completed": 6,
+              "passed": 3
+            },
+            {
+              "number": 2,
+              "origin": "model",
+              "outcome": "repaired",
+              "commands": 6,
+              "completed": 6,
+              "passed": 6
+            }
+          ]
+        },
+        {
+          "id": "dependency-near-budget-v052",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": true,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "archived_semantic_response",
+              "chars": 10511,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "injected_known_wrong_candidate",
+              "chars": 20227,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 1744,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 20796,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 2313,
+              "omitted_history": 1
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "injected_seed",
+              "outcome": "visible_test_failed",
+              "commands": 6,
+              "completed": 6,
+              "passed": 3
+            },
+            {
+              "number": 2,
+              "origin": "model",
+              "outcome": "repaired",
+              "commands": 6,
+              "completed": 6,
+              "passed": 6
+            }
+          ]
+        },
+        {
+          "id": "fanout-v053",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": true,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "archived_semantic_response",
+              "chars": 5806,
+              "budget": 24000,
+              "dependency_chars": 1164,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "injected_known_wrong_candidate",
+              "chars": 10486,
+              "budget": 24000,
+              "dependency_chars": 1164,
+              "history_chars": 1857,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 11016,
+              "budget": 24000,
+              "dependency_chars": 1164,
+              "history_chars": 2387,
+              "omitted_history": 1
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "injected_seed",
+              "outcome": "visible_test_failed",
+              "commands": 6,
+              "completed": 6,
+              "passed": 3
+            },
+            {
+              "number": 2,
+              "origin": "model",
+              "outcome": "repaired",
+              "commands": 6,
+              "completed": 6,
+              "passed": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "long-feedback",
+      "archive": "codex-retry-long-feedback-v0.5.4-2026-10-13.json",
+      "implementation_hash": "0e835459b2576e83467e5014e51996ded27e9b028564afe4b382bbe9cd6d70b6",
+      "complete": true,
+      "cases_and_acceptance_unchanged": true,
+      "planned_cases": 1,
+      "diagnosis_valid": 1,
+      "diagnoses_are_archived_replays": true,
+      "root_success_over_all_planned": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "controls_passed": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "context_blocked_cases": 0,
+      "external_calls": 1,
+      "usage": {
+        "input_tokens": 15034,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 278,
+        "reasoning_output_tokens": 0
+      },
+      "model_candidate_outcomes": {
+        "repaired": 1
+      },
+      "no_patch_generated_cases": 0,
+      "empty_patch_responses": 0,
+      "failed_case_outcomes": {},
+      "false_verified": 0,
+      "cases": [
+        {
+          "id": "dependency-long-feedback",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": true,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "archived_semantic_response",
+              "chars": 10511,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "injected_known_wrong_candidate",
+              "chars": 20227,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 1744,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 21880,
+              "budget": 24000,
+              "dependency_chars": 1261,
+              "history_chars": 3397,
+              "omitted_history": 1
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "injected_seed",
+              "outcome": "visible_test_failed",
+              "commands": 6,
+              "completed": 6,
+              "passed": 3
+            },
+            {
+              "number": 2,
+              "origin": "model",
+              "outcome": "repaired",
+              "commands": 6,
+              "completed": 6,
+              "passed": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "public",
+      "archive": "codex-public-smolagents-v0.5.4-2026-10-13.json",
+      "implementation_hash": "0e835459b2576e83467e5014e51996ded27e9b028564afe4b382bbe9cd6d70b6",
+      "complete": true,
+      "cases_and_acceptance_unchanged": true,
+      "planned_cases": 4,
+      "diagnosis_valid": 4,
+      "diagnoses_are_archived_replays": false,
+      "root_success_over_all_planned": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "controls_passed": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "context_blocked_cases": 0,
+      "external_calls": 7,
+      "usage": {
+        "input_tokens": 214734,
+        "cached_input_tokens": 12544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2940,
+        "reasoning_output_tokens": 792
+      },
+      "model_candidate_outcomes": {
+        "visible_test_failed": 1,
+        "repaired": 1
+      },
+      "no_patch_generated_cases": 0,
+      "empty_patch_responses": 1,
+      "failed_case_outcomes": {
+        "visible_test_failed": 1
+      },
+      "false_verified": 0,
+      "cases": [
+        {
+          "id": "loop_else_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": false,
+          "engine_status": "rejected",
+          "repair_termination": "no_patch",
+          "warnings": [
+            "No justified replacement patch can be proposed from the supplied evidence. The only source-supported repair—executing `for_loop.orelse` after normal exhaustion—was already attempted and still failed `target:2`, which returned 3 instead of 103. No run_id/span_id trace or candidate-source snapshot is provided for that remaining failure, so its cause cannot be distinguished from patch application, execution-path, or state-related issues without speculation. Repeating the failed logical edit would violate the request."
+          ],
+          "context_blocked": false,
+          "calls": 3,
+          "empty_patch_responses": 1,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "external_codex",
+              "chars": 76078,
+              "budget": 96000,
+              "dependency_chars": 331,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 91360,
+              "budget": 96000,
+              "dependency_chars": 9632,
+              "history_chars": 2114,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 95477,
+              "budget": 96000,
+              "dependency_chars": 9632,
+              "history_chars": 6231,
+              "omitted_history": 0
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "model",
+              "outcome": "visible_test_failed",
+              "commands": 6,
+              "completed": 6,
+              "passed": 3
+            }
+          ]
+        },
+        {
+          "id": "print_reset_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": true,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 2,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "external_codex",
+              "chars": 76365,
+              "budget": 96000,
+              "dependency_chars": 331,
+              "history_chars": 2,
+              "omitted_history": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "provenance": "external_codex",
+              "chars": 92687,
+              "budget": 96000,
+              "dependency_chars": 9632,
+              "history_chars": 2625,
+              "omitted_history": 0
+            }
+          ],
+          "candidate_results": [
+            {
+              "number": 1,
+              "origin": "model",
+              "outcome": "repaired",
+              "commands": 6,
+              "completed": 6,
+              "passed": 6
+            }
+          ]
+        },
+        {
+          "id": "loop_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": false,
+          "engine_status": "inconclusive",
+          "repair_termination": "not_started",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "external_codex",
+              "chars": 84418,
+              "budget": 96000,
+              "dependency_chars": 9632,
+              "history_chars": 2,
+              "omitted_history": 0
+            }
+          ],
+          "candidate_results": []
+        },
+        {
+          "id": "print_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "root_correct": true,
+          "repair_success": false,
+          "engine_status": "inconclusive",
+          "repair_termination": "not_started",
+          "warnings": [],
+          "context_blocked": false,
+          "calls": 1,
+          "empty_patch_responses": 0,
+          "request_sizes": [
+            {
+              "operation": "semantic_analysis",
+              "provenance": "external_codex",
+              "chars": 84316,
+              "budget": 96000,
+              "dependency_chars": 9632,
+              "history_chars": 2,
+              "omitted_history": 0
+            }
+          ],
+          "candidate_results": []
+        }
+      ]
+    }
+  ],
+  "external_calls_total": 11
+}

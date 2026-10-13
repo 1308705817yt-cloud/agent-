@@ -9,6 +9,7 @@ from .core import DoctorError, contained_path, digest, read_text
 from .model import PATCH_SCHEMA
 from .project import editable
 from .traces import evidence_id
+from .retry import snapshot_version
 
 
 def _byte_position(text: str, lineno: int, offset: int) -> int:
@@ -76,6 +77,8 @@ def alias_proposals(project: Path, spans: list[dict], findings: list[dict], conf
 
 def apply_proposal(project: Path, proposal: dict, config: dict, known_findings: set[str], manifest: dict[str, str]) -> dict:
     validate(proposal, PATCH_SCHEMA, "patch proposal")
+    if proposal.get("base_snapshot_id", snapshot_version(manifest)) != snapshot_version(manifest):
+        raise DoctorError("Patch base_snapshot_id must identify the original snapshot, not a candidate revision")
     if not proposal["finding_ids"] or not set(proposal["finding_ids"]).issubset(known_findings):
         raise DoctorError("Patch must cite existing finding IDs")
     if not proposal["edits"] or len(proposal["edits"]) > 50:

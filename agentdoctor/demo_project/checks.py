@@ -1,8 +1,22 @@
 """Frozen acceptance checks; AgentDoctor is not allowed to modify this file."""
+import json
+import os
 import sys
 import unittest
 
-from agent import lookup_customer, lookup_customer_by_email, tool_lookup
+INVOCATION = os.environ.get("AGENTDOCTOR_VALIDATION_ID", "standalone")
+
+
+def emit(results, completed, error=None):
+    print("AGENTDOCTOR_RESULT " + json.dumps({"schema_version": 1, "invocation_id": INVOCATION,
+          "completed": completed, "executed_count": len(results), "results": results, "suite_error": error}))
+
+
+try:
+    from agent import lookup_customer, lookup_customer_by_email, tool_lookup
+except BaseException as exc:
+    emit([], False, f"Import failed: {type(exc).__name__}: {exc}")
+    raise SystemExit(1)
 
 
 class Target(unittest.TestCase):
@@ -40,5 +54,13 @@ class Regression(unittest.TestCase):
 if __name__ == "__main__":
     suites = {"target": Target, "regression": Regression}
     test_class = suites[sys.argv[1]]
-    result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(test_class))
-    raise SystemExit(0 if result.wasSuccessful() else 1)
+    outcomes = []
+    for test in unittest.defaultTestLoader.loadTestsFromTestCase(test_class):
+        try:
+            result = unittest.TextTestRunner(verbosity=2).run(test)
+            status = "skipped" if result.skipped else "passed" if result.wasSuccessful() and result.testsRun == 1 else "failed"
+            outcomes.append({"id": f"{test_class.__name__}.{test._testMethodName}", "status": status})
+        except BaseException as exc:
+            outcomes.append({"id": f"{test_class.__name__}.{test._testMethodName}", "status": "error", "detail": f"{type(exc).__name__}: {exc}"})
+    emit(outcomes, True)
+    raise SystemExit(0 if outcomes and all(r["status"] == "passed" for r in outcomes) else 1)

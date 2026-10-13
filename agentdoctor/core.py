@@ -96,7 +96,7 @@ def contained_path(root: Path, relative: str) -> Path:
 _SENSITIVE_KEY = re.compile(r"(^|[_-])(api[_-]?key|token|password|secret|authorization|cookie|credential)(s|$)", re.I)
 _SECRET_TEXT = re.compile(r"\b(?:sk-[A-Za-z0-9_-]{12,}|Bearer\s+[A-Za-z0-9._~+/-]{8,})", re.I)
 _ASSIGNMENT = re.compile(r"(?i)((?:api[_-]?key|password|secret|access_token)\s*[=:]\s*['\"]?)([^\s'\",;]+)")
-_METRIC_KEYS = {"input_tokens", "output_tokens", "total_tokens", "cached_tokens", "reasoning_tokens", "max_output_tokens", "prompt_tokens", "completion_tokens"}
+_METRIC_KEYS = {"input_tokens", "output_tokens", "total_tokens", "cached_tokens", "cached_input_tokens", "reasoning_tokens", "max_output_tokens", "prompt_tokens", "completion_tokens"}
 
 
 def redact(value: Any) -> Any:

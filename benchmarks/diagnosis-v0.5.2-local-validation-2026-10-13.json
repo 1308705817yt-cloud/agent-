@@ -1,0 +1,136 @@
+{
+  "version": "0.5.2",
+  "created_at": "2026-10-13T08:19:56.839661+00:00",
+  "kind": "local_regression_validation",
+  "external_model_calls": 0,
+  "datasets": [
+    {
+      "suite": "independent-v2",
+      "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+      "file_count": 43,
+      "matches_original_lock": true
+    },
+    {
+      "suite": "workflow-v1",
+      "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+      "file_count": 67,
+      "matches_original_lock": true
+    }
+  ],
+  "historical_reports": [
+    {
+      "path": "benchmarks/baseline-v0.2.json",
+      "sha256": "e8fd2a261441d99c72926fc729898d54c19969805d74d5293757f235e3885ea5",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/baseline-v0.3.json",
+      "sha256": "ee4bfdc5302bc05bb6d03470b8ca5020e7f86fcb8efce232868094225bc70d73",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/baseline.json",
+      "sha256": "d447159691975ec98552a4cdc6299cc4711b798ef9853c8431e957af4a2e6cfe",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-independent-v2-2026-10-13.json",
+      "sha256": "aa6b0d18c24eb57e196d017eb79311250754ba9e1e910805f1a4c607f01eae15",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-independent-v2-v0.4.0-2026-10-13.json",
+      "sha256": "0ecd73d976b6a648e7e51f80939a437ee2b7df4af8c785d8481b08923eff8e86",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-independent-v2-v0.5.0-2026-10-13.json",
+      "sha256": "7c2fd6be751698ea44c4622198a2cb94946afba02870dc85890db6ebb0107ea4",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-v0.5.0-2026-10-13-audit.json",
+      "sha256": "5868801251ac40f7c8c2fce7b0bf7687075368246430836b7a0f5d801e9a027c",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-workflow-v1-v0.5.0-2026-10-13.json",
+      "sha256": "45378c3438c74359eec6d61641d7338c67f4a35d49f80b96c7d7d9b5aaef6130",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/rule-workflow-v1-v0.5.0-2026-10-13.json",
+      "sha256": "dde027e4424692dfdec2018c51d8b990ef756dd651c118fc8f6f16999062e006",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-independent-v2-v0.5.1-2026-10-13.json",
+      "sha256": "f12c11ad378db8217ffaf54f48757a527b1c1b607243ddcb5417b6470c1bf319",
+      "matches_previous_audit": true
+    },
+    {
+      "path": "benchmarks/codex-workflow-v1-v0.5.1-2026-10-13.json",
+      "sha256": "fbce6ee4f45807523b6f9cf79c4e2e50dfd67c082f8f8b6c47090797f02e4b49",
+      "matches_previous_audit": true
+    }
+  ],
+  "offline_replay": {
+    "path": "benchmarks/diagnosis-v0.5.2-offline-replay-2026-10-13.json",
+    "sha256": "cfe156fe672ff2f832d02cfd31140f90ab4bcc5ce1209c9dade961fc9f77157e",
+    "summary": {
+      "responses": 18,
+      "previously_accepted": 12,
+      "accepted_now": 17,
+      "recovered": [
+        "argument_alias",
+        "argument_type",
+        "state_merge_loss",
+        "async_state_merge_fault",
+        "async_fanout_fault"
+      ],
+      "still_rejected": [
+        "loop_missing_stop"
+      ],
+      "newly_rejected": []
+    },
+    "is_new_model_accuracy_measurement": false
+  },
+  "implementation_manifest": {
+    "__init__.py": "ac4798250e2bd1d05798179c4d3f3c29c030038e7f1f6b3ba7f85d6431603ac2",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analysis.py": "4a5a14fb7723d239b9b6e81aa6488022055a67bb8a1436f25368cc6330317bbd",
+    "attribution.py": "3be0164906ad29454aaa4ed35ef71473742902e4700518f472b15726322bf0d8",
+    "benchmark.py": "646d2a4c02c5ba66cc9c3650f264bc2dcfa9ca7f424ced3a2f17ba116d4c7b2f",
+    "benchmark_collect.py": "b91b72c6f66b3cd6df66f61e68d1fe1e0ea193bf89c3c0596e949d768ea6d222",
+    "benchmark_oracle.py": "5eaef5d260c12d32f29c63e42b9da802e1684f9e9ff1452849d71ac582902f4d",
+    "citations.py": "71477a0651f3aa51bd6f95445615be23a5cb012f1bac071bdb1bfdcd9a5ee09b",
+    "cli.py": "755b3717434e50b20f5d4e29f672c1ca2619f51bf005787edfc98e1aaa011871",
+    "codex_cli.py": "45b1bb956ccb5071f993ce67602dbcc56c6c99ed46c5687d59d90d5d21157063",
+    "contracts.py": "ca31f6dbab516e38139cb802a0696342c7623495d32a77a0d61ef994a11bdb96",
+    "core.py": "b80949d0cbfb1557da79ae2306a19e097f00ab6af195dec1308ad7d2e9821f0c",
+    "dependencies.py": "30c6bb042b1efe78b6382c69a426557599d3fb93ba18b8312d5511b8e007e615",
+    "detectors.py": "891dcfe4ce2ba62b801d6ca9b47d85992d03d45af0caff94cd862ebf9c58f97c",
+    "engine.py": "4454302b92fec8f3d91f00c73aad104cbe1cef0df2cc7bf8325e6836d97f270e",
+    "evidence.py": "fac00d77ab1faa6294e544106867903c93383301786e5147489404ec595736dc",
+    "export_schemas.py": "c8cc4e3438a1256cb085bf609156be23ef20f464932d90fcc5e979b86e43645e",
+    "model.py": "b1a13be9d9a5369fff46ebcd1222917b5f9023796c9052c172880ffa0634d09a",
+    "patches.py": "8b2a70cd2ab766486b1de820cf0f3fd985ef2257c8246bcb584ebd33638a3c01",
+    "polling.py": "64cde1d53a6650a239eea44fdac2ae7b43e573f94905b33eaaeb8a29d214e68c",
+    "project.py": "0b81fbbe963fe6b989ed6d0c1c679c6fac306ad849ead304ad134afa4cbaa409",
+    "report.py": "157498a6a9bb55d7266a4fe09befe5fd2d8f892241e86c981cfa5f367fc6d713",
+    "runner.py": "99a3abcc48452f0d38a14311812e543b276fbe24e7890406c3ab284fe554af97",
+    "source_context.py": "542cd1e92409c3090ef896673fd992ed82a648e9ab6cad46d3ce1012ccbee3d5",
+    "taxonomy.py": "782be5aa31a244b8546c7c7cd99ca9a4f0f6a42087ed7a06b19c6ebefffbb6d9",
+    "traces.py": "6abbdc154f313267cd622fbcccc945ec1f4452592a0645fdd4f84a5d4252dbd8"
+  },
+  "implementation_hash": "016b7e3cb529defbe04eac00ca83a6a9de7ee023a795e6970ffcda57285191e9",
+  "tests": {
+    "command": "python -m unittest discover -s tests -q",
+    "passed": 209,
+    "duration_seconds": 116.862,
+    "new_test_methods": 22
+  },
+  "public_schema_consistency": "passed",
+  "whitespace_checks": "passed",
+  "implementation_unchanged_during_verification": true
+}

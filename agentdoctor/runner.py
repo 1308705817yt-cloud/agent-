@@ -11,6 +11,7 @@ import uuid
 from pathlib import Path
 
 from .core import DoctorError, digest, redact
+from .evidence import command_completed, command_passed, completion_error, parse_completion
 from .project import check_manifest
 
 
@@ -77,6 +78,7 @@ def execute(argv: list[str], cwd: Path, timeout: int, env: dict | None = None) -
     result = {"returncode": process.returncode, "timed_out": timed_out, "error": None, "duration_seconds": round(time.monotonic() - started, 3)}
     for key in captured:
         result[key] = redact(bytes(captured[key]).decode("utf-8", errors="replace") + ("\n[output truncated]" if truncated[key] else ""))
+        result[key + "_truncated"] = truncated[key]
     return result
 
 
@@ -97,34 +99,55 @@ class ValidationRunner:
             return False, "Docker daemon is unavailable"
         return True, "Docker: read-only project mount, no network, resource limits"
 
+    def run_process(self, project: Path, argv: list[str], timeout: int, config: dict, *,
+                    environment: dict[str, str] | None = None, mounts: list[tuple[Path, str]] = ()) -> dict:
+        """Use the same executor and limits for validation and diagnostic replay."""
+        env = _environment()
+        env.update(environment or {})
+        python = sys.executable if self.backend == "local" else "python"
+        argv = [python if part == "{python}" else part for part in argv]
+        name = None
+        if self.backend == "docker":
+            bindings = [(project, "/workspace"), *mounts]
+            if any("," in str(source) or "," in target for source, target in bindings):
+                raise DoctorError("Docker mount paths cannot contain commas")
+            name = "agentdoctor-" + uuid.uuid4().hex
+            options = [shutil.which("docker"), "run", "--rm", "--pull", "never", "--name", name,
+                       "--network", "none", "--read-only", "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
+                       "--pids-limit", "64", "--memory", "512m", "--cpus", "1", "--user", "65534:65534",
+                       "--tmpfs", "/tmp:rw,noexec,nosuid,size=64m", "--workdir", "/workspace",
+                       "--env", "PYTHONDONTWRITEBYTECODE=1", "--env", "PYTHONUTF8=1"]
+            for key, value in (environment or {}).items():
+                options.extend(["--env", key + "=" + value])
+            for source, target in bindings:
+                options.extend(["--mount", f"type=bind,source={source.resolve()},target={target},readonly"])
+            argv = [*options, config["validation"]["docker_image"], *argv]
+        try:
+            result = execute(argv, project, timeout, env=env)
+        finally:
+            if name:
+                execute([shutil.which("docker"), "rm", "-f", name], project, 10)
+        if self.backend == "docker" and result["returncode"] in (125, 126, 127):
+            result["error"] = "Docker could not run the test command; pre-load the image and its dependencies"
+        return result
+
     def run_suite(self, project: Path, config: dict, manifest: dict[str, str]) -> dict:
         results = []
-        integrity = []
+        integrity = check_manifest(project, manifest)
+        if integrity:
+            return {"commands": [], "integrity_changes": integrity, "executor": self.backend}
         for repetition in range(config["validation"]["repetitions"]):
             for command in config["validation"]["commands"]:
-                python = sys.executable if self.backend == "local" else "python"
-                argv = [python if part == "{python}" else part for part in command["argv"]]
-                name = None
-                if self.backend == "docker":
-                    if "," in str(project):
-                        raise DoctorError("Docker project paths cannot contain commas")
-                    name = "agentdoctor-" + uuid.uuid4().hex
-                    argv = [shutil.which("docker"), "run", "--rm", "--pull", "never", "--name", name,
-                            "--network", "none", "--read-only", "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
-                            "--pids-limit", "64", "--memory", "512m", "--cpus", "1", "--user", "65534:65534",
-                            "--tmpfs", "/tmp:rw,noexec,nosuid,size=64m", "--workdir", "/workspace",
-                            "--env", "PYTHONDONTWRITEBYTECODE=1", "--env", "PYTHONUTF8=1",
-                            "--mount", f"type=bind,source={project.resolve()},target=/workspace,readonly",
-                            config["validation"]["docker_image"], *argv]
+                invocation_id = uuid.uuid4().hex
+                result = self.run_process(project, command["argv"], command["timeout_seconds"], config,
+                                          environment={"AGENTDOCTOR_VALIDATION_ID": invocation_id})
+                result.update(name=command["name"], kind=command["kind"], repetition=repetition + 1, argv=command["argv"],
+                              expected_cases=list(command.get("expected_cases", [])), invocation_id=invocation_id)
                 try:
-                    result = execute(argv, project, command["timeout_seconds"])
-                finally:
-                    if name:
-                        execute([shutil.which("docker"), "rm", "-f", name], project, 10)
-                # Docker reserves 125-127 for invocation/image/executable errors.
-                if self.backend == "docker" and result["returncode"] in (125, 126, 127):
-                    result["error"] = "Docker could not run the test command; pre-load the image and its dependencies"
-                result.update(name=command["name"], kind=command["kind"], repetition=repetition + 1, argv=command["argv"])
+                    result["completion"] = parse_completion(result["stdout"])
+                    result["completion_error"] = completion_error(result)
+                except DoctorError as exc:
+                    result.update(completion=None, completion_error=str(exc))
                 results.append(result)
                 integrity = check_manifest(project, manifest)
                 if integrity:
@@ -138,11 +161,13 @@ def baseline_gate(suite: dict) -> tuple[bool, str]:
         return False, "Validation mutated frozen snapshot files"
     if any(r["timed_out"] or r["error"] or r["returncode"] is None for r in rows):
         return False, "Baseline contains a timeout or infrastructure error"
+    if any(not command_completed(r) for r in rows):
+        return False, "Baseline lacks complete, consistent case results; configure expected_cases and completion evidence"
     targets = [r for r in rows if r["kind"] == "target"]
     regressions = [r for r in rows if r["kind"] == "regression"]
     if not targets or not regressions:
         return False, "At least one target and one regression command are required"
-    if any(r["returncode"] != 0 for r in regressions):
+    if any(not command_passed(r) for r in regressions):
         return False, "Baseline regression checks must pass before repair"
     by_name = {}
     for row in targets:
@@ -162,8 +187,13 @@ def candidate_gate(baseline: dict, candidate: dict) -> tuple[bool, str]:
         return False, "Candidate tests mutated snapshot files"
     expected = {(r["name"], r["repetition"], r["kind"]) for r in baseline["commands"]}
     actual = {(r["name"], r["repetition"], r["kind"]) for r in candidate["commands"]}
-    if actual != expected:
+    if actual != expected or len(candidate["commands"]) != len(expected):
         return False, "Candidate did not run the same frozen checks as baseline"
-    if any(r["returncode"] != 0 or r["timed_out"] or r["error"] for r in candidate["commands"]):
+    frozen = {(r["name"], r["repetition"], r["kind"]): set(r["expected_cases"]) for r in baseline["commands"]}
+    if any(set(r.get("expected_cases", [])) != frozen[(r["name"], r["repetition"], r["kind"])] for r in candidate["commands"]):
+        return False, "Candidate case expectations differ from the frozen baseline"
+    if any(not command_completed(r) for r in candidate["commands"]):
+        return False, "Candidate lacks complete, consistent results for every expected case"
+    if any(not command_passed(r) for r in candidate["commands"]):
         return False, "Candidate failed one or more target/regression checks"
-    return True, "All frozen target and regression checks passed in every configured repetition"
+    return True, "Every expected case completed and passed in every configured repetition"

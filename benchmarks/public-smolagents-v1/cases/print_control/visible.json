@@ -1,0 +1,63 @@
+{
+  "target": [
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "print('one')",
+          "print('two')"
+        ]
+      },
+      "expected": [
+        {
+          "value": null,
+          "logs": "one\n",
+          "failed": false
+        },
+        {
+          "value": null,
+          "logs": "two\n",
+          "failed": false
+        }
+      ]
+    },
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "2 + 3"
+        ]
+      },
+      "expected": [
+        {
+          "value": 5,
+          "logs": "",
+          "failed": false
+        }
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "x = 9",
+          "x + 2"
+        ]
+      },
+      "expected": [
+        {
+          "value": 9,
+          "logs": "",
+          "failed": false
+        },
+        {
+          "value": 11,
+          "logs": "",
+          "failed": false
+        }
+      ]
+    }
+  ]
+}

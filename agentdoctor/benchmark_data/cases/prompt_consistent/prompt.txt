@@ -1,0 +1,2 @@
+Always return a JSON object with the key "answer" containing the requested integer.
+Preserve the requested integer exactly.

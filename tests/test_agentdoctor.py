@@ -34,6 +34,7 @@ class ProjectTest(unittest.TestCase):
         self.config = load_config(self.project)
         result = execute([sys.executable, "record_trace.py"], self.project, 10)
         self.assertEqual(result["returncode"], 0, result)
+        self.manifest["trace.jsonl"] = digest((self.project / "trace.jsonl").read_bytes())
         self.spans = load_traces(self.project / "trace.jsonl")
         self.findings = detect(self.spans, self.config, self.project, self.manifest)
 
@@ -49,7 +50,7 @@ class ProjectTest(unittest.TestCase):
     def test_real_bug_detected_and_aliased_at_correct_source(self):
         issue = next(f for f in self.findings if f["category"] == "tool_argument_schema")
         self.assertEqual(issue["source"]["function"], "lookup_customer")
-        self.assertEqual(issue["evidence"], ["demo-lookup/tool-1"])
+        self.assertEqual(issue["evidence"], [f"demo-lookup/{self.spans[0]['span_id']}"])
         proposal = self.proposal()
         self.assertEqual(proposal["edits"][0]["before"], '{"user_id": customer_id}')
         self.assertIn("customer_id", proposal["edits"][0]["after"])
@@ -156,7 +157,7 @@ class ProjectTest(unittest.TestCase):
 
     def test_docker_invocation_is_offline_read_only_and_cleans_up(self):
         calls = []
-        def fake_execute(argv, cwd, timeout):
+        def fake_execute(argv, cwd, timeout, env=None):
             calls.append(argv)
             return {"returncode": 0, "timed_out": False, "error": None, "stdout": "", "stderr": "", "duration_seconds": 0}
         with patch("agentdoctor.runner.shutil.which", return_value="docker"), patch("agentdoctor.runner.execute", side_effect=fake_execute):
@@ -205,7 +206,7 @@ class ProjectTest(unittest.TestCase):
 
             def complete(self, operation, context, schema):
                 self.calls += 1
-                if schema == ANALYSIS_SCHEMA:
+                if "findings" in schema["properties"]:
                     return {"findings": [], "hypotheses": []}
                 seen_contexts.append(context)
                 return wrong if len(seen_contexts) == 1 else valid
@@ -213,8 +214,73 @@ class ProjectTest(unittest.TestCase):
         report = run(self.project, self.project / "trace.jsonl", mode="repair", output=self.root / "runs", executor="local", model=FakeModel())
         self.assertEqual(report["status"], "verified", report)
         self.assertEqual([a["status"] for a in report["attempts"]], ["rejected", "verified"])
+        self.assertEqual([a["failure_stage"] for a in report["attempts"]], ["visible_validation", None])
+        self.assertEqual(report["repair_termination"], "verified")
+        events = read_json(Path(report["workspace"]) / "model-events.json")
+        self.assertEqual([e["operation"] for e in events], ["semantic_analysis", "patch_proposal", "patch_proposal"])
+        self.assertEqual([e["calls_after"] for e in events], [1, 2, 3])
+        self.assertTrue(all(e["status"] == "completed" for e in events))
         self.assertIn("Candidate failed", json.dumps(seen_contexts[1]))
         self.assertNotEqual(Path(report["verified_patch"]).name, "candidate-1.patch")
+
+    def test_patch_request_receives_model_hypothesis_and_trace_comparison(self):
+        valid = self.proposal()
+        config = read_json(self.project / "doctor.json")
+        config["tools"]["lookup_customer"]["aliases"] = {}
+        write_json(self.project / "doctor.json", config)
+        current = copy.deepcopy(self.spans)
+        for span in current:
+            span.setdefault("metadata", {})["task_id"] = "comparison-task"
+        reference = copy.deepcopy(current)
+        for span in reference:
+            span["run_id"] = "successful-reference"
+            span["error"] = None
+            if span.get("task_status"):
+                span["task_status"] = "completed"
+                for assertion in span.get("assertions", []):
+                    assertion["passed"] = True
+        reference[0]["input"] = {"customer_id": "C001"}
+        write_json(self.project / "trace.jsonl", current)
+        reference_path = self.root / "reference.json"
+        write_json(reference_path, reference)
+        owner = self
+        class Model:
+            provider, name, calls, max_calls = "test", "test", 0, 5
+            usage = []
+            def complete(self, instruction, context, schema):
+                self.calls += 1
+                if "findings" in schema["properties"]:
+                    refs = context["trace_comparisons"][0]["first_difference"]
+                    return {"findings": [], "hypotheses": [{"summary": "Caller uses an obsolete key; compare the successful tool input", "source_path": "agent.py", "evidence": refs}]}
+                owner.assertTrue(any(h["origin"] == "model" and h["status"] == "hypothesized" for h in context["hypotheses"]))
+                owner.assertTrue(context["trace_comparisons"])
+                owner.assertTrue(context["reference_spans"])
+                owner.assertIn("not causal proof", context["trace_comparisons"][0]["method"])
+                return valid
+        report = run(self.project, self.project / "trace.jsonl", reference=reference_path, mode="repair", executor="local", model=Model(), output=self.root / "runs")
+        self.assertEqual(report["status"], "verified", report["reason"])
+        self.assertEqual(report["model"]["calls"], 2)
+        self.assertEqual(report["model_events"][0]["semantic_validation"], "accepted")
+        event = report["model_events"][-1]
+        request = Path(event["request_file"])
+        self.assertEqual(digest(request.read_bytes()), event["request_sha256"])
+        payload = read_json(request)
+        self.assertEqual(payload["operation"], "patch_proposal")
+        self.assertTrue(any(h["origin"] == "model" for h in payload["context"]["hypotheses"]))
+        self.assertEqual(event["context_chars"], len(json.dumps(payload["context"], ensure_ascii=False)))
+
+    def test_invalid_semantic_evidence_is_inconclusive_and_audited(self):
+        class Model:
+            provider, name, calls, max_calls = "test", "test", 0, 5
+            usage = []
+            def complete(self, instruction, context, schema):
+                self.calls += 1
+                return {"findings": [{"category": "prompt_conflict", "severity": "high", "summary": "unverified", "evidence": ["invented/span"]}], "hypotheses": []}
+        report = run(self.project, self.project / "trace.jsonl", model=Model(), output=self.root / "runs")
+        self.assertEqual(report["status"], "inconclusive")
+        self.assertTrue(report["diagnosis"]["findings"])
+        self.assertEqual(report["model_events"][0]["semantic_validation"], "rejected")
+        self.assertIn("fabricated", report["model_events"][0]["validation_error"])
 
 
 class ContractsAndTracesTest(unittest.TestCase):
@@ -332,7 +398,15 @@ class DetectorTest(unittest.TestCase):
 class RunnerTest(unittest.TestCase):
     @staticmethod
     def suite(target=1, regression=0):
-        return {"commands": [{"name": name, "kind": kind, "repetition": repeat, "returncode": code, "timed_out": False, "error": None} for name, kind, code in [("broken", "target", target), ("working", "regression", regression)] for repeat in (1, 2)], "integrity_changes": []}
+        rows = []
+        for name, kind, code in [("broken", "target", target), ("working", "regression", regression)]:
+            for repeat in (1, 2):
+                invocation = f"{name}-{repeat}"
+                rows.append({"name": name, "kind": kind, "repetition": repeat, "returncode": code, "timed_out": False, "error": None,
+                             "expected_cases": [name], "invocation_id": invocation,
+                             "completion": {"schema_version": 1, "invocation_id": invocation, "completed": True, "executed_count": 1,
+                                            "results": [{"id": name, "status": "passed" if code == 0 else "failed"}]}})
+        return {"commands": rows, "integrity_changes": []}
 
     def test_no_reproduced_failure_is_inconclusive(self):
         self.assertFalse(baseline_gate(self.suite(target=0))[0])
@@ -347,6 +421,7 @@ class RunnerTest(unittest.TestCase):
     def test_flaky_failure_does_not_count_as_reproduced(self):
         suite = self.suite()
         suite["commands"][1]["returncode"] = 0
+        suite["commands"][1]["completion"]["results"][0]["status"] = "passed"
         self.assertFalse(baseline_gate(suite)[0])
 
     def test_all_checks_required_for_verification(self):

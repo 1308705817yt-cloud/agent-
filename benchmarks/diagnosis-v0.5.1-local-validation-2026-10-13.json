@@ -1,0 +1,309 @@
+{
+  "version": "0.5.1",
+  "created_at": "2026-10-13T07:31:35.925590+00:00",
+  "kind": "local_regression_validation",
+  "external_model_calls": 0,
+  "tests": {
+    "command": "python -m unittest discover -s tests -q",
+    "passed": 187,
+    "duration_seconds": 116.746,
+    "new_test_methods": 21
+  },
+  "datasets": [
+    {
+      "suite": "independent-v2",
+      "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+      "file_count": 43,
+      "matches_original_lock": true
+    },
+    {
+      "suite": "workflow-v1",
+      "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+      "file_count": 67,
+      "matches_original_lock": true
+    }
+  ],
+  "historical_reports": [
+    {
+      "path": "benchmarks\\baseline-v0.2.json",
+      "sha256": "e8fd2a261441d99c72926fc729898d54c19969805d74d5293757f235e3885ea5"
+    },
+    {
+      "path": "benchmarks\\baseline-v0.3.json",
+      "sha256": "ee4bfdc5302bc05bb6d03470b8ca5020e7f86fcb8efce232868094225bc70d73"
+    },
+    {
+      "path": "benchmarks\\baseline.json",
+      "sha256": "d447159691975ec98552a4cdc6299cc4711b798ef9853c8431e957af4a2e6cfe"
+    },
+    {
+      "path": "benchmarks\\codex-independent-v2-2026-10-13.json",
+      "sha256": "aa6b0d18c24eb57e196d017eb79311250754ba9e1e910805f1a4c607f01eae15",
+      "matches_archived_source_hash": true
+    },
+    {
+      "path": "benchmarks\\codex-independent-v2-v0.4.0-2026-10-13.json",
+      "sha256": "0ecd73d976b6a648e7e51f80939a437ee2b7df4af8c785d8481b08923eff8e86",
+      "matches_archived_source_hash": true
+    },
+    {
+      "path": "benchmarks\\codex-independent-v2-v0.5.0-2026-10-13.json",
+      "sha256": "7c2fd6be751698ea44c4622198a2cb94946afba02870dc85890db6ebb0107ea4",
+      "matches_archived_source_hash": true
+    },
+    {
+      "path": "benchmarks\\codex-v0.5.0-2026-10-13-audit.json",
+      "sha256": "5868801251ac40f7c8c2fce7b0bf7687075368246430836b7a0f5d801e9a027c"
+    },
+    {
+      "path": "benchmarks\\codex-workflow-v1-v0.5.0-2026-10-13.json",
+      "sha256": "45378c3438c74359eec6d61641d7338c67f4a35d49f80b96c7d7d9b5aaef6130",
+      "matches_archived_source_hash": true
+    },
+    {
+      "path": "benchmarks\\rule-workflow-v1-v0.5.0-2026-10-13.json",
+      "sha256": "dde027e4424692dfdec2018c51d8b990ef756dd651c118fc8f6f16999062e006",
+      "matches_archived_source_hash": true
+    }
+  ],
+  "polling_probes": [
+    {
+      "case": "nested_retry_control",
+      "findings": [],
+      "observations": [
+        "bounded_polling"
+      ],
+      "diagnosis": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [
+          {
+            "id": "f_50226b2f8ae9",
+            "category": "bounded_polling",
+            "severity": "low",
+            "summary": "Pending responses exhausted finite budgets across the recorded call chain",
+            "evidence": [
+              "observed-run/6af74ec6365541aab66a29d36a981907",
+              "observed-run/1393eb1cfc5f4bf98ceb29e471351d20",
+              "observed-run/b8b0b04211b8419ab25df88732629431",
+              "observed-run/5edc11a61175422896aebeef132876db",
+              "observed-run/5fd6a3156f2b414da64d6b5b00cfc0dd",
+              "observed-run/ae1ff84bde9d402ea44a1ef0d910237c",
+              "observed-run/d21f360aa4d840ab980a6badd55e71e3",
+              "observed-run/c2ed216e27a84b55a7d31147178d7b76",
+              "observed-run/743b3b0cb8f641d28d34b05e7958e395",
+              "observed-run/36d1780ebc3f4160a597a88c70eeceac",
+              "observed-run/1a8d98cc0dd8468094905a2a04ee7257",
+              "observed-run/7c929c11bb2240b1a801708b4f6640ac"
+            ],
+            "source": {
+              "path": "workflow/graph.py",
+              "function": "step"
+            },
+            "observed_source": {
+              "path": "workflow/graph.py",
+              "function": "step"
+            },
+            "root_causes": [],
+            "details": {
+              "budget": 5,
+              "basis": "static source and observed counts at every call-chain edge; not a general termination proof",
+              "call_chain": [
+                {
+                  "parent": "observed-run/1393eb1cfc5f4bf98ceb29e471351d20",
+                  "children": [
+                    "observed-run/6af74ec6365541aab66a29d36a981907"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 244
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                },
+                {
+                  "parent": "observed-run/1a8d98cc0dd8468094905a2a04ee7257",
+                  "children": [
+                    "observed-run/1393eb1cfc5f4bf98ceb29e471351d20",
+                    "observed-run/5edc11a61175422896aebeef132876db",
+                    "observed-run/ae1ff84bde9d402ea44a1ef0d910237c",
+                    "observed-run/c2ed216e27a84b55a7d31147178d7b76",
+                    "observed-run/36d1780ebc3f4160a597a88c70eeceac"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 250
+                  },
+                  "expected_calls": 5,
+                  "observed_calls": 5,
+                  "basis": "exhausted_loop"
+                },
+                {
+                  "parent": "observed-run/7c929c11bb2240b1a801708b4f6640ac",
+                  "children": [
+                    "observed-run/1a8d98cc0dd8468094905a2a04ee7257"
+                  ],
+                  "source": {
+                    "path": "subject.py",
+                    "line": 3
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                },
+                {
+                  "parent": "observed-run/5edc11a61175422896aebeef132876db",
+                  "children": [
+                    "observed-run/b8b0b04211b8419ab25df88732629431"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 244
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                },
+                {
+                  "parent": "observed-run/ae1ff84bde9d402ea44a1ef0d910237c",
+                  "children": [
+                    "observed-run/5fd6a3156f2b414da64d6b5b00cfc0dd"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 244
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                },
+                {
+                  "parent": "observed-run/c2ed216e27a84b55a7d31147178d7b76",
+                  "children": [
+                    "observed-run/d21f360aa4d840ab980a6badd55e71e3"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 244
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                },
+                {
+                  "parent": "observed-run/36d1780ebc3f4160a597a88c70eeceac",
+                  "children": [
+                    "observed-run/743b3b0cb8f641d28d34b05e7958e395"
+                  ],
+                  "source": {
+                    "path": "workflow/graph.py",
+                    "line": 244
+                  },
+                  "expected_calls": 1,
+                  "observed_calls": 1,
+                  "basis": "single_call"
+                }
+              ]
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed",
+            "disposition": "observation"
+          }
+        ],
+        "coverage": {
+          "spans": 12,
+          "semantic_checks": "not_run",
+          "source_checks": "Python AST only"
+        }
+      }
+    },
+    {
+      "case": "nested_retry_fault",
+      "findings": [
+        "possible_loop"
+      ],
+      "observations": [],
+      "diagnosis": {
+        "findings": [
+          {
+            "id": "f_fb36d9df9174",
+            "category": "possible_loop",
+            "severity": "medium",
+            "summary": "Repeated identical tool outcomes suggest a loop; intentional polling is also possible",
+            "evidence": [
+              "observed-run/44881301e31d4b67908939e42107034b",
+              "observed-run/ff841ffda5cb4c86bcb3864feabae268",
+              "observed-run/89bb623cef8f40b3b2036f83b32c8118"
+            ],
+            "source": {
+              "path": "workflow/graph.py",
+              "function": "step"
+            },
+            "observed_source": {
+              "path": "workflow/graph.py",
+              "function": "step"
+            },
+            "root_causes": [],
+            "details": {},
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_8af4a7011c57",
+            "status": "hypothesized",
+            "summary": "Check termination, retry counters, and whether state makes progress; polling alone is not proof of a defect.",
+            "finding_ids": [
+              "f_fb36d9df9174"
+            ],
+            "source_path": "workflow/graph.py",
+            "evidence": [
+              "observed-run/44881301e31d4b67908939e42107034b",
+              "observed-run/ff841ffda5cb4c86bcb3864feabae268",
+              "observed-run/89bb623cef8f40b3b2036f83b32c8118"
+            ],
+            "occurrences": 1,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 12,
+          "semantic_checks": "not_run",
+          "source_checks": "Python AST only"
+        }
+      }
+    }
+  ],
+  "implementation_hash": "68ecb657a35f419d77703b99f505f460af4d8f4a1fb35983b6497a7c95349aad",
+  "implementation_manifest": {
+    "__init__.py": "2a5bf6482f967dd27295e28bcf2c00a2f85ee69de7d6ef1bbed573494b4313c3",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analysis.py": "26c6c35a73e060e2622061110a3322278c1615d93a308abb3ba364ea265bab31",
+    "attribution.py": "6fb85d4691b9fb129a3620db30de824d60c7787b40e1376757ab82a488155628",
+    "benchmark.py": "fc46380e9899789c45fa63c24b18610512410cdbd6223446f92b6678f23e1890",
+    "benchmark_collect.py": "b91b72c6f66b3cd6df66f61e68d1fe1e0ea193bf89c3c0596e949d768ea6d222",
+    "benchmark_oracle.py": "5eaef5d260c12d32f29c63e42b9da802e1684f9e9ff1452849d71ac582902f4d",
+    "cli.py": "755b3717434e50b20f5d4e29f672c1ca2619f51bf005787edfc98e1aaa011871",
+    "codex_cli.py": "45b1bb956ccb5071f993ce67602dbcc56c6c99ed46c5687d59d90d5d21157063",
+    "contracts.py": "ca31f6dbab516e38139cb802a0696342c7623495d32a77a0d61ef994a11bdb96",
+    "core.py": "b80949d0cbfb1557da79ae2306a19e097f00ab6af195dec1308ad7d2e9821f0c",
+    "dependencies.py": "30c6bb042b1efe78b6382c69a426557599d3fb93ba18b8312d5511b8e007e615",
+    "detectors.py": "b5e044ee269325a63a5f9cace433de1770031b5910f69d21edf48d60c2bd9fdc",
+    "engine.py": "4454302b92fec8f3d91f00c73aad104cbe1cef0df2cc7bf8325e6836d97f270e",
+    "evidence.py": "fac00d77ab1faa6294e544106867903c93383301786e5147489404ec595736dc",
+    "export_schemas.py": "c8cc4e3438a1256cb085bf609156be23ef20f464932d90fcc5e979b86e43645e",
+    "model.py": "18c1f00e49b243bed648a2819860b28c7ddb041f47800596732cc2a8e7183e25",
+    "patches.py": "8b2a70cd2ab766486b1de820cf0f3fd985ef2257c8246bcb584ebd33638a3c01",
+    "polling.py": "64cde1d53a6650a239eea44fdac2ae7b43e573f94905b33eaaeb8a29d214e68c",
+    "project.py": "0b81fbbe963fe6b989ed6d0c1c679c6fac306ad849ead304ad134afa4cbaa409",
+    "report.py": "1ddee07c2889878138e554772abef8702f59d37b62901be83bde657ccf44dde1",
+    "runner.py": "99a3abcc48452f0d38a14311812e543b276fbe24e7890406c3ab284fe554af97",
+    "source_context.py": "13bc659ec68dc75c29a78a853364c9c587a27fdb15b194ae40b0598bb7148bcb",
+    "traces.py": "6abbdc154f313267cd622fbcccc945ec1f4452592a0645fdd4f84a5d4252dbd8"
+  }
+}

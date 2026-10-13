@@ -1,0 +1,475 @@
+{
+  "created_at": "2026-10-13T09:46:11.157648+00:00",
+  "implementation_unchanged": true,
+  "historical_archives_unchanged": true,
+  "public_dataset_hash": "cd5c751b21a1a9356b7ad360dd02a82e6ed02f924f652b13d96e021a561ad529",
+  "external_calls_total": 5,
+  "groups": [
+    {
+      "archive": "benchmarks\\codex-retry-v0.5.3-2026-10-13.json",
+      "group": "retry",
+      "planned_cases": 3,
+      "valid_diagnoses": 3,
+      "root_success_over_all_planned": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "external_calls": 3,
+      "usage": {
+        "input_tokens": 43322,
+        "cached_input_tokens": 18816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 587,
+        "reasoning_output_tokens": 0
+      },
+      "context_blocked_cases": 0,
+      "all_required_model_stages_completed": true,
+      "retry_diagnoses_are_replays": true,
+      "cases": [
+        {
+          "id": "dependency-v053",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": true,
+          "calls": 1,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "seed_failed_as_planned": true,
+          "retry_requests": [
+            {
+              "chars": 20255,
+              "budget": 24000,
+              "history_chars": 5219,
+              "history_count": 1,
+              "omitted_history": 1,
+              "contains_failed_candidate": true
+            }
+          ],
+          "candidate_count": 2,
+          "candidate_commands": 12,
+          "candidate_commands_completed": 12,
+          "candidate_commands_passed": 9,
+          "overflows": [],
+          "size_only_inspection": null,
+          "model_request_chars": [
+            20255
+          ]
+        },
+        {
+          "id": "dependency-near-budget-v052",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": true,
+          "calls": 1,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "seed_failed_as_planned": true,
+          "retry_requests": [
+            {
+              "chars": 23731,
+              "budget": 24000,
+              "history_chars": 5255,
+              "history_count": 1,
+              "omitted_history": 1,
+              "contains_failed_candidate": true
+            }
+          ],
+          "candidate_count": 2,
+          "candidate_commands": 12,
+          "candidate_commands_completed": 12,
+          "candidate_commands_passed": 9,
+          "overflows": [],
+          "size_only_inspection": null,
+          "model_request_chars": [
+            23731
+          ]
+        },
+        {
+          "id": "fanout-v053",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": true,
+          "calls": 1,
+          "engine_status": "verified",
+          "repair_termination": "verified",
+          "seed_failed_as_planned": true,
+          "retry_requests": [
+            {
+              "chars": 14507,
+              "budget": 24000,
+              "history_chars": 5838,
+              "history_count": 1,
+              "omitted_history": 1,
+              "contains_failed_candidate": true
+            }
+          ],
+          "candidate_count": 2,
+          "candidate_commands": 12,
+          "candidate_commands_completed": 12,
+          "candidate_commands_passed": 9,
+          "overflows": [],
+          "size_only_inspection": null,
+          "model_request_chars": [
+            14507
+          ]
+        }
+      ]
+    },
+    {
+      "archive": "benchmarks\\codex-retry-long-feedback-v0.5.3-2026-10-13.json",
+      "group": "long_feedback",
+      "planned_cases": 1,
+      "valid_diagnoses": 1,
+      "root_success_over_all_planned": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "external_calls": 0,
+      "usage": {},
+      "context_blocked_cases": 1,
+      "all_required_model_stages_completed": false,
+      "retry_diagnoses_are_replays": true,
+      "cases": [
+        {
+          "id": "dependency-long-feedback",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": false,
+          "calls": 0,
+          "engine_status": "rejected",
+          "repair_termination": "model_error",
+          "seed_failed_as_planned": true,
+          "retry_requests": [],
+          "candidate_count": 1,
+          "candidate_commands": 6,
+          "candidate_commands_completed": 6,
+          "candidate_commands_passed": 3,
+          "overflows": [
+            {
+              "required_chars": 41147,
+              "budget": 24000,
+              "warning": "Essential model context exceeds max_context_chars (41147 > 24000); complete diagnostic evidence and located source cannot fit. Reduce the trace/project scope or increase the budget"
+            }
+          ],
+          "size_only_inspection": {
+            "purpose": "Read-only size inspection, raised in-memory budget only; NOT sent to a model, NOT a rerun or a pass.",
+            "chars_before_normal_budget_trimming": 102699,
+            "field_sizes": {
+              "spans": 2173,
+              "reference_spans": 2,
+              "findings": 10103,
+              "hypotheses": 1342,
+              "trace_comparisons": 2,
+              "observations": 2,
+              "previous_attempts": 27463,
+              "sources": 58196,
+              "contracts": 182,
+              "invariants": 48,
+              "allowed_paths": 130,
+              "dependency_context": 1254,
+              "category_definitions": 850,
+              "symptom_categories": 148,
+              "evidence_catalog": 308,
+              "omitted_spans": 1,
+              "omitted_reference_spans": 1,
+              "omitted_findings": 1,
+              "omitted_hypotheses": 1,
+              "omitted_trace_comparisons": 1,
+              "omitted_observations": 1,
+              "omitted_sources": 1,
+              "omitted_previous_attempts": 1
+            },
+            "dependency_resolved": 8,
+            "dependency_unresolved": 0
+          },
+          "model_request_chars": []
+        }
+      ]
+    },
+    {
+      "archive": "benchmarks\\codex-public-smolagents-v0.5.3-2026-10-13.json",
+      "group": "public",
+      "planned_cases": 4,
+      "valid_diagnoses": 2,
+      "root_success_over_all_planned": {
+        "numerator": 2,
+        "denominator": 4,
+        "value": 0.5
+      },
+      "root_success_over_planned_faults": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "external_calls": 2,
+      "usage": {
+        "input_tokens": 55463,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1134,
+        "reasoning_output_tokens": 183
+      },
+      "context_blocked_cases": 4,
+      "all_required_model_stages_completed": false,
+      "retry_diagnoses_are_replays": false,
+      "cases": [
+        {
+          "id": "loop_else_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": false,
+          "calls": 1,
+          "engine_status": "inconclusive",
+          "repair_termination": "model_error",
+          "seed_failed_as_planned": null,
+          "retry_requests": null,
+          "candidate_count": 0,
+          "candidate_commands": 0,
+          "candidate_commands_completed": 0,
+          "candidate_commands_passed": 0,
+          "overflows": [
+            {
+              "required_chars": 132138,
+              "budget": 96000,
+              "warning": "Essential model context exceeds max_context_chars (132138 > 96000); complete diagnostic evidence and located source cannot fit. Reduce the trace/project scope or increase the budget"
+            }
+          ],
+          "size_only_inspection": {
+            "purpose": "Read-only size inspection, raised in-memory budget only; NOT sent to a model, NOT a rerun or a pass.",
+            "chars_before_normal_budget_trimming": 132866,
+            "field_sizes": {
+              "spans": 2035,
+              "reference_spans": 2,
+              "findings": 3973,
+              "hypotheses": 959,
+              "trace_comparisons": 2,
+              "observations": 2,
+              "previous_attempts": 6511,
+              "sources": 70724,
+              "contracts": 2,
+              "invariants": 48,
+              "allowed_paths": 39,
+              "dependency_context": 46795,
+              "category_definitions": 850,
+              "symptom_categories": 148,
+              "evidence_catalog": 280,
+              "omitted_spans": 1,
+              "omitted_reference_spans": 1,
+              "omitted_findings": 1,
+              "omitted_hypotheses": 1,
+              "omitted_trace_comparisons": 1,
+              "omitted_observations": 1,
+              "omitted_sources": 1,
+              "omitted_previous_attempts": 1
+            },
+            "dependency_resolved": 75,
+            "dependency_unresolved": 285
+          },
+          "model_request_chars": [
+            75992
+          ]
+        },
+        {
+          "id": "print_reset_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "root_diagnosis_success": true,
+          "repair_success": false,
+          "calls": 1,
+          "engine_status": "inconclusive",
+          "repair_termination": "model_error",
+          "seed_failed_as_planned": null,
+          "retry_requests": null,
+          "candidate_count": 0,
+          "candidate_commands": 0,
+          "candidate_commands_completed": 0,
+          "candidate_commands_passed": 0,
+          "overflows": [
+            {
+              "required_chars": 134869,
+              "budget": 96000,
+              "warning": "Essential model context exceeds max_context_chars (134869 > 96000); complete diagnostic evidence and located source cannot fit. Reduce the trace/project scope or increase the budget"
+            }
+          ],
+          "size_only_inspection": {
+            "purpose": "Read-only size inspection, raised in-memory budget only; NOT sent to a model, NOT a rerun or a pass.",
+            "chars_before_normal_budget_trimming": 135641,
+            "field_sizes": {
+              "spans": 2191,
+              "reference_spans": 2,
+              "findings": 4885,
+              "hypotheses": 325,
+              "trace_comparisons": 2,
+              "observations": 2,
+              "previous_attempts": 8852,
+              "sources": 70724,
+              "contracts": 2,
+              "invariants": 48,
+              "allowed_paths": 39,
+              "dependency_context": 46795,
+              "category_definitions": 850,
+              "symptom_categories": 148,
+              "evidence_catalog": 280,
+              "omitted_spans": 1,
+              "omitted_reference_spans": 1,
+              "omitted_findings": 1,
+              "omitted_hypotheses": 1,
+              "omitted_trace_comparisons": 1,
+              "omitted_observations": 1,
+              "omitted_sources": 1,
+              "omitted_previous_attempts": 1
+            },
+            "dependency_resolved": 75,
+            "dependency_unresolved": 285
+          },
+          "model_request_chars": [
+            76278
+          ]
+        },
+        {
+          "id": "loop_control",
+          "faulty": false,
+          "diagnosis_valid": false,
+          "root_diagnosis_success": false,
+          "repair_success": false,
+          "calls": 0,
+          "engine_status": "inconclusive",
+          "repair_termination": "not_started",
+          "seed_failed_as_planned": null,
+          "retry_requests": null,
+          "candidate_count": 0,
+          "candidate_commands": 0,
+          "candidate_commands_completed": 0,
+          "candidate_commands_passed": 0,
+          "overflows": [
+            {
+              "required_chars": 119904,
+              "budget": 96000,
+              "warning": "Essential model context exceeds max_context_chars (119904 > 96000); complete diagnostic evidence and located source cannot fit. Reduce the trace/project scope or increase the budget"
+            }
+          ],
+          "size_only_inspection": {
+            "purpose": "Read-only size inspection, raised in-memory budget only; NOT sent to a model, NOT a rerun or a pass.",
+            "chars_before_normal_budget_trimming": 121581,
+            "field_sizes": {
+              "spans": 2187,
+              "reference_spans": 2,
+              "findings": 2,
+              "hypotheses": 2,
+              "trace_comparisons": 2,
+              "observations": 2,
+              "previous_attempts": 2,
+              "sources": 70724,
+              "contracts": 2,
+              "invariants": 48,
+              "allowed_paths": 39,
+              "dependency_context": 46795,
+              "category_definitions": 850,
+              "symptom_categories": 148,
+              "evidence_catalog": 280,
+              "omitted_spans": 1,
+              "omitted_reference_spans": 1,
+              "omitted_findings": 1,
+              "omitted_hypotheses": 1,
+              "omitted_trace_comparisons": 1,
+              "omitted_observations": 1,
+              "omitted_sources": 1,
+              "omitted_previous_attempts": 1
+            },
+            "dependency_resolved": 75,
+            "dependency_unresolved": 285
+          },
+          "model_request_chars": []
+        },
+        {
+          "id": "print_control",
+          "faulty": false,
+          "diagnosis_valid": false,
+          "root_diagnosis_success": false,
+          "repair_success": false,
+          "calls": 0,
+          "engine_status": "inconclusive",
+          "repair_termination": "not_started",
+          "seed_failed_as_planned": null,
+          "retry_requests": null,
+          "candidate_count": 0,
+          "candidate_commands": 0,
+          "candidate_commands_completed": 0,
+          "candidate_commands_passed": 0,
+          "overflows": [
+            {
+              "required_chars": 119835,
+              "budget": 96000,
+              "warning": "Essential model context exceeds max_context_chars (119835 > 96000); complete diagnostic evidence and located source cannot fit. Reduce the trace/project scope or increase the budget"
+            }
+          ],
+          "size_only_inspection": {
+            "purpose": "Read-only size inspection, raised in-memory budget only; NOT sent to a model, NOT a rerun or a pass.",
+            "chars_before_normal_budget_trimming": 121479,
+            "field_sizes": {
+              "spans": 2085,
+              "reference_spans": 2,
+              "findings": 2,
+              "hypotheses": 2,
+              "trace_comparisons": 2,
+              "observations": 2,
+              "previous_attempts": 2,
+              "sources": 70724,
+              "contracts": 2,
+              "invariants": 48,
+              "allowed_paths": 39,
+              "dependency_context": 46795,
+              "category_definitions": 850,
+              "symptom_categories": 148,
+              "evidence_catalog": 280,
+              "omitted_spans": 1,
+              "omitted_reference_spans": 1,
+              "omitted_findings": 1,
+              "omitted_hypotheses": 1,
+              "omitted_trace_comparisons": 1,
+              "omitted_observations": 1,
+              "omitted_sources": 1,
+              "omitted_previous_attempts": 1
+            },
+            "dependency_resolved": 75,
+            "dependency_unresolved": 285
+          },
+          "model_request_chars": []
+        }
+      ]
+    }
+  ],
+  "scope": "One selected third-party agent-framework component, two public bugs and two controls; not an unbiased or training-unseen sample."
+}

@@ -1,0 +1,8 @@
+{
+  "kwargs": {
+    "max_steps": 4
+  },
+  "tools": [
+    "probe"
+  ]
+}

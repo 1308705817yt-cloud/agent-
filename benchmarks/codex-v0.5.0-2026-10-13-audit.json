@@ -1,0 +1,90 @@
+[
+  {
+    "suite": "workflow-v1",
+    "started_at": "2026-10-13T04:16:00.538812+00:00",
+    "finished_at": "2026-10-13T04:18:58.137871+00:00",
+    "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+    "implementation_hash": "78ab5b3b3beceae2ccba709bed47c5ddb9f2caecfa90e5a63bba4f438acb6768",
+    "implementation_unchanged": true,
+    "calls": 12,
+    "audited_requests": 12,
+    "usage": {
+      "input_tokens": 143432,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1726,
+      "reasoning_output_tokens": 201
+    },
+    "candidate_commands_passed": 24,
+    "case_execution_instances": 52,
+    "diagnosis": {
+      "numerator": 6,
+      "denominator": 8,
+      "value": 0.75
+    },
+    "repair": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0
+    },
+    "case_outcomes": {
+      "no_patch_generated": 0,
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 4,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_origins": {
+      "model": 4,
+      "declared_alias": 0,
+      "unknown": 0
+    }
+  },
+  {
+    "suite": "independent-v2",
+    "started_at": "2026-10-13T04:19:18.748249+00:00",
+    "finished_at": "2026-10-13T04:22:22.858507+00:00",
+    "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+    "implementation_hash": "78ab5b3b3beceae2ccba709bed47c5ddb9f2caecfa90e5a63bba4f438acb6768",
+    "implementation_unchanged": true,
+    "calls": 14,
+    "audited_requests": 14,
+    "usage": {
+      "input_tokens": 145848,
+      "cached_input_tokens": 6272,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1360,
+      "reasoning_output_tokens": 51
+    },
+    "candidate_commands_passed": 30,
+    "case_execution_instances": 58,
+    "diagnosis": {
+      "numerator": 10,
+      "denominator": 10,
+      "value": 1.0
+    },
+    "repair": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "case_outcomes": {
+      "no_patch_generated": 0,
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 5,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_origins": {
+      "model": 4,
+      "declared_alias": 1,
+      "unknown": 0
+    }
+  }
+]

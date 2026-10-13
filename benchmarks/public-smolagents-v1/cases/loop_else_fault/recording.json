@@ -1,0 +1,15 @@
+{
+  "kwargs": {
+    "codes": [
+      "x = 0\nfor i in range(3):\n    x += i\nelse:\n    x += 100\nx"
+    ]
+  },
+  "expected": [
+    {
+      "value": 103,
+      "logs": "",
+      "failed": false
+    }
+  ],
+  "contract": "Each code step has its own output; valid Python loop semantics and persistent user variables must be preserved."
+}

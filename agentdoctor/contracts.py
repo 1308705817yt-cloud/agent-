@@ -33,6 +33,12 @@ COMMAND = obj({
     "name": STRING, "kind": {"enum": ["target", "regression"]},
     "argv": {"type": "array", "items": STRING, "minItems": 1},
     "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600},
+    "expected_cases": {"type": "array", "items": STRING, "minItems": 1, "uniqueItems": True},
+    "replay": obj({
+        "module": STRING, "cases_file": STRING, "case_group": STRING,
+        "trace_functions": {"type": "array", "items": STRING, "minItems": 1, "uniqueItems": True},
+        "max_spans": {"type": "integer", "minimum": 1, "maximum": 1000},
+    }, ["module", "cases_file"]),
 }, ["name", "kind", "argv"])
 
 CONFIG_SCHEMA = obj({

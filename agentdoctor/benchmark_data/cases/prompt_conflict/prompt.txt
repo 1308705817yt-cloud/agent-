@@ -1,0 +1,2 @@
+Always return a JSON object with the key "answer" containing the requested integer.
+Never output JSON. Return only a bare integer.

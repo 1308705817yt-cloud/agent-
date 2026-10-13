@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "project_name": "print_control",
+  "source_paths": [
+    "smolagents/local_python_executor.py"
+  ],
+  "tools": {},
+  "checks": {
+    "loop_threshold": 3,
+    "preserve_state_keys": []
+  },
+  "validation": {
+    "repetitions": 2,
+    "commands": [
+      {
+        "name": "target",
+        "kind": "target",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "target"
+        ],
+        "timeout_seconds": 30,
+        "expected_cases": [
+          "target:1",
+          "target:2"
+        ]
+      },
+      {
+        "name": "regression",
+        "kind": "regression",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "regression"
+        ],
+        "timeout_seconds": 30,
+        "expected_cases": [
+          "regression:1"
+        ]
+      }
+    ]
+  },
+  "policy": {
+    "max_candidates": 3,
+    "max_model_calls": 5,
+    "max_context_chars": 96000,
+    "max_changed_files": 3,
+    "max_changed_lines": 120,
+    "protected_paths": [
+      "subject.py",
+      "evaluator.py",
+      "visible.json",
+      "recording.json",
+      "LICENSE.smolagents"
+    ]
+  }
+}

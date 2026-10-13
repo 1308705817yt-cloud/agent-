@@ -1,0 +1,4413 @@
+{
+  "schema_version": 2,
+  "suite_version": "workflow-v1",
+  "agentdoctor_version": "0.5.0",
+  "started_at": "2026-10-13T04:10:24.951145+00:00",
+  "provider": "none",
+  "model": null,
+  "executor": "local",
+  "repetitions": 1,
+  "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17",
+  "cases": [
+    {
+      "case_id": "dependency_contract_fault",
+      "family": "dependency_contract",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 1,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e1fc1ddef4374262a003e956053da6b4\", \"completed\": true, \"executed_count\": 3, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:3\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3"
+            ],
+            "invocation_id": "e1fc1ddef4374262a003e956053da6b4",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "e1fc1ddef4374262a003e956053da6b4",
+              "completed": true,
+              "executed_count": 3,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "error",
+                  "detail": "TypeError: quantity must be a nonnegative integer"
+                },
+                {
+                  "id": "target:2",
+                  "status": "error",
+                  "detail": "TypeError: quantity must be a nonnegative integer"
+                },
+                {
+                  "id": "target:3",
+                  "status": "error",
+                  "detail": "TypeError: quantity must be a nonnegative integer"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"6a72db62a6344c26a371c23a79e6b12e\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "6a72db62a6344c26a371c23a79e6b12e",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "6a72db62a6344c26a371c23a79e6b12e",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": false,
+        "localized": false,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_fault-1\\runs\\run-d89ba2c03348\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "no_patch",
+      "model_events": [],
+      "repair_outcome": "no_patch_generated",
+      "engine_report_sha256": "47ebd0735693e9445d2d03d031d673e5f576c5601c5af5fae723e18e20a7538d",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-d89ba2c03348",
+        "mode": "repair",
+        "status": "inconclusive",
+        "reason": "No justified patch available; configure a model or supply a narrower reproduction and source mapping",
+        "started_at": "2026-10-13T04:10:26.433977+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_fault-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_fault-1\\runs\\run-d89ba2c03348",
+        "executor": "local",
+        "diagnosis": {
+          "findings": [
+            {
+              "id": "f_01ffe9b68618",
+              "category": "tool_argument_schema",
+              "severity": "high",
+              "summary": "input violates its declared schema",
+              "evidence": [
+                "observed-run/d4602241e50645658debef59f12abdbb"
+              ],
+              "source": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "details": {
+                "violations": [
+                  {
+                    "path": "/quantity",
+                    "rule": "type",
+                    "message": "'3' is not of type 'integer'"
+                  }
+                ],
+                "tool": "quote"
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_2f5b24d9cf6d",
+              "category": "execution_error",
+              "severity": "high",
+              "summary": "Execution returned an error; cause requires investigation",
+              "evidence": [
+                "observed-run/d4602241e50645658debef59f12abdbb"
+              ],
+              "source": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "details": {
+                "error": "TypeError: quantity must be a nonnegative integer"
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_1e825733eba6",
+              "category": "execution_error",
+              "severity": "high",
+              "summary": "Execution returned an error; cause requires investigation",
+              "evidence": [
+                "observed-run/7c07e9b2f223469abbad85321b455b69"
+              ],
+              "source": {
+                "path": "workflow/dispatch.py",
+                "function": "execute"
+              },
+              "details": {
+                "error": "TypeError: quantity must be a nonnegative integer"
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_f0bc3d557b8d",
+              "category": "execution_error",
+              "severity": "high",
+              "summary": "Execution returned an error; cause requires investigation",
+              "evidence": [
+                "observed-run/5b2a4366b055487a8f6c4a13a023248a"
+              ],
+              "source": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "details": {
+                "error": "TypeError: quantity must be a nonnegative integer"
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_544fca4578dc",
+              "category": "validation_failure",
+              "severity": "high",
+              "summary": "Frozen target check failed: target",
+              "evidence": [
+                "validation/target"
+              ],
+              "source": {},
+              "details": {
+                "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"81f8fa3932fa4ad890d5959a2dd76445\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}], \"suite_error\": null}\r\n",
+                "stderr": ""
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "h_91edc70862ee",
+              "status": "hypothesized",
+              "summary": "Compare the caller's argument construction with the tool contract; inspect declared aliases before renaming fields.",
+              "finding_ids": [
+                "f_01ffe9b68618"
+              ],
+              "source_path": "workflow/service.py",
+              "evidence": [
+                "observed-run/d4602241e50645658debef59f12abdbb"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            },
+            {
+              "id": "h_375994a31f33",
+              "status": "hypothesized",
+              "summary": "Reproduce the error and check upstream inputs and external dependencies before changing code.",
+              "finding_ids": [
+                "f_2f5b24d9cf6d"
+              ],
+              "source_path": "workflow/service.py",
+              "evidence": [
+                "observed-run/d4602241e50645658debef59f12abdbb"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            },
+            {
+              "id": "h_ca91f2dfb353",
+              "status": "hypothesized",
+              "summary": "Reproduce the error and check upstream inputs and external dependencies before changing code.",
+              "finding_ids": [
+                "f_1e825733eba6"
+              ],
+              "source_path": "workflow/dispatch.py",
+              "evidence": [
+                "observed-run/7c07e9b2f223469abbad85321b455b69"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            },
+            {
+              "id": "h_331dfb71ae7a",
+              "status": "hypothesized",
+              "summary": "Reproduce the error and check upstream inputs and external dependencies before changing code.",
+              "finding_ids": [
+                "f_f0bc3d557b8d"
+              ],
+              "source_path": "subject.py",
+              "evidence": [
+                "observed-run/5b2a4366b055487a8f6c4a13a023248a"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            }
+          ],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 4,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": {
+          "commands": [
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"81f8fa3932fa4ad890d5959a2dd76445\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "81f8fa3932fa4ad890d5959a2dd76445",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "81f8fa3932fa4ad890d5959a2dd76445",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "error",
+                    "detail": "TypeError: quantity must be a nonnegative integer"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "error",
+                    "detail": "TypeError: quantity must be a nonnegative integer"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"edaa42680386419aa36035a36e2fb412\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "edaa42680386419aa36035a36e2fb412",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "edaa42680386419aa36035a36e2fb412",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.282,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"1d27b6ed311d48ef937fed93554c21bd\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "1d27b6ed311d48ef937fed93554c21bd",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "1d27b6ed311d48ef937fed93554c21bd",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "error",
+                    "detail": "TypeError: quantity must be a nonnegative integer"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "error",
+                    "detail": "TypeError: quantity must be a nonnegative integer"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.282,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"87d3a68e21034cfbacaa5335d2f0dde2\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "87d3a68e21034cfbacaa5335d2f0dde2",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "87d3a68e21034cfbacaa5335d2f0dde2",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "integrity_changes": [],
+          "executor": "local"
+        },
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "no_patch",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "executor_description": "Trusted local execution; file copies are not an OS security sandbox",
+        "finished_at": "2026-10-13T04:10:27.889419+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "dd7cf889d55f4229890d04ca304c5f07",
+          "parent_id": "7c07e9b2f223469abbad85321b455b69",
+          "node": "build_request",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:25.523790+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/codec.py",
+            "function": "build_request"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": {
+            "quantity": "3"
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "d4602241e50645658debef59f12abdbb",
+          "parent_id": "7c07e9b2f223469abbad85321b455b69",
+          "node": "quote",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:25.534044+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": "3"
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "quote",
+          "source": {
+            "path": "workflow/service.py",
+            "function": "quote"
+          },
+          "input": {
+            "quantity": "3"
+          },
+          "output": null,
+          "error": "TypeError: quantity must be a nonnegative integer",
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "7c07e9b2f223469abbad85321b455b69",
+          "parent_id": "5b2a4366b055487a8f6c4a13a023248a",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:25.523790+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/dispatch.py",
+            "function": "execute"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": null,
+          "error": "TypeError: quantity must be a nonnegative integer",
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "5b2a4366b055487a8f6c4a13a023248a",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:25.523790+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": null,
+          "error": "TypeError: quantity must be a nonnegative integer",
+          "duration_ms": 31.0
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "async_state_merge_fault",
+      "family": "async_state_merge",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 1,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"597e2da0c08b4984b0cbd13531e5356b\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 63}, \\\"expected\\\": {\\\"request_id\\\": \\\"held\\\", \\\"units\\\": 7, \\\"messages\\\": [\\\"a\\\", \\\"b\\\"], \\\"balance\\\": 63}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 108}, \\\"expected\\\": {\\\"request_id\\\": \\\"second\\\", \\\"units\\\": 12, \\\"extra\\\": true, \\\"balance\\\": 108}}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2"
+            ],
+            "invocation_id": "597e2da0c08b4984b0cbd13531e5356b",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "597e2da0c08b4984b0cbd13531e5356b",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "failed",
+                  "detail": "{\"actual\": {\"balance\": 63}, \"expected\": {\"request_id\": \"held\", \"units\": 7, \"messages\": [\"a\", \"b\"], \"balance\": 63}}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "failed",
+                  "detail": "{\"actual\": {\"balance\": 108}, \"expected\": {\"request_id\": \"second\", \"units\": 12, \"extra\": true, \"balance\": 108}}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.328,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"2835d1eaaf9c4724a5265f3e7b90be3f\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "2835d1eaaf9c4724a5265f3e7b90be3f",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "2835d1eaaf9c4724a5265f3e7b90be3f",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [
+          "state_invariant"
+        ],
+        "expected_categories": [
+          "state_invariant"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_fault-1\\runs\\run-33eb45a5dde3\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "no_patch",
+      "model_events": [],
+      "repair_outcome": "no_patch_generated",
+      "engine_report_sha256": "93293c05a1e7e2e5ffd8dade4a5cd2fb68c84a44e34fedac8e35ca6d69a21234",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-33eb45a5dde3",
+        "mode": "repair",
+        "status": "inconclusive",
+        "reason": "No justified patch available; configure a model or supply a narrower reproduction and source mapping",
+        "started_at": "2026-10-13T04:10:29.431482+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_fault-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_fault-1\\runs\\run-33eb45a5dde3",
+        "executor": "local",
+        "diagnosis": {
+          "findings": [
+            {
+              "id": "f_7aae1b5d94ba",
+              "category": "state_invariant",
+              "severity": "high",
+              "summary": "Configured invariant changed or disappeared: request_id",
+              "evidence": [
+                "observed-run/f9950223ee084b76b585e76ae34aabfa"
+              ],
+              "source": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "details": {
+                "key": "request_id",
+                "before": "recorded",
+                "after": null
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_544fca4578dc",
+              "category": "validation_failure",
+              "severity": "high",
+              "summary": "Frozen target check failed: target",
+              "evidence": [
+                "validation/target"
+              ],
+              "source": {},
+              "details": {
+                "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"9746c0051d3a491bb5d045eed655c80d\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 18}, \\\"expected\\\": {\\\"request_id\\\": \\\"visible\\\", \\\"units\\\": 2, \\\"balance\\\": 18}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 0}, \\\"expected\\\": {\\\"request_id\\\": \\\"zero\\\", \\\"units\\\": 0, \\\"balance\\\": 0}}\"}], \"suite_error\": null}\r\n",
+                "stderr": ""
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "h_dc8e0734d28d",
+              "status": "hypothesized",
+              "summary": "Inspect the node's state update and merge behavior for the configured invariant.",
+              "finding_ids": [
+                "f_7aae1b5d94ba"
+              ],
+              "source_path": "workflow/graph.py",
+              "evidence": [
+                "observed-run/f9950223ee084b76b585e76ae34aabfa"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            }
+          ],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 4,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": {
+          "commands": [
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.282,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"9746c0051d3a491bb5d045eed655c80d\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 18}, \\\"expected\\\": {\\\"request_id\\\": \\\"visible\\\", \\\"units\\\": 2, \\\"balance\\\": 18}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 0}, \\\"expected\\\": {\\\"request_id\\\": \\\"zero\\\", \\\"units\\\": 0, \\\"balance\\\": 0}}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "9746c0051d3a491bb5d045eed655c80d",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "9746c0051d3a491bb5d045eed655c80d",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"balance\": 18}, \"expected\": {\"request_id\": \"visible\", \"units\": 2, \"balance\": 18}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"balance\": 0}, \"expected\": {\"request_id\": \"zero\", \"units\": 0, \"balance\": 0}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.282,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"3f8a42de8ca842de81789240745f66ef\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "3f8a42de8ca842de81789240745f66ef",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "3f8a42de8ca842de81789240745f66ef",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"d4cfcabeff7447cbb8a1a7a126c7539a\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 18}, \\\"expected\\\": {\\\"request_id\\\": \\\"visible\\\", \\\"units\\\": 2, \\\"balance\\\": 18}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"balance\\\": 0}, \\\"expected\\\": {\\\"request_id\\\": \\\"zero\\\", \\\"units\\\": 0, \\\"balance\\\": 0}}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "d4cfcabeff7447cbb8a1a7a126c7539a",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "d4cfcabeff7447cbb8a1a7a126c7539a",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"balance\": 18}, \"expected\": {\"request_id\": \"visible\", \"units\": 2, \"balance\": 18}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"balance\": 0}, \"expected\": {\"request_id\": \"zero\", \"units\": 0, \"balance\": 0}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"1e73f670146c4aeea469af4185abcff3\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "1e73f670146c4aeea469af4185abcff3",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "1e73f670146c4aeea469af4185abcff3",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "integrity_changes": [],
+          "executor": "local"
+        },
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "no_patch",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "executor_description": "Trusted local execution; file copies are not an OS security sandbox",
+        "finished_at": "2026-10-13T04:10:30.837265+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "c6241f3b02b648fea35ad106ae7cbe4a",
+          "parent_id": "da66496e728f44ea827d9407d36ce4be",
+          "node": "hydrate",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:28.493135+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/ledger.py",
+            "function": "hydrate"
+          },
+          "input": {
+            "units": 3
+          },
+          "output": {
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "da66496e728f44ea827d9407d36ce4be",
+          "parent_id": "b5a732415c8e4d718b9a277fc42a8771",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:28.492135+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                {
+                  "request_id": "recorded",
+                  "units": 3,
+                  "messages": [
+                    "keep"
+                  ]
+                }
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "state": {
+              "request_id": "recorded",
+              "units": 3,
+              "messages": [
+                "keep"
+              ]
+            }
+          },
+          "output": {
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 15.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "b5a732415c8e4d718b9a277fc42a8771",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:28.491135+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "state": {
+                  "request_id": "recorded",
+                  "units": 3,
+                  "messages": [
+                    "keep"
+                  ]
+                }
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "state": {
+              "request_id": "recorded",
+              "units": 3,
+              "messages": [
+                "keep"
+              ]
+            }
+          },
+          "output": {
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 15.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "f9950223ee084b76b585e76ae34aabfa",
+          "node": "merge",
+          "kind": "node",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "state_before": {
+            "request_id": "recorded",
+            "units": 3,
+            "messages": [
+              "keep"
+            ]
+          },
+          "state_after": {
+            "balance": 27
+          },
+          "error": null
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "async_fanout_fault",
+      "family": "async_fanout",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 1,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.312,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"601d6910c2d846ffb8a62845aad77b14\", \"completed\": true, \"executed_count\": 3, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 1, \\\"value\\\": 2}, {\\\"item\\\": 2, \\\"value\\\": 4}], \\\"expected\\\": [{\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 1, \\\"value\\\": 2}, {\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}]}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": 0, \\\"value\\\": 0}], \\\"expected\\\": [{\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": 0, \\\"value\\\": 0}]}\"}, {\"id\": \"target:3\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 11, \\\"value\\\": 22}], \\\"expected\\\": [{\\\"item\\\": 11, \\\"value\\\": 22}]}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3"
+            ],
+            "invocation_id": "601d6910c2d846ffb8a62845aad77b14",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "601d6910c2d846ffb8a62845aad77b14",
+              "completed": true,
+              "executed_count": 3,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "failed",
+                  "detail": "{\"actual\": [{\"item\": 7, \"value\": 14}, {\"item\": 1, \"value\": 2}, {\"item\": 2, \"value\": 4}], \"expected\": [{\"item\": 7, \"value\": 14}, {\"item\": 1, \"value\": 2}, {\"item\": 7, \"value\": 14}, {\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}]}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "failed",
+                  "detail": "{\"actual\": [{\"item\": -3, \"value\": -6}, {\"item\": 0, \"value\": 0}], \"expected\": [{\"item\": -3, \"value\": -6}, {\"item\": -3, \"value\": -6}, {\"item\": 0, \"value\": 0}]}"
+                },
+                {
+                  "id": "target:3",
+                  "status": "passed",
+                  "detail": "{\"actual\": [{\"item\": 11, \"value\": 22}], \"expected\": [{\"item\": 11, \"value\": 22}]}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.266,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"568e7d23f05d46fa89bc989650ec5f71\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "568e7d23f05d46fa89bc989650ec5f71",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "568e7d23f05d46fa89bc989650ec5f71",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [
+          "other"
+        ],
+        "correct": false,
+        "localized": false,
+        "binary_outcome": "fn"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_fault-1\\runs\\run-7e33baf48b84\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "no_patch",
+      "model_events": [],
+      "repair_outcome": "no_patch_generated",
+      "engine_report_sha256": "ac9f7a67a9bd348fe0ff15c47d2c500e8ed98853c6bf86c03b294cde89130193",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-7e33baf48b84",
+        "mode": "repair",
+        "status": "inconclusive",
+        "reason": "No justified patch available; configure a model or supply a narrower reproduction and source mapping",
+        "started_at": "2026-10-13T04:10:32.311794+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_fault-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_fault-1\\runs\\run-7e33baf48b84",
+        "executor": "local",
+        "diagnosis": {
+          "findings": [
+            {
+              "id": "f_490285bfc876",
+              "category": "task_assertion",
+              "severity": "high",
+              "summary": "Task assertion failed: one result per requested item",
+              "evidence": [
+                "observed-run/1ee7c97764114ba894d32562a141b62c"
+              ],
+              "source": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "details": {
+                "assertion": {
+                  "name": "one result per requested item",
+                  "passed": false,
+                  "expected": 3,
+                  "actual": 2
+                }
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_544fca4578dc",
+              "category": "validation_failure",
+              "severity": "high",
+              "summary": "Frozen target check failed: target",
+              "evidence": [
+                "validation/target"
+              ],
+              "source": {},
+              "details": {
+                "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e77938345b78486e8546c73f2ed91b14\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}], \\\"expected\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}]}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [], \\\"expected\\\": []}\"}], \"suite_error\": null}\r\n",
+                "stderr": ""
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "h_358a37f33903",
+              "status": "hypothesized",
+              "summary": "Trace the failed business assertion back to the step that first produced an incorrect value.",
+              "finding_ids": [
+                "f_490285bfc876"
+              ],
+              "source_path": "workflow/graph.py",
+              "evidence": [
+                "observed-run/1ee7c97764114ba894d32562a141b62c"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            }
+          ],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 6,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": {
+          "commands": [
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.297,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e77938345b78486e8546c73f2ed91b14\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}], \\\"expected\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}]}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [], \\\"expected\\\": []}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "e77938345b78486e8546c73f2ed91b14",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "e77938345b78486e8546c73f2ed91b14",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": [{\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}], \"expected\": [{\"item\": 2, \"value\": 4}, {\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}]}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": [], \"expected\": []}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"dfe1b7eb36764ac89c0dcc74520076ed\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "dfe1b7eb36764ac89c0dcc74520076ed",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "dfe1b7eb36764ac89c0dcc74520076ed",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.312,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"b668373f78ed42109780eaf586e32f16\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}], \\\"expected\\\": [{\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}]}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [], \\\"expected\\\": []}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "b668373f78ed42109780eaf586e32f16",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "b668373f78ed42109780eaf586e32f16",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": [{\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}], \"expected\": [{\"item\": 2, \"value\": 4}, {\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}]}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": [], \"expected\": []}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"74d668137105408bb72a3fd3a16e0ec9\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "74d668137105408bb72a3fd3a16e0ec9",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "74d668137105408bb72a3fd3a16e0ec9",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "integrity_changes": [],
+          "executor": "local"
+        },
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "no_patch",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "executor_description": "Trusted local execution; file copies are not an OS security sandbox",
+        "finished_at": "2026-10-13T04:10:33.772655+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "18490588bf964189aa13c61a19d5f7d1",
+          "parent_id": "b996121473d84ffcadac05e524167e36",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:31.404893+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 3
+          },
+          "output": {
+            "item": 3,
+            "value": 6
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "0145b9055a394881a6c7c277b51ffc12",
+          "parent_id": "b996121473d84ffcadac05e524167e36",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:31.404893+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 3
+          },
+          "output": {
+            "item": 3,
+            "value": 6
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "d4b86fb4f6c2422f9825a6ca1b0eeaaf",
+          "parent_id": "b996121473d84ffcadac05e524167e36",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:31.404893+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 1
+          },
+          "output": {
+            "item": 1,
+            "value": 2
+          },
+          "error": null,
+          "duration_ms": 31.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "b996121473d84ffcadac05e524167e36",
+          "parent_id": "7a8db6dbc97047eca46aa90d0767469f",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:31.403894+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                [
+                  3,
+                  3,
+                  1
+                ]
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "error": null,
+          "duration_ms": 31.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "7a8db6dbc97047eca46aa90d0767469f",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:31.403894+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "items": [
+                  3,
+                  3,
+                  1
+                ]
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "error": null,
+          "duration_ms": 47.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "1ee7c97764114ba894d32562a141b62c",
+          "node": "completion",
+          "kind": "task",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "assertions": [
+            {
+              "name": "one result per requested item",
+              "passed": false,
+              "expected": 3,
+              "actual": 2
+            }
+          ]
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "nested_retry_fault",
+      "family": "nested_retry",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 1,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.296,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"a8d38fda1182485f8a3454810e3570aa\", \"completed\": true, \"executed_count\": 4, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 2}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 4}}\"}, {\"id\": \"target:3\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 5}}\"}, {\"id\": \"target:4\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": false, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": false, \\\"calls\\\": 5}}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3",
+              "target:4"
+            ],
+            "invocation_id": "a8d38fda1182485f8a3454810e3570aa",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "a8d38fda1182485f8a3454810e3570aa",
+              "completed": true,
+              "executed_count": 4,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "failed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 2}}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "failed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 4}}"
+                },
+                {
+                  "id": "target:3",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 5}}"
+                },
+                {
+                  "id": "target:4",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": false, \"calls\": 5}, \"expected\": {\"done\": false, \"calls\": 5}}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.281,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"459b67132a224f7c94f5bba6622d8baf\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "459b67132a224f7c94f5bba6622d8baf",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "459b67132a224f7c94f5bba6622d8baf",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [
+          "possible_loop"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_fault-1\\runs\\run-76c667b85a4c\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "no_patch",
+      "model_events": [],
+      "repair_outcome": "no_patch_generated",
+      "engine_report_sha256": "7c9d22e6406c315cf393bd5568930a35a1881ef85843ab72905b3ace9c667585",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-76c667b85a4c",
+        "mode": "repair",
+        "status": "inconclusive",
+        "reason": "No justified patch available; configure a model or supply a narrower reproduction and source mapping",
+        "started_at": "2026-10-13T04:10:35.368063+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_fault-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_fault-1\\runs\\run-76c667b85a4c",
+        "executor": "local",
+        "diagnosis": {
+          "findings": [
+            {
+              "id": "f_49458bbde65c",
+              "category": "possible_loop",
+              "severity": "medium",
+              "summary": "Repeated identical tool outcomes suggest a loop; intentional polling is also possible",
+              "evidence": [
+                "observed-run/1bcde1034e494230afa99a71a8139abf",
+                "observed-run/62cd3e60d3bd4fa490ddf838fd840952",
+                "observed-run/d79e015423b94b6aa6d7f06908862b07"
+              ],
+              "source": {
+                "path": "workflow/graph.py",
+                "function": "step"
+              },
+              "details": {},
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            },
+            {
+              "id": "f_544fca4578dc",
+              "category": "validation_failure",
+              "severity": "high",
+              "summary": "Frozen target check failed: target",
+              "evidence": [
+                "validation/target"
+              ],
+              "source": {},
+              "details": {
+                "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e17d927abfc04595b66088d3d28d4016\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 1}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": false, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": false, \\\"calls\\\": 5}}\"}], \"suite_error\": null}\r\n",
+                "stderr": ""
+              },
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "h_8af4a7011c57",
+              "status": "hypothesized",
+              "summary": "Check termination, retry counters, and whether state makes progress; polling alone is not proof of a defect.",
+              "finding_ids": [
+                "f_49458bbde65c"
+              ],
+              "source_path": "workflow/graph.py",
+              "evidence": [
+                "observed-run/1bcde1034e494230afa99a71a8139abf",
+                "observed-run/62cd3e60d3bd4fa490ddf838fd840952",
+                "observed-run/d79e015423b94b6aa6d7f06908862b07"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            }
+          ],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 12,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": {
+          "commands": [
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e17d927abfc04595b66088d3d28d4016\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 1}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": false, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": false, \\\"calls\\\": 5}}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "e17d927abfc04595b66088d3d28d4016",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "e17d927abfc04595b66088d3d28d4016",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 1}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"done\": false, \"calls\": 5}, \"expected\": {\"done\": false, \"calls\": 5}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.281,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"3a1ec2e49e074fc9b6afd4d4701c75a3\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 1,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "3a1ec2e49e074fc9b6afd4d4701c75a3",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "3a1ec2e49e074fc9b6afd4d4701c75a3",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 1,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.297,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"8221ebd67692407f9c3387dd44f80c18\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 1}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": false, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": false, \\\"calls\\\": 5}}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "target",
+              "kind": "target",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "target"
+              ],
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "8221ebd67692407f9c3387dd44f80c18",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "8221ebd67692407f9c3387dd44f80c18",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "failed",
+                    "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 1}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"done\": false, \"calls\": 5}, \"expected\": {\"done\": false, \"calls\": 5}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "returncode": 0,
+              "timed_out": false,
+              "error": null,
+              "duration_seconds": 0.265,
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"24dd471f07f844fcb95c54aa72726440\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 14, \\\"expected\\\": 14}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 5, \\\"expected\\\": 5}\"}], \"suite_error\": null}\r\n",
+              "stdout_truncated": false,
+              "stderr": "",
+              "stderr_truncated": false,
+              "name": "regression",
+              "kind": "regression",
+              "repetition": 2,
+              "argv": [
+                "{python}",
+                "-m",
+                "evaluator",
+                "regression"
+              ],
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "24dd471f07f844fcb95c54aa72726440",
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "24dd471f07f844fcb95c54aa72726440",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 5, \"expected\": 5}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "integrity_changes": [],
+          "executor": "local"
+        },
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "no_patch",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "executor_description": "Trusted local execution; file copies are not an OS security sandbox",
+        "finished_at": "2026-10-13T04:10:36.774781+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "1bcde1034e494230afa99a71a8139abf",
+          "parent_id": "f5690e94678e4fd3aa914f3910bdbd9b",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:34.334015+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "f5690e94678e4fd3aa914f3910bdbd9b",
+          "parent_id": "e20e8586864046d78a80444b26b41959",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.334015+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "62cd3e60d3bd4fa490ddf838fd840952",
+          "parent_id": "2359bccdf9a345a2a9392d76d19b6484",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:34.353073+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "2359bccdf9a345a2a9392d76d19b6484",
+          "parent_id": "e20e8586864046d78a80444b26b41959",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.353073+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "d79e015423b94b6aa6d7f06908862b07",
+          "parent_id": "bed10345d9a64e418b662f9916fb60de",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:34.372626+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "bed10345d9a64e418b662f9916fb60de",
+          "parent_id": "e20e8586864046d78a80444b26b41959",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.372247+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 15.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "9d7c0f80481d4ea2b2e507cf6193b292",
+          "parent_id": "c6ce9108a6e240d08975906acf1bedb3",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:34.390417+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "c6ce9108a6e240d08975906acf1bedb3",
+          "parent_id": "e20e8586864046d78a80444b26b41959",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.390417+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "0fb2c0a303df4dea9555ec35a03889ce",
+          "parent_id": "4a556f3eb7d4420293eaff39c5854bd1",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:34.408836+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "4a556f3eb7d4420293eaff39c5854bd1",
+          "parent_id": "e20e8586864046d78a80444b26b41959",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.408836+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "e20e8586864046d78a80444b26b41959",
+          "parent_id": "98ae1ec1085f4082b5919e42416fd6c8",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.334015+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true,
+            "calls": 5
+          },
+          "error": null,
+          "duration_ms": 93.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "98ae1ec1085f4082b5919e42416fd6c8",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:34.333017+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "ready_after": 1
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "ready_after": 1
+          },
+          "output": {
+            "done": true,
+            "calls": 5
+          },
+          "error": null,
+          "duration_ms": 109.0
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "dependency_contract_control",
+      "family": "dependency_contract",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"670ae240f46544a1ac78860581ddd254\", \"completed\": true, \"executed_count\": 3, \"results\": [{\"id\": \"target:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 49, \\\"expected\\\": 49}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 77, \\\"expected\\\": 77}\"}, {\"id\": \"target:3\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 133, \\\"expected\\\": 133}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3"
+            ],
+            "invocation_id": "670ae240f46544a1ac78860581ddd254",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "670ae240f46544a1ac78860581ddd254",
+              "completed": true,
+              "executed_count": 3,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 49, \"expected\": 49}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": 77, \"expected\": 77}"
+                },
+                {
+                  "id": "target:3",
+                  "status": "passed",
+                  "detail": "{\"actual\": 133, \"expected\": 133}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.313,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"b1b28d35e1b14eaf9d7beca14bae01bb\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "b1b28d35e1b14eaf9d7beca14bae01bb",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "b1b28d35e1b14eaf9d7beca14bae01bb",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_control-1\\runs\\run-c7b004e356f1\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "not_started",
+      "model_events": [],
+      "repair_outcome": "not_applicable",
+      "engine_report_sha256": "a1a0d049cbfddeddb11bd941cf977d6e3155c571537b4ad6406c3ddda3ad1c90",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-c7b004e356f1",
+        "mode": "diagnose",
+        "status": "inconclusive",
+        "reason": "No issues detected in the available evidence; this is not a health certification",
+        "started_at": "2026-10-13T04:10:38.304120+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_control-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\dependency_contract_control-1\\runs\\run-c7b004e356f1",
+        "executor": "none",
+        "diagnosis": {
+          "findings": [],
+          "hypotheses": [],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 4,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": null,
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "not_started",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "finished_at": "2026-10-13T04:10:38.471899+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "1a0f16f9bdac4f8ca26afd228dfe93e3",
+          "parent_id": "fed50f4bced047abb448f7085ce46828",
+          "node": "build_request",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:37.346030+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/codec.py",
+            "function": "build_request"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": {
+            "quantity": 3
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "c2004d6f70434aef820c64acf9e7b1e9",
+          "parent_id": "fed50f4bced047abb448f7085ce46828",
+          "node": "quote",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:37.354881+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "quote",
+          "source": {
+            "path": "workflow/service.py",
+            "function": "quote"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": 21,
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "fed50f4bced047abb448f7085ce46828",
+          "parent_id": "408b86b00b3f46d8b3fc604cac15e538",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:37.346030+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/dispatch.py",
+            "function": "execute"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": 21,
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "408b86b00b3f46d8b3fc604cac15e538",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:37.346030+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": 21,
+          "error": null,
+          "duration_ms": 31.0
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "async_state_merge_control",
+      "family": "async_state_merge",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.281,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"a4dd4bf7dd00400d992234681245607f\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"request_id\\\": \\\"held\\\", \\\"units\\\": 7, \\\"messages\\\": [\\\"a\\\", \\\"b\\\"], \\\"balance\\\": 63}, \\\"expected\\\": {\\\"request_id\\\": \\\"held\\\", \\\"units\\\": 7, \\\"messages\\\": [\\\"a\\\", \\\"b\\\"], \\\"balance\\\": 63}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"request_id\\\": \\\"second\\\", \\\"units\\\": 12, \\\"extra\\\": true, \\\"balance\\\": 108}, \\\"expected\\\": {\\\"request_id\\\": \\\"second\\\", \\\"units\\\": 12, \\\"extra\\\": true, \\\"balance\\\": 108}}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2"
+            ],
+            "invocation_id": "a4dd4bf7dd00400d992234681245607f",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "a4dd4bf7dd00400d992234681245607f",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"request_id\": \"held\", \"units\": 7, \"messages\": [\"a\", \"b\"], \"balance\": 63}, \"expected\": {\"request_id\": \"held\", \"units\": 7, \"messages\": [\"a\", \"b\"], \"balance\": 63}}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"request_id\": \"second\", \"units\": 12, \"extra\": true, \"balance\": 108}, \"expected\": {\"request_id\": \"second\", \"units\": 12, \"extra\": true, \"balance\": 108}}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.281,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"1724a07c189948239d61493681809fd3\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "1724a07c189948239d61493681809fd3",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "1724a07c189948239d61493681809fd3",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_control-1\\runs\\run-87624d1b67b1\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "not_started",
+      "model_events": [],
+      "repair_outcome": "not_applicable",
+      "engine_report_sha256": "d4b7e8238aa28a702c59513b278284f6697b81d8d10a30c070442bd5d10569da",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-87624d1b67b1",
+        "mode": "diagnose",
+        "status": "inconclusive",
+        "reason": "No issues detected in the available evidence; this is not a health certification",
+        "started_at": "2026-10-13T04:10:39.849724+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_control-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_state_merge_control-1\\runs\\run-87624d1b67b1",
+        "executor": "none",
+        "diagnosis": {
+          "findings": [],
+          "hypotheses": [],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 4,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": null,
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "not_started",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "finished_at": "2026-10-13T04:10:39.974812+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "f80727b74ca8445097ce4ee520beabe8",
+          "parent_id": "a68ee74bc79d4c0f9fe8e3a65ebda303",
+          "node": "hydrate",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:39.008264+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/ledger.py",
+            "function": "hydrate"
+          },
+          "input": {
+            "units": 3
+          },
+          "output": {
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "a68ee74bc79d4c0f9fe8e3a65ebda303",
+          "parent_id": "d0382ddcf7fa47f587d8c8ba1a9d5806",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:39.008264+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                {
+                  "request_id": "recorded",
+                  "units": 3,
+                  "messages": [
+                    "keep"
+                  ]
+                }
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "state": {
+              "request_id": "recorded",
+              "units": 3,
+              "messages": [
+                "keep"
+              ]
+            }
+          },
+          "output": {
+            "request_id": "recorded",
+            "units": 3,
+            "messages": [
+              "keep"
+            ],
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "d0382ddcf7fa47f587d8c8ba1a9d5806",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:39.008264+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "state": {
+                  "request_id": "recorded",
+                  "units": 3,
+                  "messages": [
+                    "keep"
+                  ]
+                }
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "state": {
+              "request_id": "recorded",
+              "units": 3,
+              "messages": [
+                "keep"
+              ]
+            }
+          },
+          "output": {
+            "request_id": "recorded",
+            "units": 3,
+            "messages": [
+              "keep"
+            ],
+            "balance": 27
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "1c980c8af2844b50abfaec53d7009334",
+          "node": "merge",
+          "kind": "node",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "state_before": {
+            "request_id": "recorded",
+            "units": 3,
+            "messages": [
+              "keep"
+            ]
+          },
+          "state_after": {
+            "request_id": "recorded",
+            "units": 3,
+            "messages": [
+              "keep"
+            ],
+            "balance": 27
+          },
+          "error": null
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "async_fanout_control",
+      "family": "async_fanout",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.328,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"e6a9e641c51943b6832437684ba175ce\", \"completed\": true, \"executed_count\": 3, \"results\": [{\"id\": \"target:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 1, \\\"value\\\": 2}, {\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}], \\\"expected\\\": [{\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 1, \\\"value\\\": 2}, {\\\"item\\\": 7, \\\"value\\\": 14}, {\\\"item\\\": 2, \\\"value\\\": 4}, {\\\"item\\\": 1, \\\"value\\\": 2}]}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": 0, \\\"value\\\": 0}], \\\"expected\\\": [{\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": -3, \\\"value\\\": -6}, {\\\"item\\\": 0, \\\"value\\\": 0}]}\"}, {\"id\": \"target:3\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": [{\\\"item\\\": 11, \\\"value\\\": 22}], \\\"expected\\\": [{\\\"item\\\": 11, \\\"value\\\": 22}]}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3"
+            ],
+            "invocation_id": "e6a9e641c51943b6832437684ba175ce",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "e6a9e641c51943b6832437684ba175ce",
+              "completed": true,
+              "executed_count": 3,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": [{\"item\": 7, \"value\": 14}, {\"item\": 1, \"value\": 2}, {\"item\": 7, \"value\": 14}, {\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}], \"expected\": [{\"item\": 7, \"value\": 14}, {\"item\": 1, \"value\": 2}, {\"item\": 7, \"value\": 14}, {\"item\": 2, \"value\": 4}, {\"item\": 1, \"value\": 2}]}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": [{\"item\": -3, \"value\": -6}, {\"item\": -3, \"value\": -6}, {\"item\": 0, \"value\": 0}], \"expected\": [{\"item\": -3, \"value\": -6}, {\"item\": -3, \"value\": -6}, {\"item\": 0, \"value\": 0}]}"
+                },
+                {
+                  "id": "target:3",
+                  "status": "passed",
+                  "detail": "{\"actual\": [{\"item\": 11, \"value\": 22}], \"expected\": [{\"item\": 11, \"value\": 22}]}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"68231b9635894676a29d1b6781889cc1\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "68231b9635894676a29d1b6781889cc1",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "68231b9635894676a29d1b6781889cc1",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_control-1\\runs\\run-e0a88fd5e2a2\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "not_started",
+      "model_events": [],
+      "repair_outcome": "not_applicable",
+      "engine_report_sha256": "50e88d07c63d924c2b65d71753f1893a3213bcaed3892d148177772b95da6069",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-e0a88fd5e2a2",
+        "mode": "diagnose",
+        "status": "inconclusive",
+        "reason": "No issues detected in the available evidence; this is not a health certification",
+        "started_at": "2026-10-13T04:10:41.476783+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_control-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\async_fanout_control-1\\runs\\run-e0a88fd5e2a2",
+        "executor": "none",
+        "diagnosis": {
+          "findings": [],
+          "hypotheses": [],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 6,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": null,
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "not_started",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "finished_at": "2026-10-13T04:10:41.605723+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "db9fcd0d01d34810a35f8451769ad7b2",
+          "parent_id": "737930ad91ee4285884da78a7e29d359",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:40.502012+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 3
+          },
+          "output": {
+            "item": 3,
+            "value": 6
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "66308cd51f4946e49ac2955768dae7cc",
+          "parent_id": "737930ad91ee4285884da78a7e29d359",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:40.502012+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                3
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 3
+          },
+          "output": {
+            "item": 3,
+            "value": 6
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "075bc67326c64657bfedf57778bcc4da",
+          "parent_id": "737930ad91ee4285884da78a7e29d359",
+          "node": "fetch",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:40.502012+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                1
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "fetch",
+          "source": {
+            "path": "workflow/worker.py",
+            "function": "fetch"
+          },
+          "input": {
+            "item": 1
+          },
+          "output": {
+            "item": 1,
+            "value": 2
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "737930ad91ee4285884da78a7e29d359",
+          "parent_id": "a4f0ce68440547eebd1b3eb6cd1f1774",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:40.502012+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                [
+                  3,
+                  3,
+                  1
+                ]
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "a4f0ce68440547eebd1b3eb6cd1f1774",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:40.502012+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "items": [
+                  3,
+                  3,
+                  1
+                ]
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "error": null,
+          "duration_ms": 32.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "e2648e7de4604563ab97423d065cdd4b",
+          "node": "completion",
+          "kind": "task",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "items": [
+              3,
+              3,
+              1
+            ]
+          },
+          "output": [
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 3,
+              "value": 6
+            },
+            {
+              "item": 1,
+              "value": 2
+            }
+          ],
+          "assertions": [
+            {
+              "name": "one result per requested item",
+              "passed": true,
+              "expected": 3,
+              "actual": 3
+            }
+          ]
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    },
+    {
+      "case_id": "nested_retry_control",
+      "family": "nested_retry",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "candidates": [],
+      "repair_success": false,
+      "delivery_evaluated": false,
+      "heldout_baseline": {
+        "commands": [
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.297,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"10f86562ac08458290cc5f9d894d8e6b\", \"completed\": true, \"executed_count\": 4, \"results\": [{\"id\": \"target:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 2}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 2}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 4}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 4}}\"}, {\"id\": \"target:3\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": true, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": true, \\\"calls\\\": 5}}\"}, {\"id\": \"target:4\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"done\\\": false, \\\"calls\\\": 5}, \\\"expected\\\": {\\\"done\\\": false, \\\"calls\\\": 5}}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_target",
+            "kind": "target",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "target"
+            ],
+            "expected_cases": [
+              "target:1",
+              "target:2",
+              "target:3",
+              "target:4"
+            ],
+            "invocation_id": "10f86562ac08458290cc5f9d894d8e6b",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "10f86562ac08458290cc5f9d894d8e6b",
+              "completed": true,
+              "executed_count": 4,
+              "results": [
+                {
+                  "id": "target:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 2}, \"expected\": {\"done\": true, \"calls\": 2}}"
+                },
+                {
+                  "id": "target:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 4}, \"expected\": {\"done\": true, \"calls\": 4}}"
+                },
+                {
+                  "id": "target:3",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": true, \"calls\": 5}, \"expected\": {\"done\": true, \"calls\": 5}}"
+                },
+                {
+                  "id": "target:4",
+                  "status": "passed",
+                  "detail": "{\"actual\": {\"done\": false, \"calls\": 5}, \"expected\": {\"done\": false, \"calls\": 5}}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          },
+          {
+            "returncode": 0,
+            "timed_out": false,
+            "error": null,
+            "duration_seconds": 0.266,
+            "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"30f4790ed1c141e487970c0c52fe4d57\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"regression:1\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": 41, \\\"expected\\\": 41}\"}, {\"id\": \"regression:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": -13, \\\"expected\\\": -13}\"}], \"suite_error\": null}\r\n",
+            "stdout_truncated": false,
+            "stderr": "",
+            "stderr_truncated": false,
+            "name": "heldout_regression",
+            "kind": "regression",
+            "repetition": 1,
+            "argv": [
+              "{python}",
+              "_heldout_runner.py",
+              "regression"
+            ],
+            "expected_cases": [
+              "regression:1",
+              "regression:2"
+            ],
+            "invocation_id": "30f4790ed1c141e487970c0c52fe4d57",
+            "completion": {
+              "schema_version": 1,
+              "invocation_id": "30f4790ed1c141e487970c0c52fe4d57",
+              "completed": true,
+              "executed_count": 2,
+              "results": [
+                {
+                  "id": "regression:1",
+                  "status": "passed",
+                  "detail": "{\"actual\": 41, \"expected\": 41}"
+                },
+                {
+                  "id": "regression:2",
+                  "status": "passed",
+                  "detail": "{\"actual\": -13, \"expected\": -13}"
+                }
+              ],
+              "suite_error": null
+            },
+            "completion_error": null
+          }
+        ],
+        "integrity_changes": [],
+        "executor": "local"
+      },
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [],
+        "correct": false,
+        "localized": null,
+        "binary_outcome": "fp"
+      },
+      "engine_status": "diagnosed",
+      "engine_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_control-1\\runs\\run-b4da715cb6af\\report.json",
+      "delivered": false,
+      "model": {
+        "provider": "none"
+      },
+      "repair_termination": "not_started",
+      "model_events": [],
+      "repair_outcome": "not_applicable",
+      "engine_report_sha256": "8b554754d6857682c74c30dd1d67c004c7c1c2ff17db5e0903a5e37dd1e9a8ee",
+      "engine": {
+        "schema_version": 1,
+        "run_id": "run-b4da715cb6af",
+        "mode": "diagnose",
+        "status": "diagnosed",
+        "reason": "Findings and root-cause hypotheses recorded; no target code was executed",
+        "started_at": "2026-10-13T04:10:43.181498+00:00",
+        "project": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_control-1\\project",
+        "workspace": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\nested_retry_control-1\\runs\\run-b4da715cb6af",
+        "executor": "none",
+        "diagnosis": {
+          "findings": [
+            {
+              "id": "f_74ddd44887fc",
+              "category": "possible_loop",
+              "severity": "medium",
+              "summary": "Repeated identical tool outcomes suggest a loop; intentional polling is also possible",
+              "evidence": [
+                "observed-run/e9e9afe8248848b69a55ec1de4bbccd4",
+                "observed-run/487b7cd14d324ded92961cb04e00e972",
+                "observed-run/7fe7c84e742041ddb26f682c4fa31400"
+              ],
+              "source": {
+                "path": "workflow/graph.py",
+                "function": "step"
+              },
+              "details": {},
+              "origin": "rule",
+              "causal_status": "unconfirmed"
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "h_8af4a7011c57",
+              "status": "hypothesized",
+              "summary": "Check termination, retry counters, and whether state makes progress; polling alone is not proof of a defect.",
+              "finding_ids": [
+                "f_74ddd44887fc"
+              ],
+              "source_path": "workflow/graph.py",
+              "evidence": [
+                "observed-run/e9e9afe8248848b69a55ec1de4bbccd4",
+                "observed-run/487b7cd14d324ded92961cb04e00e972",
+                "observed-run/7fe7c84e742041ddb26f682c4fa31400"
+              ],
+              "occurrences": 1,
+              "origin": "rule"
+            }
+          ],
+          "trace_comparisons": [],
+          "observations": [],
+          "coverage": {
+            "spans": 12,
+            "semantic_checks": "not_run",
+            "source_checks": "Python AST only"
+          }
+        },
+        "baseline": null,
+        "attempts": [],
+        "verified_patch": null,
+        "warnings": [],
+        "repair_termination": "not_started",
+        "model_events": [],
+        "model": {
+          "provider": "none"
+        },
+        "scope": "Verification applies only to the configured checks and repetitions; it does not prove universal correctness.",
+        "stage": "finished",
+        "finished_at": "2026-10-13T04:10:43.311287+00:00"
+      },
+      "traces": [
+        {
+          "run_id": "observed-run",
+          "span_id": "e9e9afe8248848b69a55ec1de4bbccd4",
+          "parent_id": "aee22fcebbb84063855ab75828c02724",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:42.140116+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "aee22fcebbb84063855ab75828c02724",
+          "parent_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.140116+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "487b7cd14d324ded92961cb04e00e972",
+          "parent_id": "fecbc9eb90424a64a51c9d3b8a525efe",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:42.160197+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "fecbc9eb90424a64a51c9d3b8a525efe",
+          "parent_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.160197+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "7fe7c84e742041ddb26f682c4fa31400",
+          "parent_id": "ad23fb63874649169b7d9f6ce4712ef1",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:42.179987+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "ad23fb63874649169b7d9f6ce4712ef1",
+          "parent_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.179987+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "78b8896ae7054eed963b7144e4c59195",
+          "parent_id": "b28774a63cf84668bce834d89114fb3e",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:42.198849+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "b28774a63cf84668bce834d89114fb3e",
+          "parent_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.198849+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "f37ad689fee24fc68bd85461b1370361",
+          "parent_id": "31abb1584f8d406bbff6bd3a2a4a219b",
+          "node": "status",
+          "kind": "tool",
+          "timestamp": "2026-10-13T04:10:42.218398+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "status",
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "31abb1584f8d406bbff6bd3a2a4a219b",
+          "parent_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "node": "step",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.218398+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "step"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 15.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "195e2c48537c4f6c8654a1f0a9d95c95",
+          "parent_id": "ed1572a68de4479494a3d0423a8cbe2a",
+          "node": "execute",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.140116+00:00",
+          "metadata": {
+            "call": {
+              "args": [
+                99
+              ],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "workflow/graph.py",
+            "function": "execute"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false,
+            "calls": 5
+          },
+          "error": null,
+          "duration_ms": 110.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "ed1572a68de4479494a3d0423a8cbe2a",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T04:10:42.140116+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "ready_after": 99
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "ready_after": 99
+          },
+          "output": {
+            "done": false,
+            "calls": 5
+          },
+          "error": null,
+          "duration_ms": 125.0
+        }
+      ],
+      "model_requests": [],
+      "patches": []
+    }
+  ],
+  "complete": true,
+  "planned_cases": 8,
+  "limitations": [
+    "Synthetic integration cases, not a production accuracy estimate.",
+    "Prompt cases use a deterministic response simulator, not a live target LLM.",
+    "Labels and held-out cases are never passed to the repair model.",
+    "A low candidate regression rate is not evidence of broad repair coverage.",
+    "Completion evidence assumes trusted evaluators, not hostile in-process report forgery."
+  ],
+  "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+  "dataset_lock_verified": true,
+  "repair_strategy": "declared_alias_then_model",
+  "provider_metadata": {},
+  "implementation_hash": "393108d5c2c37b9df4de3e50b876e42c79857e64e93375f94ec0d8990d792c67",
+  "metrics": {
+    "scheduled_cases": 8,
+    "measured_cases": 8,
+    "invalid_or_incomplete_cases": 0,
+    "diagnosed_cases": 8,
+    "repair_measured_cases": 4,
+    "diagnosis_accuracy": {
+      "numerator": 5,
+      "denominator": 8,
+      "value": 0.625
+    },
+    "binary_detection_accuracy": {
+      "numerator": 6,
+      "denominator": 8,
+      "value": 0.75
+    },
+    "detection_precision": {
+      "numerator": 3,
+      "denominator": 4,
+      "value": 0.75
+    },
+    "detection_recall": {
+      "numerator": 3,
+      "denominator": 4,
+      "value": 0.75
+    },
+    "repair_success_rate": {
+      "numerator": 0,
+      "denominator": 4,
+      "value": 0.0
+    },
+    "candidate_regression_failure_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "candidate_count": 0,
+    "incomplete_candidates": 0,
+    "delivered_count": 0,
+    "unassessed_deliveries": 0,
+    "false_verified_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "confusion": {
+      "tp": 3,
+      "tn": 3,
+      "fp": 1,
+      "fn": 1
+    }
+  },
+  "repair_breakdown": {
+    "faulty_cases": 4,
+    "case_outcomes": {
+      "no_patch_generated": 4,
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 0,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_attempts": 0,
+    "candidate_outcomes": {
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 0,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_origins": {
+      "model": 0,
+      "declared_alias": 0,
+      "unknown": 0
+    }
+  },
+  "by_family": {
+    "async_fanout": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "binary_detection_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_precision": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "detection_recall": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "incomplete_candidates": 0,
+      "delivered_count": 0,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 0,
+        "tn": 1,
+        "fp": 0,
+        "fn": 1
+      }
+    },
+    "async_state_merge": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "incomplete_candidates": 0,
+      "delivered_count": 0,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "dependency_contract": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "incomplete_candidates": 0,
+      "delivered_count": 0,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "nested_retry": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "binary_detection_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "incomplete_candidates": 0,
+      "delivered_count": 0,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 0,
+        "fp": 1,
+        "fn": 0
+      }
+    }
+  },
+  "finished_at": "2026-10-13T04:10:43.341234+00:00",
+  "implementation_unchanged": true,
+  "source_report": "C:\\Users\\86158\\Desktop\\codex123\\agent修修修\\artifacts\\workflow-preflight-v050\\benchmark-8643b593ae17\\benchmark.json",
+  "source_report_sha256": "e3e397252e9946d5ada615651828378ff8ec25844f32724a3acc520f35c89c51",
+  "implementation_manifest": {
+    "__init__.py": "1f125897db582948b17d9dcf17746a5f59eb19c0c93fa10ee6a5df6bfa9a0674",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analysis.py": "8f865cfa41f148750686a2d22a01de53c08aeaa592d4c734e026839ab8ff21e7",
+    "benchmark.py": "95b5590700574e6e25d485466aa635463c464997342cfc2ae8b2b2a114175019",
+    "benchmark_collect.py": "b91b72c6f66b3cd6df66f61e68d1fe1e0ea193bf89c3c0596e949d768ea6d222",
+    "benchmark_oracle.py": "5eaef5d260c12d32f29c63e42b9da802e1684f9e9ff1452849d71ac582902f4d",
+    "cli.py": "755b3717434e50b20f5d4e29f672c1ca2619f51bf005787edfc98e1aaa011871",
+    "codex_cli.py": "45b1bb956ccb5071f993ce67602dbcc56c6c99ed46c5687d59d90d5d21157063",
+    "contracts.py": "ca31f6dbab516e38139cb802a0696342c7623495d32a77a0d61ef994a11bdb96",
+    "core.py": "b80949d0cbfb1557da79ae2306a19e097f00ab6af195dec1308ad7d2e9821f0c",
+    "dependencies.py": "30c6bb042b1efe78b6382c69a426557599d3fb93ba18b8312d5511b8e007e615",
+    "detectors.py": "e02493de7b74faa98fce40461217ca06afe325d3fdf280149acf1364b0f16dc5",
+    "engine.py": "c053ab6fd0024c01f29a2f3a69abc58ed64c0a1f32202d7c0eb505a88886fd72",
+    "evidence.py": "fac00d77ab1faa6294e544106867903c93383301786e5147489404ec595736dc",
+    "export_schemas.py": "c8cc4e3438a1256cb085bf609156be23ef20f464932d90fcc5e979b86e43645e",
+    "model.py": "48e1e50ee856f16ee00276af7fb9d818d52d8d8efcf43983ce93318ff4a09c7d",
+    "patches.py": "8b2a70cd2ab766486b1de820cf0f3fd985ef2257c8246bcb584ebd33638a3c01",
+    "polling.py": "842867cc739e7389b073ff8d025b782d5efb2672fc248f4de9dbc7db8eee751c",
+    "project.py": "0b81fbbe963fe6b989ed6d0c1c679c6fac306ad849ead304ad134afa4cbaa409",
+    "report.py": "c6916b817f91228cdf9ebc30a62dcc821f27a91acb790ac04e0911a4a166f339",
+    "runner.py": "99a3abcc48452f0d38a14311812e543b276fbe24e7890406c3ab284fe554af97",
+    "source_context.py": "13bc659ec68dc75c29a78a853364c9c587a27fdb15b194ae40b0598bb7148bcb",
+    "traces.py": "6abbdc154f313267cd622fbcccc945ec1f4452592a0645fdd4f84a5d4252dbd8"
+  }
+}

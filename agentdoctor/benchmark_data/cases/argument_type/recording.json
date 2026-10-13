@@ -1,0 +1,8 @@
+{
+  "kwargs": {
+    "quantity": 3
+  },
+  "tools": [
+    "price"
+  ]
+}

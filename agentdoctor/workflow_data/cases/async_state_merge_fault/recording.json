@@ -1,0 +1,36 @@
+{
+  "kwargs": {
+    "state": {
+      "request_id": "recorded",
+      "units": 3,
+      "messages": [
+        "keep"
+      ]
+    }
+  },
+  "capture_state": true,
+  "state_source": {
+    "path": "workflow/graph.py",
+    "function": "execute"
+  },
+  "bindings": [
+    {
+      "module": "workflow.graph",
+      "function": "execute",
+      "kind": "node",
+      "source": {
+        "path": "workflow/graph.py",
+        "function": "execute"
+      }
+    },
+    {
+      "module": "workflow.ledger",
+      "function": "hydrate",
+      "kind": "node",
+      "source": {
+        "path": "workflow/ledger.py",
+        "function": "hydrate"
+      }
+    }
+  ]
+}

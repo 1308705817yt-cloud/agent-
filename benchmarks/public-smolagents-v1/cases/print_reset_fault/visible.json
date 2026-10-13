@@ -1,0 +1,90 @@
+{
+  "target": [
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "print('first step')",
+          "if True print('invalid')"
+        ]
+      },
+      "expected": [
+        {
+          "value": null,
+          "logs": "first step\n",
+          "failed": false
+        },
+        {
+          "value": null,
+          "logs": "",
+          "failed": true
+        }
+      ]
+    },
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "value = 4\nprint(value)",
+          "def broken(",
+          "value + 1"
+        ]
+      },
+      "expected": [
+        {
+          "value": null,
+          "logs": "4\n",
+          "failed": false
+        },
+        {
+          "value": null,
+          "logs": "",
+          "failed": true
+        },
+        {
+          "value": 5,
+          "logs": "",
+          "failed": false
+        }
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "print('one')",
+          "print('two')"
+        ]
+      },
+      "expected": [
+        {
+          "value": null,
+          "logs": "one\n",
+          "failed": false
+        },
+        {
+          "value": null,
+          "logs": "two\n",
+          "failed": false
+        }
+      ]
+    },
+    {
+      "function": "run",
+      "kwargs": {
+        "codes": [
+          "2 + 3"
+        ]
+      },
+      "expected": [
+        {
+          "value": 5,
+          "logs": "",
+          "failed": false
+        }
+      ]
+    }
+  ]
+}

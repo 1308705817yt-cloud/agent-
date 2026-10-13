@@ -1,0 +1,4628 @@
+{
+  "schema_version": 2,
+  "suite_version": "independent-v2",
+  "agentdoctor_version": "0.4.0",
+  "started_at": "2026-10-13T02:48:35.037300+00:00",
+  "finished_at": "2026-10-13T02:51:39.731950+00:00",
+  "provider": "codex",
+  "model": "codex-default",
+  "executor": "local",
+  "repetitions": 1,
+  "complete": true,
+  "planned_cases": 10,
+  "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+  "dataset_lock_verified": true,
+  "implementation_hash": "fc34f8a63e198bc7f181052a4082bca7b9a7d2dc652097b7a5d262a68eec637a",
+  "repair_strategy": "declared_alias_then_model",
+  "provider_metadata": {
+    "version": "codex-cli 0.146.1",
+    "authenticated": true
+  },
+  "metrics": {
+    "scheduled_cases": 10,
+    "measured_cases": 10,
+    "invalid_or_incomplete_cases": 0,
+    "diagnosed_cases": 10,
+    "repair_measured_cases": 5,
+    "diagnosis_accuracy": {
+      "numerator": 10,
+      "denominator": 10,
+      "value": 1.0
+    },
+    "binary_detection_accuracy": {
+      "numerator": 10,
+      "denominator": 10,
+      "value": 1.0
+    },
+    "detection_precision": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "detection_recall": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "repair_success_rate": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "candidate_regression_failure_rate": {
+      "numerator": 0,
+      "denominator": 5,
+      "value": 0.0
+    },
+    "candidate_count": 5,
+    "incomplete_candidates": 0,
+    "delivered_count": 5,
+    "unassessed_deliveries": 0,
+    "false_verified_rate": {
+      "numerator": 0,
+      "denominator": 5,
+      "value": 0.0
+    },
+    "confusion": {
+      "tp": 5,
+      "tn": 5,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "repair_breakdown": {
+    "faulty_cases": 5,
+    "case_outcomes": {
+      "no_patch_generated": 0,
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 5,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_attempts": 5,
+    "candidate_outcomes": {
+      "policy_rejected": 0,
+      "visible_test_failed": 0,
+      "independent_acceptance_failed": 0,
+      "repaired": 5,
+      "model_error": 0,
+      "environment_error": 0,
+      "not_evaluated": 0
+    },
+    "candidate_origins": {
+      "model": 4,
+      "declared_alias": 1,
+      "unknown": 0
+    }
+  },
+  "by_family": {
+    "parameters": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 3,
+      "repair_measured_cases": 2,
+      "diagnosis_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "candidate_count": 2,
+      "incomplete_candidates": 0,
+      "delivered_count": 2,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 2,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "prompt": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_count": 1,
+      "incomplete_candidates": 0,
+      "delivered_count": 1,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "state_merge": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 2,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_count": 1,
+      "incomplete_candidates": 0,
+      "delivered_count": 1,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "termination": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosed_cases": 3,
+      "repair_measured_cases": 1,
+      "diagnosis_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_count": 1,
+      "incomplete_candidates": 0,
+      "delivered_count": 1,
+      "unassessed_deliveries": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 2,
+        "fp": 0,
+        "fn": 0
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic integration cases, not a production accuracy estimate.",
+    "Prompt cases use a deterministic response simulator, not a live target LLM.",
+    "Labels and held-out cases are never passed to the repair model.",
+    "A low candidate regression rate is not evidence of broad repair coverage.",
+    "Completion evidence assumes trusted evaluators, not hostile in-process report forgery.",
+    "One repeat on the already reviewed fixed synthetic dataset; improvement here is regression evidence, not an unseen-data generalization estimate.",
+    "Four model-generated repairs and one declared-alias repair; diagnostic and repair outcomes are assessed separately.",
+    "The CLI default model revision was not pinned; comparison is an observed system result, not an isolated model experiment.",
+    "Plan/action findings require explicit telemetry; bounded polling recognition only handles the documented simple budget forms."
+  ],
+  "command": ".\\.venv\\Scripts\\python.exe -m agentdoctor benchmark --provider codex --executor local --dataset-lock benchmarks/independent-v2.lock.json --output artifacts/model-benchmarks-v040",
+  "source_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/benchmark.json",
+  "source_report_sha256": "5c81cd96a32836302956568b49b41fc122e755b3f294d5894c22169f2ec9d9a4",
+  "runtime": {
+    "python": "3.11.9",
+    "platform": "Windows",
+    "jsonschema": "4.26.0"
+  },
+  "previous_result": "benchmarks/codex-independent-v2-2026-10-13.json",
+  "scoring_implementation_unchanged": true,
+  "model_identity_note": "codex-default is the CLI default selection, not a resolved or pinned model revision.",
+  "timezone": "Asia/Shanghai",
+  "started_at_local": "2026-10-13T10:48:35.037300+08:00",
+  "finished_at_local": "2026-10-13T10:51:39.731950+08:00",
+  "duration_seconds": 184.69465,
+  "cases": [
+    {
+      "case_id": "argument_alias",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "delivery_evaluated": true,
+      "repair_success": true,
+      "repair_outcome": "repaired",
+      "repair_termination": "verified",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 10004,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:48:36.100614+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:48:49.075933+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 10004,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/argument_alias-1/runs/run-c1dedb3153bc/report.json",
+      "diagnosis_detail": {
+        "findings": [
+          {
+            "id": "f_fd75a8466e40",
+            "category": "tool_argument_schema",
+            "severity": "high",
+            "summary": "input violates its declared schema",
+            "evidence": [
+              "observed-run/686fb24dfe43471fac9e3a6903825267"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "violations": [
+                {
+                  "path": "/",
+                  "rule": "required",
+                  "message": "'quantity' is a required property"
+                },
+                {
+                  "path": "/",
+                  "rule": "additionalProperties",
+                  "message": "Additional properties are not allowed ('units' was unexpected)"
+                }
+              ],
+              "tool": "price"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_253ac4cb8310",
+            "category": "execution_error",
+            "severity": "high",
+            "summary": "Execution returned an error; cause requires investigation",
+            "evidence": [
+              "observed-run/686fb24dfe43471fac9e3a6903825267"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "error": "TypeError: price() got an unexpected keyword argument 'units'"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_e59ee30ee872",
+            "category": "execution_error",
+            "severity": "high",
+            "summary": "Execution returned an error; cause requires investigation",
+            "evidence": [
+              "observed-run/00273034a3cd4975b6e68582e98f9b62"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "error": "TypeError: price() got an unexpected keyword argument 'units'"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_d635cf4f4c8c",
+            "category": "validation_failure",
+            "severity": "high",
+            "summary": "Frozen target check failed: task_contract",
+            "evidence": [
+              "validation/task_contract"
+            ],
+            "source": {},
+            "details": {
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"0e2a0ec1bf65494a950b2d831641208f\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: price() got an unexpected keyword argument 'units'\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: price() got an unexpected keyword argument 'units'\"}], \"suite_error\": null}\r\n",
+              "stderr": ""
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_331dfb71ae7a",
+            "status": "hypothesized",
+            "summary": "Reproduce the error and check upstream inputs and external dependencies before changing code.",
+            "finding_ids": [
+              "f_253ac4cb8310",
+              "f_e59ee30ee872"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/686fb24dfe43471fac9e3a6903825267",
+              "observed-run/00273034a3cd4975b6e68582e98f9b62"
+            ],
+            "occurrences": 2,
+            "origin": "rule"
+          },
+          {
+            "id": "h_c551a6bc1c91",
+            "status": "supported_by_configured_checks",
+            "summary": "Compare the caller's argument construction with the tool contract; inspect declared aliases before renaming fields.",
+            "finding_ids": [
+              "f_fd75a8466e40"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/686fb24dfe43471fac9e3a6903825267"
+            ],
+            "occurrences": 1,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "686fb24dfe43471fac9e3a6903825267",
+          "parent_id": "00273034a3cd4975b6e68582e98f9b62",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:48:35.418581+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "units": 3
+              }
+            },
+            "input_encoding": "raw_keywords",
+            "binding_error": "TypeError: missing a required argument: 'quantity'"
+          },
+          "tool": "price",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "units": 3
+          },
+          "output": null,
+          "error": "TypeError: price() got an unexpected keyword argument 'units'",
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "00273034a3cd4975b6e68582e98f9b62",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:48:35.418581+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": null,
+          "error": "TypeError: price() got an unexpected keyword argument 'units'",
+          "duration_ms": 15.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "d41aa3aefa7649f0aafd6dcdaf698f1c",
+          "returncode": 1,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "d41aa3aefa7649f0aafd6dcdaf698f1c",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "error",
+                "detail": "TypeError: price() got an unexpected keyword argument 'units'"
+              },
+              {
+                "id": "target:2",
+                "status": "error",
+                "detail": "TypeError: price() got an unexpected keyword argument 'units'"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "6cd58d83c55a4eb5aa59d9f05f888b7b",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "6cd58d83c55a4eb5aa59d9f05f888b7b",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evaluated": true,
+          "assessment_status": "measured",
+          "origin": "declared_alias",
+          "failure_stage": null,
+          "reason": "Every expected case completed and passed in every configured repetition",
+          "visible_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "heldout_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "outcome": "repaired",
+          "proposal": {
+            "summary": "Use declared tool argument alias units -> quantity",
+            "finding_ids": [
+              "f_fd75a8466e40"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "{\"units\": quantity}",
+                "after": "{'quantity': quantity}",
+                "reason": "Explicit alias in the frozen tool contract; corrected arguments satisfy the schema"
+              }
+            ]
+          },
+          "patch": "--- a/subject.py\n+++ b/subject.py\n@@ -5,7 +5,7 @@\n \n \n def run(quantity):\n-    arguments = {\"units\": quantity}\n+    arguments = {'quantity': quantity}\n     return price(**arguments)\n \n \n",
+          "visible_evidence": [
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "e888e9c6608f4382acb52fc3af534dc1",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "e888e9c6608f4382acb52fc3af534dc1",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 0, \"expected\": 0}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "75c05f7bafb54e3583c982e5687bab8b",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "75c05f7bafb54e3583c982e5687bab8b",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 2,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "833f369c14e9491db313b890e20558b7",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "833f369c14e9491db313b890e20558b7",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 0, \"expected\": 0}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 2,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "cf1bc7d4be1d436c857b16fe8cbadfd9",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "cf1bc7d4be1d436c857b16fe8cbadfd9",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "2431a2b54fb24592bcdce817e3e79c05",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "2431a2b54fb24592bcdce817e3e79c05",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 49, \"expected\": 49}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 77, \"expected\": 77}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "64bf303151264aa5bf14ad72232b2a0d",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "64bf303151264aa5bf14ad72232b2a0d",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "visible_integrity_changes": [],
+          "heldout_integrity_changes": []
+        }
+      ]
+    },
+    {
+      "case_id": "argument_type",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "delivery_evaluated": true,
+      "repair_success": true,
+      "repair_outcome": "repaired",
+      "repair_termination": "verified",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 2,
+        "usage": [
+          {
+            "input_tokens": 9956,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          },
+          {
+            "input_tokens": 11457,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 269,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:48:51.902047+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:49:02.411489+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9956,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        },
+        {
+          "operation": "patch_proposal",
+          "started_at": "2026-10-13T02:49:03.081559+00:00",
+          "calls_before": 1,
+          "status": "completed",
+          "output": {
+            "summary": "The caller converts a valid integer quantity to a string before invoking `price`, violating the declared integer schema and causing the observed TypeError in both cited spans. Preserve the validated integer by removing that conversion. This proposal has not been tested.",
+            "finding_ids": [
+              "f_f0ad5fd40e9f",
+              "f_be071b64abfc",
+              "f_79243acadee7",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)",
+                "after": "def run(quantity):\n    arguments = {\"quantity\": quantity}\n    return price(**arguments)",
+                "reason": "In observed-run/9e193371d6a74ef984eb3e43eb287bfa, `run` passes `\"3\"` to `price`, violating its integer contract and triggering `TypeError`; observed-run/dffa15792aae486d82d148f6d605d298 shows the originating `run(quantity=3)` call. Removing `str(...)` is the minimal source-only correction and leaves `price` validation, tool contracts, and evaluator criteria unchanged."
+              }
+            ]
+          },
+          "finished_at": "2026-10-13T02:49:15.565499+00:00",
+          "calls_after": 2,
+          "usage": [
+            {
+              "input_tokens": 11457,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 269,
+              "reasoning_output_tokens": 0
+            }
+          ]
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/argument_type-1/runs/run-d99fb95dee4c/report.json",
+      "diagnosis_detail": {
+        "findings": [
+          {
+            "id": "f_f0ad5fd40e9f",
+            "category": "tool_argument_schema",
+            "severity": "high",
+            "summary": "input violates its declared schema",
+            "evidence": [
+              "observed-run/9e193371d6a74ef984eb3e43eb287bfa"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "violations": [
+                {
+                  "path": "/quantity",
+                  "rule": "type",
+                  "message": "'3' is not of type 'integer'"
+                }
+              ],
+              "tool": "price"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_be071b64abfc",
+            "category": "execution_error",
+            "severity": "high",
+            "summary": "Execution returned an error; cause requires investigation",
+            "evidence": [
+              "observed-run/9e193371d6a74ef984eb3e43eb287bfa"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "error": "TypeError: quantity must be a nonnegative integer"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_79243acadee7",
+            "category": "execution_error",
+            "severity": "high",
+            "summary": "Execution returned an error; cause requires investigation",
+            "evidence": [
+              "observed-run/dffa15792aae486d82d148f6d605d298"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "error": "TypeError: quantity must be a nonnegative integer"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_d635cf4f4c8c",
+            "category": "validation_failure",
+            "severity": "high",
+            "summary": "Frozen target check failed: task_contract",
+            "evidence": [
+              "validation/task_contract"
+            ],
+            "source": {},
+            "details": {
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"891153dad2394bfba6f9049edffdb0aa\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}, {\"id\": \"target:2\", \"status\": \"error\", \"detail\": \"TypeError: quantity must be a nonnegative integer\"}], \"suite_error\": null}\r\n",
+              "stderr": ""
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_331dfb71ae7a",
+            "status": "supported_by_configured_checks",
+            "summary": "Reproduce the error and check upstream inputs and external dependencies before changing code.",
+            "finding_ids": [
+              "f_be071b64abfc",
+              "f_79243acadee7"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/9e193371d6a74ef984eb3e43eb287bfa",
+              "observed-run/dffa15792aae486d82d148f6d605d298"
+            ],
+            "occurrences": 2,
+            "origin": "rule"
+          },
+          {
+            "id": "h_c551a6bc1c91",
+            "status": "supported_by_configured_checks",
+            "summary": "Compare the caller's argument construction with the tool contract; inspect declared aliases before renaming fields.",
+            "finding_ids": [
+              "f_f0ad5fd40e9f"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/9e193371d6a74ef984eb3e43eb287bfa"
+            ],
+            "occurrences": 1,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "9e193371d6a74ef984eb3e43eb287bfa",
+          "parent_id": "dffa15792aae486d82d148f6d605d298",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:48:51.250375+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": "3"
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "price",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": "3"
+          },
+          "output": null,
+          "error": "TypeError: quantity must be a nonnegative integer",
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "dffa15792aae486d82d148f6d605d298",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:48:51.250375+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": null,
+          "error": "TypeError: quantity must be a nonnegative integer",
+          "duration_ms": 15.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "221087048e3541509728e739b6f8456b",
+          "returncode": 1,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "221087048e3541509728e739b6f8456b",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "error",
+                "detail": "TypeError: quantity must be a nonnegative integer"
+              },
+              {
+                "id": "target:2",
+                "status": "error",
+                "detail": "TypeError: quantity must be a nonnegative integer"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "a2a75b2e8f614bbbbed8112bdc424e47",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "a2a75b2e8f614bbbbed8112bdc424e47",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evaluated": true,
+          "assessment_status": "measured",
+          "origin": "model",
+          "failure_stage": null,
+          "reason": "Every expected case completed and passed in every configured repetition",
+          "visible_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "heldout_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "outcome": "repaired",
+          "proposal": {
+            "summary": "The caller converts a valid integer quantity to a string before invoking `price`, violating the declared integer schema and causing the observed TypeError in both cited spans. Preserve the validated integer by removing that conversion. This proposal has not been tested.",
+            "finding_ids": [
+              "f_f0ad5fd40e9f",
+              "f_be071b64abfc",
+              "f_79243acadee7",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "def run(quantity):\n    arguments = {\"quantity\": str(quantity)}\n    return price(**arguments)",
+                "after": "def run(quantity):\n    arguments = {\"quantity\": quantity}\n    return price(**arguments)",
+                "reason": "In observed-run/9e193371d6a74ef984eb3e43eb287bfa, `run` passes `\"3\"` to `price`, violating its integer contract and triggering `TypeError`; observed-run/dffa15792aae486d82d148f6d605d298 shows the originating `run(quantity=3)` call. Removing `str(...)` is the minimal source-only correction and leaves `price` validation, tool contracts, and evaluator criteria unchanged."
+              }
+            ]
+          },
+          "patch": "--- a/subject.py\n+++ b/subject.py\n@@ -5,7 +5,7 @@\n \n \n def run(quantity):\n-    arguments = {\"quantity\": str(quantity)}\n+    arguments = {\"quantity\": quantity}\n     return price(**arguments)\n \n \n",
+          "visible_evidence": [
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "39c2f58699f94714bc2121f688cd2875",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "39c2f58699f94714bc2121f688cd2875",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 0, \"expected\": 0}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "f51619b70d704cc7add7afec4a1ee505",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "f51619b70d704cc7add7afec4a1ee505",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 2,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "4d54f6fdf29d49d8826807c6fcebaf9d",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "4d54f6fdf29d49d8826807c6fcebaf9d",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 14, \"expected\": 14}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 0, \"expected\": 0}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 2,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "9e87ad052e7d406ba7ff2690acd24732",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "9e87ad052e7d406ba7ff2690acd24732",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "acedca6fdf284a64b0ab06ded525e113",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "acedca6fdf284a64b0ab06ded525e113",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 49, \"expected\": 49}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 77, \"expected\": 77}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "45789561f9574d0181692ec544bf31ab",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "45789561f9574d0181692ec544bf31ab",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "visible_integrity_changes": [],
+          "heldout_integrity_changes": []
+        }
+      ]
+    },
+    {
+      "case_id": "argument_valid",
+      "family": "parameters",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "delivery_evaluated": false,
+      "repair_success": false,
+      "repair_outcome": "not_applicable",
+      "repair_termination": "not_started",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 9336,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:49:17.780814+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:49:30.240008+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9336,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/argument_valid-1/runs/run-438b771db7bf/report.json",
+      "diagnosis_detail": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "66fb4785cf7e42388fff74a6d7fef68b",
+          "parent_id": "05243b96d93d46ebaf307c354674e438",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:49:17.105075+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "price",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": 21,
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "05243b96d93d46ebaf307c354674e438",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:49:17.105075+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "quantity": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "quantity": 3
+          },
+          "output": 21,
+          "error": null,
+          "duration_ms": 16.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "09e62383def3424fa89c7f262027b189",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "09e62383def3424fa89c7f262027b189",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": 49, \"expected\": 49}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": 77, \"expected\": 77}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "8b412bf837ae400d93426422b271537b",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "8b412bf837ae400d93426422b271537b",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "state_merge_loss",
+      "family": "state_merge",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "state_invariant"
+        ],
+        "expected_categories": [
+          "state_invariant"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "delivery_evaluated": true,
+      "repair_success": true,
+      "repair_outcome": "repaired",
+      "repair_termination": "verified",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 2,
+        "usage": [
+          {
+            "input_tokens": 9587,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          },
+          {
+            "input_tokens": 11112,
+            "cached_input_tokens": 6272,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 227,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:49:31.292224+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:49:39.770309+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9587,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        },
+        {
+          "operation": "patch_proposal",
+          "started_at": "2026-10-13T02:49:40.456221+00:00",
+          "calls_before": 1,
+          "status": "completed",
+          "output": {
+            "summary": "Preserve the incoming state and overlay the completion flag. The observed run returned only {\"completed\": true}, dropping request_id and constraints; this minimal edit retains both invariants while preserving the intended completion update. This proposal was not tested here.",
+            "finding_ids": [
+              "f_d3cedaaf1d8c",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "def run(state):\n    update = {\"completed\": True}\n    return update",
+                "after": "def run(state):\n    update = {\"completed\": True}\n    return {**state, **update}",
+                "reason": "Span observed-run/b0599879dabe48308c986824bb626479 shows request_id and constraints present before run but absent afterward, while observed-run/04e7b4c5fe8e48cc9034dff53eb236cc shows run output contained only completed. Merging the update over the input state preserves existing keys and keeps completed=True."
+              }
+            ]
+          },
+          "finished_at": "2026-10-13T02:49:54.308405+00:00",
+          "calls_after": 2,
+          "usage": [
+            {
+              "input_tokens": 11112,
+              "cached_input_tokens": 6272,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 227,
+              "reasoning_output_tokens": 0
+            }
+          ]
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/state_merge_loss-1/runs/run-d7da5d921c42/report.json",
+      "diagnosis_detail": {
+        "findings": [
+          {
+            "id": "f_d3cedaaf1d8c",
+            "category": "state_invariant",
+            "severity": "high",
+            "summary": "Configured invariant changed or disappeared: request_id",
+            "evidence": [
+              "observed-run/b0599879dabe48308c986824bb626479"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "key": "request_id",
+              "before": "visible-request",
+              "after": null
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed",
+            "supporting_findings": [
+              {
+                "id": "f_d3cedaaf1d8c",
+                "summary": "Configured invariant changed or disappeared: request_id",
+                "evidence": [
+                  "observed-run/b0599879dabe48308c986824bb626479"
+                ],
+                "details": {
+                  "key": "request_id",
+                  "before": "visible-request",
+                  "after": null
+                },
+                "origin": "rule"
+              },
+              {
+                "id": "f_c888802d201e",
+                "summary": "Configured invariant changed or disappeared: constraints",
+                "evidence": [
+                  "observed-run/b0599879dabe48308c986824bb626479"
+                ],
+                "details": {
+                  "key": "constraints",
+                  "before": [
+                    "read_only"
+                  ],
+                  "after": null
+                },
+                "origin": "rule"
+              }
+            ],
+            "origins": [
+              "rule"
+            ],
+            "occurrences": 2
+          },
+          {
+            "id": "f_d635cf4f4c8c",
+            "category": "validation_failure",
+            "severity": "high",
+            "summary": "Frozen target check failed: task_contract",
+            "evidence": [
+              "validation/task_contract"
+            ],
+            "source": {},
+            "details": {
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"451659842faf4e61b76fa4509a14a166\", \"completed\": true, \"executed_count\": 1, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"completed\\\": true}, \\\"expected\\\": {\\\"request_id\\\": \\\"visible-request\\\", \\\"constraints\\\": [\\\"read_only\\\"], \\\"completed\\\": true}}\"}], \"suite_error\": null}\r\n",
+              "stderr": ""
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_ca86fc89f939",
+            "status": "supported_by_configured_checks",
+            "summary": "Inspect the node's state update and merge behavior for the configured invariant.",
+            "finding_ids": [
+              "f_d3cedaaf1d8c"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/b0599879dabe48308c986824bb626479"
+            ],
+            "occurrences": 2,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "04e7b4c5fe8e48cc9034dff53eb236cc",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:49:30.631575+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "state": {
+                  "request_id": "visible-request",
+                  "constraints": [
+                    "read_only"
+                  ],
+                  "completed": false
+                }
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "state": {
+              "request_id": "visible-request",
+              "constraints": [
+                "read_only"
+              ],
+              "completed": false
+            }
+          },
+          "output": {
+            "completed": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "b0599879dabe48308c986824bb626479",
+          "node": "merge",
+          "kind": "node",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "state_before": {
+            "request_id": "visible-request",
+            "constraints": [
+              "read_only"
+            ],
+            "completed": false
+          },
+          "state_after": {
+            "completed": true
+          },
+          "error": null
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "df300e309b694065b0784e4605e44eef",
+          "returncode": 1,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "df300e309b694065b0784e4605e44eef",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": {\"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "failed",
+                "detail": "{\"actual\": {\"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "30f86203ba96451db9fba5a265b914fd",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "30f86203ba96451db9fba5a265b914fd",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evaluated": true,
+          "assessment_status": "measured",
+          "origin": "model",
+          "failure_stage": null,
+          "reason": "Every expected case completed and passed in every configured repetition",
+          "visible_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "heldout_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "outcome": "repaired",
+          "proposal": {
+            "summary": "Preserve the incoming state and overlay the completion flag. The observed run returned only {\"completed\": true}, dropping request_id and constraints; this minimal edit retains both invariants while preserving the intended completion update. This proposal was not tested here.",
+            "finding_ids": [
+              "f_d3cedaaf1d8c",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "def run(state):\n    update = {\"completed\": True}\n    return update",
+                "after": "def run(state):\n    update = {\"completed\": True}\n    return {**state, **update}",
+                "reason": "Span observed-run/b0599879dabe48308c986824bb626479 shows request_id and constraints present before run but absent afterward, while observed-run/04e7b4c5fe8e48cc9034dff53eb236cc shows run output contained only completed. Merging the update over the input state preserves existing keys and keeps completed=True."
+              }
+            ]
+          },
+          "patch": "--- a/subject.py\n+++ b/subject.py\n@@ -1,6 +1,6 @@\n def run(state):\n     update = {\"completed\": True}\n-    return update\n+    return {**state, **update}\n \n \n def stable(value):\n",
+          "visible_evidence": [
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1"
+              ],
+              "invocation_id": "0c52594c5c8c4c488c3341c10626699a",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "0c52594c5c8c4c488c3341c10626699a",
+                "completed": true,
+                "executed_count": 1,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"request_id\": \"visible-request\", \"constraints\": [\"read_only\"], \"completed\": true}, \"expected\": {\"request_id\": \"visible-request\", \"constraints\": [\"read_only\"], \"completed\": true}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "41ce4bdd09dd4445b426af5724a376e1",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "41ce4bdd09dd4445b426af5724a376e1",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 2,
+              "expected_cases": [
+                "target:1"
+              ],
+              "invocation_id": "9abb53ca4e7d4fee90ba4cc827f77ab1",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "9abb53ca4e7d4fee90ba4cc827f77ab1",
+                "completed": true,
+                "executed_count": 1,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"request_id\": \"visible-request\", \"constraints\": [\"read_only\"], \"completed\": true}, \"expected\": {\"request_id\": \"visible-request\", \"constraints\": [\"read_only\"], \"completed\": true}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 2,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "49b7e44aa7d04d6c8533edcc7d0d89aa",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "49b7e44aa7d04d6c8533edcc7d0d89aa",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "92b20bd1f8fd4b1cb83cdb425a530835",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "92b20bd1f8fd4b1cb83cdb425a530835",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "d2a33093d7524e378e02bdab771198d3",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "d2a33093d7524e378e02bdab771198d3",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "visible_integrity_changes": [],
+          "heldout_integrity_changes": []
+        }
+      ]
+    },
+    {
+      "case_id": "state_merge_valid",
+      "family": "state_merge",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "delivery_evaluated": false,
+      "repair_success": false,
+      "repair_outcome": "not_applicable",
+      "repair_termination": "not_started",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 9281,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:49:56.761323+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:50:05.758589+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9281,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/state_merge_valid-1/runs/run-8964ffe59178/report.json",
+      "diagnosis_detail": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "89b29d72eb0e4f328f6d39a2d91ec2f4",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:49:55.970905+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "state": {
+                  "request_id": "visible-request",
+                  "constraints": [
+                    "read_only"
+                  ],
+                  "completed": false
+                }
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "state": {
+              "request_id": "visible-request",
+              "constraints": [
+                "read_only"
+              ],
+              "completed": false
+            }
+          },
+          "output": {
+            "request_id": "visible-request",
+            "constraints": [
+              "read_only"
+            ],
+            "completed": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "c4be39040d4042d69f7fd5e72ef7cace",
+          "node": "merge",
+          "kind": "node",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "state_before": {
+            "request_id": "visible-request",
+            "constraints": [
+              "read_only"
+            ],
+            "completed": false
+          },
+          "state_after": {
+            "request_id": "visible-request",
+            "constraints": [
+              "read_only"
+            ],
+            "completed": true
+          },
+          "error": null
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "c185cc37af194470b892725bba2581b2",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "c185cc37af194470b892725bba2581b2",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "a9e70d9fdff44653bcc99f0568354649",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "a9e70d9fdff44653bcc99f0568354649",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "loop_missing_stop",
+      "family": "termination",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [
+          "possible_loop"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "delivery_evaluated": true,
+      "repair_success": true,
+      "repair_outcome": "repaired",
+      "repair_termination": "verified",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 2,
+        "usage": [
+          {
+            "input_tokens": 10424,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          },
+          {
+            "input_tokens": 12114,
+            "cached_input_tokens": 6272,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 298,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:50:06.964591+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:50:21.122983+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 10424,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        },
+        {
+          "operation": "patch_proposal",
+          "started_at": "2026-10-13T02:50:21.768892+00:00",
+          "calls_before": 1,
+          "status": "completed",
+          "output": {
+            "summary": "The observed run calls probe four times even though every call reports done=true, and the frozen target expects termination after the first successful probe. Add the missing completion break while preserving the zero-step behavior. Evidence: observed-run/6af40fe4857e4a02a7116d3eb521a4e8, observed-run/5f5243b07066495db5951b30cc006113, observed-run/0c46bdd90a654251bc415f895699ff90, observed-run/84981b591afc413eb38fa4cb30892e12. This proposed repair was not tested here.",
+            "finding_ids": [
+              "f_87bfa720e0f6",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "        done = result[\"done\"]\n    return {\"attempts\": attempts, \"done\": done}",
+                "after": "        done = result[\"done\"]\n        if done:\n            break\n    return {\"attempts\": attempts, \"done\": done}",
+                "reason": "Stops polling immediately once probe reports completion. The observed tool spans repeatedly return {\"done\": true}, while the parent span records four attempts; the supplied target validation expects one attempt for this completed case and already confirms that max_steps=0 must remain unchanged."
+              }
+            ]
+          },
+          "finished_at": "2026-10-13T02:50:37.560358+00:00",
+          "calls_after": 2,
+          "usage": [
+            {
+              "input_tokens": 12114,
+              "cached_input_tokens": 6272,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 298,
+              "reasoning_output_tokens": 0
+            }
+          ]
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/loop_missing_stop-1/runs/run-5de0695ed906/report.json",
+      "diagnosis_detail": {
+        "findings": [
+          {
+            "id": "f_87bfa720e0f6",
+            "category": "possible_loop",
+            "severity": "medium",
+            "summary": "Repeated identical tool outcomes suggest a loop; intentional polling is also possible",
+            "evidence": [
+              "observed-run/6af40fe4857e4a02a7116d3eb521a4e8",
+              "observed-run/5f5243b07066495db5951b30cc006113",
+              "observed-run/0c46bdd90a654251bc415f895699ff90"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {},
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_d635cf4f4c8c",
+            "category": "validation_failure",
+            "severity": "high",
+            "summary": "Frozen target check failed: task_contract",
+            "evidence": [
+              "validation/task_contract"
+            ],
+            "source": {},
+            "details": {
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"472ff61899a14f9692c5ae22a61a843c\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": {\\\"attempts\\\": 3, \\\"done\\\": true}, \\\"expected\\\": {\\\"attempts\\\": 1, \\\"done\\\": true}}\"}, {\"id\": \"target:2\", \"status\": \"passed\", \"detail\": \"{\\\"actual\\\": {\\\"attempts\\\": 0, \\\"done\\\": false}, \\\"expected\\\": {\\\"attempts\\\": 0, \\\"done\\\": false}}\"}], \"suite_error\": null}\r\n",
+              "stderr": ""
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_9b08a087e7e5",
+            "status": "supported_by_configured_checks",
+            "summary": "Check termination, retry counters, and whether state makes progress; polling alone is not proof of a defect.",
+            "finding_ids": [
+              "f_87bfa720e0f6"
+            ],
+            "source_path": "subject.py",
+            "evidence": [
+              "observed-run/6af40fe4857e4a02a7116d3eb521a4e8",
+              "observed-run/5f5243b07066495db5951b30cc006113",
+              "observed-run/0c46bdd90a654251bc415f895699ff90"
+            ],
+            "occurrences": 1,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 5,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "6af40fe4857e4a02a7116d3eb521a4e8",
+          "parent_id": "84981b591afc413eb38fa4cb30892e12",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:06.161917+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "5f5243b07066495db5951b30cc006113",
+          "parent_id": "84981b591afc413eb38fa4cb30892e12",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:06.171941+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "0c46bdd90a654251bc415f895699ff90",
+          "parent_id": "84981b591afc413eb38fa4cb30892e12",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:06.181879+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "ee532110c55c404fb26343e21594194d",
+          "parent_id": "84981b591afc413eb38fa4cb30892e12",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:06.194212+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "84981b591afc413eb38fa4cb30892e12",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:50:06.161917+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "max_steps": 4
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "max_steps": 4
+          },
+          "output": {
+            "attempts": 4,
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 31.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "6bb12e1aaacf42d594d51994e426f6b6",
+          "returncode": 1,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "6bb12e1aaacf42d594d51994e426f6b6",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": {\"attempts\": 6, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "0e686f88bdaa4db1869be5632a7c1279",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "0e686f88bdaa4db1869be5632a7c1279",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evaluated": true,
+          "assessment_status": "measured",
+          "origin": "model",
+          "failure_stage": null,
+          "reason": "Every expected case completed and passed in every configured repetition",
+          "visible_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "heldout_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "outcome": "repaired",
+          "proposal": {
+            "summary": "The observed run calls probe four times even though every call reports done=true, and the frozen target expects termination after the first successful probe. Add the missing completion break while preserving the zero-step behavior. Evidence: observed-run/6af40fe4857e4a02a7116d3eb521a4e8, observed-run/5f5243b07066495db5951b30cc006113, observed-run/0c46bdd90a654251bc415f895699ff90, observed-run/84981b591afc413eb38fa4cb30892e12. This proposed repair was not tested here.",
+            "finding_ids": [
+              "f_87bfa720e0f6",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "subject.py",
+                "before": "        done = result[\"done\"]\n    return {\"attempts\": attempts, \"done\": done}",
+                "after": "        done = result[\"done\"]\n        if done:\n            break\n    return {\"attempts\": attempts, \"done\": done}",
+                "reason": "Stops polling immediately once probe reports completion. The observed tool spans repeatedly return {\"done\": true}, while the parent span records four attempts; the supplied target validation expects one attempt for this completed case and already confirms that max_steps=0 must remain unchanged."
+              }
+            ]
+          },
+          "patch": "--- a/subject.py\n+++ b/subject.py\n@@ -9,6 +9,8 @@\n         result = probe()\n         attempts += 1\n         done = result[\"done\"]\n+        if done:\n+            break\n     return {\"attempts\": attempts, \"done\": done}\n \n \n",
+          "visible_evidence": [
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "d6813d1c545743c78ab668af7d689641",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "d6813d1c545743c78ab668af7d689641",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 0, \"done\": false}, \"expected\": {\"attempts\": 0, \"done\": false}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "9634e2806b7f4ac7a5037179e7324c7b",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "9634e2806b7f4ac7a5037179e7324c7b",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 2,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "cdf34324c790481ba3ebdb9ce5f5007e",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "cdf34324c790481ba3ebdb9ce5f5007e",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 0, \"done\": false}, \"expected\": {\"attempts\": 0, \"done\": false}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 2,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "d4164427c3ef4accb2fe9b2a13665e47",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "d4164427c3ef4accb2fe9b2a13665e47",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "e89d66292d994445b76c496e03ec5cc5",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "e89d66292d994445b76c496e03ec5cc5",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "d61e9dd916af425496ecb6fbefbd9294",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "d61e9dd916af425496ecb6fbefbd9294",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "visible_integrity_changes": [],
+          "heldout_integrity_changes": []
+        }
+      ]
+    },
+    {
+      "case_id": "loop_stops",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "delivery_evaluated": false,
+      "repair_success": false,
+      "repair_outcome": "not_applicable",
+      "repair_termination": "not_started",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 9328,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:50:39.987903+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:50:52.701456+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9328,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/loop_stops-1/runs/run-25214538fbac/report.json",
+      "diagnosis_detail": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "e061695559f440bcabf1d8188cbbb18f",
+          "parent_id": "04926294d51d4a8792996dd09bc3535e",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:39.228041+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "04926294d51d4a8792996dd09bc3535e",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:50:39.228041+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "max_steps": 4
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "max_steps": 4
+          },
+          "output": {
+            "attempts": 1,
+            "done": true
+          },
+          "error": null,
+          "duration_ms": 16.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "20e5fdba65804dfaa1f5e77de772ca41",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "20e5fdba65804dfaa1f5e77de772ca41",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "6172fc7539144cfdb75b82c92257587b",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "6172fc7539144cfdb75b82c92257587b",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "intentional_polling",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "delivery_evaluated": false,
+      "repair_success": false,
+      "repair_outcome": "not_applicable",
+      "repair_termination": "not_started",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 10352,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:50:53.819841+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:51:03.177944+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 10352,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/intentional_polling-1/runs/run-66bcc90eb5c4/report.json",
+      "diagnosis_detail": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [
+          {
+            "id": "f_24284383b664",
+            "category": "bounded_polling",
+            "severity": "low",
+            "summary": "Pending tool responses exhausted an observed finite polling budget; parent returned without recorded failure",
+            "evidence": [
+              "observed-run/facf848e26034633b9d1d862d4001863",
+              "observed-run/367d8260196c449b816d54652fb378ae",
+              "observed-run/12c49ba8b4974de1ba7827a0524620bd",
+              "observed-run/c736347d8e4348b3ac80b69fbac1b00a",
+              "observed-run/03bcadd649144cdcbf8ea4a39b526fae"
+            ],
+            "source": {
+              "path": "subject.py",
+              "function": "run"
+            },
+            "details": {
+              "budget": 4,
+              "basis": "simple bounded source loop, current trace inputs, pending responses, and completed parent"
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed",
+            "disposition": "observation"
+          }
+        ],
+        "coverage": {
+          "spans": 5,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "facf848e26034633b9d1d862d4001863",
+          "parent_id": "03bcadd649144cdcbf8ea4a39b526fae",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:53.095114+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "367d8260196c449b816d54652fb378ae",
+          "parent_id": "03bcadd649144cdcbf8ea4a39b526fae",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:53.105621+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "12c49ba8b4974de1ba7827a0524620bd",
+          "parent_id": "03bcadd649144cdcbf8ea4a39b526fae",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:53.115641+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "c736347d8e4348b3ac80b69fbac1b00a",
+          "parent_id": "03bcadd649144cdcbf8ea4a39b526fae",
+          "node": "run",
+          "kind": "tool",
+          "timestamp": "2026-10-13T02:50:53.124887+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {}
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "tool": "probe",
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {},
+          "output": {
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "03bcadd649144cdcbf8ea4a39b526fae",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:50:53.095114+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "max_steps": 4
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "max_steps": 4
+          },
+          "output": {
+            "attempts": 4,
+            "done": false
+          },
+          "error": null,
+          "duration_ms": 31.0
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "18e48d5a2512486bbc18d9eccbb42349",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "18e48d5a2512486bbc18d9eccbb42349",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 6, \"done\": false}, \"expected\": {\"attempts\": 6, \"done\": false}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": false}, \"expected\": {\"attempts\": 1, \"done\": false}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "cec69071ff9940e3835aefeb93613ec7",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "cec69071ff9940e3835aefeb93613ec7",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "prompt_conflict",
+      "family": "prompt",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "prompt_conflict"
+        ],
+        "expected_categories": [
+          "prompt_conflict"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "delivery_evaluated": true,
+      "repair_success": true,
+      "repair_outcome": "repaired",
+      "repair_termination": "verified",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 2,
+        "usage": [
+          {
+            "input_tokens": 9414,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 90,
+            "reasoning_output_tokens": 0
+          },
+          {
+            "input_tokens": 11160,
+            "cached_input_tokens": 6272,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 238,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:51:04.267311+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [
+              {
+                "category": "prompt_conflict",
+                "severity": "high",
+                "summary": "The prompt simultaneously requires a JSON object with an \"answer\" key and forbids JSON while requiring a bare integer, making the output instructions mutually incompatible.",
+                "evidence": [
+                  "observed-run/c5461befd73d43a8a649c661bbc3fc3c"
+                ]
+              }
+            ],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:51:15.795836+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9414,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 90,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 1,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        },
+        {
+          "operation": "patch_proposal",
+          "started_at": "2026-10-13T02:51:16.460622+00:00",
+          "calls_before": 1,
+          "status": "completed",
+          "output": {
+            "summary": "The observed output \"3\" violates the declared object schema, and the prompt contains mutually incompatible output instructions. Remove the contradictory bare-integer directive so the remaining instruction aligns with the required {\"answer\": integer} contract. This patch is proposed from evidence only and was not tested.",
+            "finding_ids": [
+              "f_293d7aa84d55",
+              "f_af7eaccbe6a7",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "prompt.txt",
+                "before": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n",
+                "after": "Always return a JSON object with the key \"answer\" containing the requested integer.\n",
+                "reason": "The response span observed-run/c5461befd73d43a8a649c661bbc3fc3c produced the bare integer \"3\", which fails the declared object schema and follows the prompt's contradictory second line. Removing only that line preserves the intended JSON-object instruction and addresses the repeated target failures without changing evaluator code or validation criteria."
+              }
+            ]
+          },
+          "finished_at": "2026-10-13T02:51:29.318019+00:00",
+          "calls_after": 2,
+          "usage": [
+            {
+              "input_tokens": 11160,
+              "cached_input_tokens": 6272,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 238,
+              "reasoning_output_tokens": 0
+            }
+          ]
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/prompt_conflict-1/runs/run-4d1ffeb2280e/report.json",
+      "diagnosis_detail": {
+        "findings": [
+          {
+            "id": "f_293d7aa84d55",
+            "category": "output_schema",
+            "severity": "high",
+            "summary": "output violates its declared schema",
+            "evidence": [
+              "observed-run/c5461befd73d43a8a649c661bbc3fc3c"
+            ],
+            "source": {
+              "path": "prompt.txt"
+            },
+            "details": {
+              "violations": [
+                {
+                  "path": "/",
+                  "rule": "type",
+                  "message": "3 is not of type 'object'"
+                }
+              ],
+              "tool": null
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_af7eaccbe6a7",
+            "category": "prompt_conflict",
+            "severity": "high",
+            "summary": "The prompt simultaneously requires a JSON object with an \"answer\" key and forbids JSON while requiring a bare integer, making the output instructions mutually incompatible.",
+            "evidence": [
+              "observed-run/c5461befd73d43a8a649c661bbc3fc3c"
+            ],
+            "source": {
+              "path": "prompt.txt"
+            },
+            "details": {},
+            "origin": "model",
+            "causal_status": "unconfirmed"
+          },
+          {
+            "id": "f_d635cf4f4c8c",
+            "category": "validation_failure",
+            "severity": "high",
+            "summary": "Frozen target check failed: task_contract",
+            "evidence": [
+              "validation/task_contract"
+            ],
+            "source": {},
+            "details": {
+              "stdout": "AGENTDOCTOR_RESULT {\"schema_version\": 1, \"invocation_id\": \"2994bb1d4c634c8e90f1b7646ad2a705\", \"completed\": true, \"executed_count\": 2, \"results\": [{\"id\": \"target:1\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": \\\"2\\\", \\\"expected\\\": {\\\"answer\\\": 2}}\"}, {\"id\": \"target:2\", \"status\": \"failed\", \"detail\": \"{\\\"actual\\\": \\\"0\\\", \\\"expected\\\": {\\\"answer\\\": 0}}\"}], \"suite_error\": null}\r\n",
+              "stderr": ""
+            },
+            "origin": "rule",
+            "causal_status": "unconfirmed"
+          }
+        ],
+        "hypotheses": [
+          {
+            "id": "h_ccd1172eeea3",
+            "status": "supported_by_configured_checks",
+            "summary": "Compare the observed behavior with the explicit task and node contracts.",
+            "finding_ids": [
+              "f_293d7aa84d55"
+            ],
+            "source_path": "prompt.txt",
+            "evidence": [
+              "observed-run/c5461befd73d43a8a649c661bbc3fc3c"
+            ],
+            "occurrences": 1,
+            "origin": "rule"
+          }
+        ],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": [
+          {
+            "disposition": "accepted",
+            "finding_id": "f_af7eaccbe6a7"
+          }
+        ]
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "1757816980b34f378782943853acda1f",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:51:03.577870+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "value": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "value": 3
+          },
+          "output": "3",
+          "error": null,
+          "duration_ms": 16.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "c5461befd73d43a8a649c661bbc3fc3c",
+          "node": "response",
+          "kind": "llm",
+          "input": {
+            "value": 3
+          },
+          "output": "3",
+          "prompt": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n",
+          "source": {
+            "path": "prompt.txt"
+          },
+          "error": null,
+          "output_schema": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "b268f36e4b694c549ef063fcc7ab1b2c",
+          "returncode": 1,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "b268f36e4b694c549ef063fcc7ab1b2c",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": \"17\", \"expected\": {\"answer\": 17}}"
+              },
+              {
+                "id": "target:2",
+                "status": "failed",
+                "detail": "{\"actual\": \"-9\", \"expected\": {\"answer\": -9}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "90f01bc0431849f19863e0a77d74fcf7",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "90f01bc0431849f19863e0a77d74fcf7",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evaluated": true,
+          "assessment_status": "measured",
+          "origin": "model",
+          "failure_stage": null,
+          "reason": "Every expected case completed and passed in every configured repetition",
+          "visible_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "heldout_outcomes": {
+            "target": "passed",
+            "regression": "passed"
+          },
+          "outcome": "repaired",
+          "proposal": {
+            "summary": "The observed output \"3\" violates the declared object schema, and the prompt contains mutually incompatible output instructions. Remove the contradictory bare-integer directive so the remaining instruction aligns with the required {\"answer\": integer} contract. This patch is proposed from evidence only and was not tested.",
+            "finding_ids": [
+              "f_293d7aa84d55",
+              "f_af7eaccbe6a7",
+              "f_d635cf4f4c8c"
+            ],
+            "edits": [
+              {
+                "path": "prompt.txt",
+                "before": "Always return a JSON object with the key \"answer\" containing the requested integer.\nNever output JSON. Return only a bare integer.\n",
+                "after": "Always return a JSON object with the key \"answer\" containing the requested integer.\n",
+                "reason": "The response span observed-run/c5461befd73d43a8a649c661bbc3fc3c produced the bare integer \"3\", which fails the declared object schema and follows the prompt's contradictory second line. Removing only that line preserves the intended JSON-object instruction and addresses the repeated target failures without changing evaluator code or validation criteria."
+              }
+            ]
+          },
+          "patch": "--- a/prompt.txt\n+++ b/prompt.txt\n@@ -1,2 +1 @@\n Always return a JSON object with the key \"answer\" containing the requested integer.\n-Never output JSON. Return only a bare integer.\n",
+          "visible_evidence": [
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "e910a86c0a26496ea8a734d206d0b33d",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "e910a86c0a26496ea8a734d206d0b33d",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": 2}, \"expected\": {\"answer\": 2}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": 0}, \"expected\": {\"answer\": 0}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "7574031256394c16b125bd1d4ed8f7a3",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "7574031256394c16b125bd1d4ed8f7a3",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "task_contract",
+              "kind": "target",
+              "repetition": 2,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "c6b0a30bd24c4524acb6221c5173e3cf",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "c6b0a30bd24c4524acb6221c5173e3cf",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": 2}, \"expected\": {\"answer\": 2}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": 0}, \"expected\": {\"answer\": 0}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "preserve_existing",
+              "kind": "regression",
+              "repetition": 2,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "4db2f83c159548eeaece64a74c337e7b",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "4db2f83c159548eeaece64a74c337e7b",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 15, \"expected\": 15}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 8, \"expected\": 8}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "invocation_id": "8f1e70cfbdb24d51973b6a4ea0e06d8d",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "8f1e70cfbdb24d51973b6a4ea0e06d8d",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": 17}, \"expected\": {\"answer\": 17}}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": {\"answer\": -9}, \"expected\": {\"answer\": -9}}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "invocation_id": "2afc206c3de3472d976602a1ceb35b0f",
+              "returncode": 0,
+              "error": null,
+              "timed_out": false,
+              "stdout_truncated": false,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "2afc206c3de3472d976602a1ceb35b0f",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ],
+          "visible_integrity_changes": [],
+          "heldout_integrity_changes": []
+        }
+      ]
+    },
+    {
+      "case_id": "prompt_consistent",
+      "family": "prompt",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis_status": "measured",
+      "repair_status": "not_applicable",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "delivery_evaluated": false,
+      "repair_success": false,
+      "repair_outcome": "not_applicable",
+      "repair_termination": "not_started",
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 9218,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "model_events": [
+        {
+          "operation": "semantic_analysis",
+          "started_at": "2026-10-13T02:51:31.574231+00:00",
+          "calls_before": 0,
+          "status": "completed",
+          "output": {
+            "findings": [],
+            "hypotheses": []
+          },
+          "finished_at": "2026-10-13T02:51:39.704983+00:00",
+          "calls_after": 1,
+          "usage": [
+            {
+              "input_tokens": 9218,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 20,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "semantic_validation": "accepted",
+          "alert_decisions": {
+            "accepted": 0,
+            "merged": 0,
+            "hypothesis_only": 0
+          }
+        }
+      ],
+      "warnings": [],
+      "engine_report": "artifacts/model-benchmarks-v040/benchmark-86b87e4acaaa/prompt_consistent-1/runs/run-5fc6d066df44/report.json",
+      "diagnosis_detail": {
+        "findings": [],
+        "hypotheses": [],
+        "trace_comparisons": [],
+        "observations": [],
+        "coverage": {
+          "spans": 2,
+          "semantic_checks": "model_assisted; not independently calibrated",
+          "source_checks": "Python AST only"
+        },
+        "analysis_decisions": []
+      },
+      "trace_spans": [
+        {
+          "run_id": "observed-run",
+          "span_id": "cf5a6fe017e44e6cbbb641b4b40aaa9f",
+          "parent_id": null,
+          "node": "run",
+          "kind": "node",
+          "timestamp": "2026-10-13T02:51:30.877778+00:00",
+          "metadata": {
+            "call": {
+              "args": [],
+              "kwargs": {
+                "value": 3
+              }
+            },
+            "input_encoding": "bound_arguments"
+          },
+          "source": {
+            "path": "subject.py",
+            "function": "run"
+          },
+          "input": {
+            "value": 3
+          },
+          "output": {
+            "answer": 3
+          },
+          "error": null,
+          "duration_ms": 0.0
+        },
+        {
+          "run_id": "observed-run",
+          "span_id": "4e88bafc45b04bec8c3df3adc171410d",
+          "node": "response",
+          "kind": "llm",
+          "input": {
+            "value": 3
+          },
+          "output": {
+            "answer": 3
+          },
+          "prompt": "Always return a JSON object with the key \"answer\" containing the requested integer.\nPreserve the requested integer exactly.\n",
+          "source": {
+            "path": "prompt.txt"
+          },
+          "error": null,
+          "output_schema": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "invocation_id": "b015be28813d4ae7bf2da95c0a314213",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "b015be28813d4ae7bf2da95c0a314213",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"answer\": 17}, \"expected\": {\"answer\": 17}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"answer\": -9}, \"expected\": {\"answer\": -9}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "invocation_id": "3544e3ed40504e5c84a3796396627b0d",
+          "returncode": 0,
+          "error": null,
+          "timed_out": false,
+          "stdout_truncated": false,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "3544e3ed40504e5c84a3796396627b0d",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    }
+  ],
+  "model_call_totals": {
+    "calls": 14,
+    "operations": {
+      "semantic_analysis": 10,
+      "patch_proposal": 4
+    },
+    "usage": {
+      "input_tokens": 142743,
+      "cached_input_tokens": 18816,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1302,
+      "reasoning_output_tokens": 0
+    }
+  },
+  "semantic_audit": {
+    "accepted_responses": 10,
+    "rejected_responses": 0,
+    "alert_decisions": {
+      "accepted": 1
+    },
+    "observations": {
+      "argument_alias": [],
+      "argument_type": [],
+      "argument_valid": [],
+      "state_merge_loss": [],
+      "state_merge_valid": [],
+      "loop_missing_stop": [],
+      "loop_stops": [],
+      "intentional_polling": [
+        "bounded_polling"
+      ],
+      "prompt_conflict": [],
+      "prompt_consistent": []
+    }
+  },
+  "candidate_validation_audit": {
+    "commands": 30,
+    "passed_commands": 30,
+    "executed_case_instances": 58,
+    "dataset_unchanged": true,
+    "implementation_unchanged_during_run": true
+  },
+  "diagnosis_all_scheduled": {
+    "numerator": 10,
+    "denominator": 10,
+    "value": 1.0
+  },
+  "incomplete_diagnoses": [],
+  "formal_cli_checks": [
+    {
+      "mode": "diagnose",
+      "status": "diagnosed",
+      "source_report": "artifacts/formal-codex-v040/diagnose/run-60997d3089ac/report.json",
+      "source_report_sha256": "ef52dd4a993e6a6f78448e75f25d65ca418baab4292995036264c9224b5263cb",
+      "included_in_benchmark": false,
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 1,
+        "usage": [
+          {
+            "input_tokens": 9980,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": "[REDACTED]",
+            "output_tokens": 20,
+            "reasoning_output_tokens": "[REDACTED]"
+          }
+        ]
+      },
+      "semantic_validation": "accepted",
+      "candidate_count": 0,
+      "candidate_origins": []
+    },
+    {
+      "mode": "repair",
+      "status": "verified",
+      "source_report": "artifacts/formal-codex-v040/repair/run-29a6a9b88bad/report.json",
+      "source_report_sha256": "00df15c34d5b2a07257224bab62a45fa3ab7ab8710b58bf10bf102fc7f51bf37",
+      "included_in_benchmark": false,
+      "model": {
+        "provider": "codex",
+        "name": "codex-default",
+        "metadata": {
+          "version": "codex-cli 0.146.1",
+          "authenticated": true
+        },
+        "calls": 2,
+        "usage": [
+          {
+            "input_tokens": 9978,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": "[REDACTED]",
+            "output_tokens": 20,
+            "reasoning_output_tokens": "[REDACTED]"
+          },
+          {
+            "input_tokens": 11499,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": "[REDACTED]",
+            "output_tokens": 239,
+            "reasoning_output_tokens": "[REDACTED]"
+          }
+        ]
+      },
+      "semantic_validation": "accepted",
+      "candidate_count": 1,
+      "candidate_origins": [
+        "model"
+      ]
+    }
+  ]
+}

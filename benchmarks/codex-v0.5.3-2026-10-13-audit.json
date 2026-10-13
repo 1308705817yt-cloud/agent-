@@ -1,0 +1,1303 @@
+{
+  "scope": "Each frozen suite run once; invalid semantic outputs count as unsuccessful in over_planned metrics. Original measured-only metrics retained separately.",
+  "provider": "codex",
+  "model": "codex-default; exact revision unpinned",
+  "preflight_sha256": "bcf84965cd102c5ece27509044c44874c838087891c1e0892fa84b85f686a46e",
+  "historical_archives_unchanged": true,
+  "runs": [
+    {
+      "suite": "workflow-v1",
+      "started_at": "2026-10-13T09:12:50.316043+00:00",
+      "finished_at": "2026-10-13T09:16:18.435811+00:00",
+      "complete": true,
+      "dataset_hash": "6c96460cd679554bf3ce428ef3cc1bbd70f0b7231d004e1077bc382862450500",
+      "implementation_hash": "227176ca83db2c7b49fcb52f7aaf908b699a69662f14a799e3811d475ffe6ece",
+      "implementation_unchanged": true,
+      "planned_cases": 8,
+      "evaluated_rows": 8,
+      "valid_diagnoses": 8,
+      "invalid_diagnoses": 0,
+      "legacy_success_over_planned": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "root_success_over_planned": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "fault_root_success_over_planned": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "standard_metrics": {
+        "scheduled_cases": 8,
+        "measured_cases": 8,
+        "invalid_or_incomplete_cases": 0,
+        "diagnosed_cases": 8,
+        "repair_measured_cases": 4,
+        "diagnosis_accuracy": {
+          "numerator": 7,
+          "denominator": 8,
+          "value": 0.875
+        },
+        "root_cause_diagnosis_accuracy": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0
+        },
+        "binary_detection_accuracy": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0
+        },
+        "detection_precision": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1.0
+        },
+        "detection_recall": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1.0
+        },
+        "repair_success_rate": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1.0
+        },
+        "candidate_regression_failure_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        },
+        "candidate_count": 4,
+        "incomplete_candidates": 0,
+        "delivered_count": 4,
+        "unassessed_deliveries": 0,
+        "false_verified_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        },
+        "confusion": {
+          "tp": 4,
+          "tn": 4,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "repair_breakdown": {
+        "faulty_cases": 4,
+        "case_outcomes": {
+          "no_patch_generated": 0,
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 4,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_attempts": 4,
+        "candidate_outcomes": {
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 4,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_origins": {
+          "model": 4,
+          "declared_alias": 0,
+          "unknown": 0
+        }
+      },
+      "calls": 12,
+      "audited_requests": 12,
+      "usage": {
+        "input_tokens": 157771,
+        "cached_input_tokens": 18816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3064,
+        "reasoning_output_tokens": 437
+      },
+      "candidate_commands": 24,
+      "candidate_commands_completed": 24,
+      "candidate_commands_passed": 24,
+      "candidate_case_executions": 52,
+      "model_output_problems": [],
+      "cases": [
+        {
+          "case": "dependency_contract_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": false,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                },
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "workflow/service.py",
+                "function": "quote"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "workflow/dispatch.py",
+                "function": "execute"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "workflow/codec.py",
+                  "line": 241
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "tool_argument_schema"
+            ],
+            "expected_categories": [
+              "tool_argument_schema"
+            ],
+            "correct": false,
+            "localized": false,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 10504,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 19780,
+              "budget": 24000,
+              "root_refs_checked": 5,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_dd89920d7f4c",
+              "causal_status": "hypothesized"
+            },
+            {
+              "disposition": "merged",
+              "finding_id": "f_dd89920d7f4c",
+              "symptom_id": "f_46ab03e24a56",
+              "proposed_finding_id": "f_9537931433ce"
+            },
+            {
+              "disposition": "attributed",
+              "finding_id": "f_00e32f3cd213",
+              "causal_status": "hypothesized"
+            },
+            {
+              "disposition": "attributed",
+              "finding_id": "f_c4278603380c",
+              "causal_status": "hypothesized"
+            }
+          ],
+          "unclassified_symptoms": [
+            "f_00e32f3cd213",
+            "f_c4278603380c"
+          ]
+        },
+        {
+          "case": "async_state_merge_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "state_invariant",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "roots": [
+                {
+                  "path": "workflow/graph.py",
+                  "line": 242
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "state_invariant"
+            ],
+            "expected_categories": [
+              "state_invariant"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 23742,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 12027,
+              "budget": 24000,
+              "root_refs_checked": 1,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_596310789102",
+              "causal_status": "hypothesized"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "async_fanout_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "task_assertion",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "roots": [
+                {
+                  "path": "workflow/graph.py",
+                  "line": 243
+                }
+              ]
+            },
+            {
+              "category": "other",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "execute"
+              },
+              "roots": [
+                {
+                  "path": "workflow/graph.py",
+                  "line": 243
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "other"
+            ],
+            "expected_categories": [
+              "other"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 5846,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 13977,
+              "budget": 24000,
+              "root_refs_checked": 2,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "classified",
+              "finding_id": "f_43d5f98e426c",
+              "symptom_id": "f_f5b0c8cd918e"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "nested_retry_fault",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "possible_loop",
+              "observed": {
+                "path": "workflow/graph.py",
+                "function": "step"
+              },
+              "roots": [
+                {
+                  "path": "workflow/graph.py",
+                  "line": 246
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "possible_loop"
+            ],
+            "expected_categories": [
+              "possible_loop"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 11546,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 18610,
+              "budget": 24000,
+              "root_refs_checked": 1,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_3d4d741e0e49",
+              "causal_status": "hypothesized"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "dependency_contract_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 5755,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "async_state_merge_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 23666,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "async_fanout_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 5600,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "nested_retry_control",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 16063,
+              "budget": 24000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        }
+      ]
+    },
+    {
+      "suite": "independent-v2",
+      "started_at": "2026-10-13T09:13:04.706381+00:00",
+      "finished_at": "2026-10-13T09:16:51.862687+00:00",
+      "complete": true,
+      "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+      "implementation_hash": "227176ca83db2c7b49fcb52f7aaf908b699a69662f14a799e3811d475ffe6ece",
+      "implementation_unchanged": true,
+      "planned_cases": 10,
+      "evaluated_rows": 10,
+      "valid_diagnoses": 10,
+      "invalid_diagnoses": 0,
+      "legacy_success_over_planned": {
+        "numerator": 10,
+        "denominator": 10,
+        "value": 1.0
+      },
+      "root_success_over_planned": {
+        "numerator": 10,
+        "denominator": 10,
+        "value": 1.0
+      },
+      "fault_root_success_over_planned": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "repair_success_over_planned_faults": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "standard_metrics": {
+        "scheduled_cases": 10,
+        "measured_cases": 10,
+        "invalid_or_incomplete_cases": 0,
+        "diagnosed_cases": 10,
+        "repair_measured_cases": 5,
+        "diagnosis_accuracy": {
+          "numerator": 10,
+          "denominator": 10,
+          "value": 1.0
+        },
+        "root_cause_diagnosis_accuracy": {
+          "numerator": 10,
+          "denominator": 10,
+          "value": 1.0
+        },
+        "binary_detection_accuracy": {
+          "numerator": 10,
+          "denominator": 10,
+          "value": 1.0
+        },
+        "detection_precision": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "detection_recall": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "repair_success_rate": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "candidate_regression_failure_rate": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "candidate_count": 5,
+        "incomplete_candidates": 0,
+        "delivered_count": 5,
+        "unassessed_deliveries": 0,
+        "false_verified_rate": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "confusion": {
+          "tp": 5,
+          "tn": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "repair_breakdown": {
+        "faulty_cases": 5,
+        "case_outcomes": {
+          "no_patch_generated": 0,
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 5,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_attempts": 5,
+        "candidate_outcomes": {
+          "policy_rejected": 0,
+          "visible_test_failed": 0,
+          "independent_acceptance_failed": 0,
+          "repaired": 5,
+          "model_error": 0,
+          "environment_error": 0,
+          "not_evaluated": 0
+        },
+        "candidate_origins": {
+          "model": 4,
+          "declared_alias": 1,
+          "unknown": 0
+        }
+      },
+      "calls": 14,
+      "audited_requests": 14,
+      "usage": {
+        "input_tokens": 158036,
+        "cached_input_tokens": 25088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3471,
+        "reasoning_output_tokens": 391
+      },
+      "candidate_commands": 30,
+      "candidate_commands_completed": 30,
+      "candidate_commands_passed": 30,
+      "candidate_case_executions": 58,
+      "model_output_problems": [],
+      "cases": [
+        {
+          "case": "argument_alias",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                },
+                {
+                  "path": "subject.py",
+                  "line": 7
+                },
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "tool_argument_schema"
+            ],
+            "expected_categories": [
+              "tool_argument_schema"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 6403,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_0e74d61380c7",
+              "causal_status": "hypothesized"
+            },
+            {
+              "disposition": "merged",
+              "finding_id": "f_0e74d61380c7",
+              "symptom_id": "f_c9845d6fd999",
+              "proposed_finding_id": "f_5e9e15eda8fc"
+            },
+            {
+              "disposition": "merged",
+              "finding_id": "f_0e74d61380c7",
+              "symptom_id": "f_02dec9f806ae",
+              "proposed_finding_id": "f_13d423573e7b"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "argument_type",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "tool_argument_schema",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                },
+                {
+                  "path": "subject.py",
+                  "line": 7
+                },
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            },
+            {
+              "category": "execution_error",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 7
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "tool_argument_schema"
+            ],
+            "expected_categories": [
+              "tool_argument_schema"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 6180,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 15988,
+              "budget": 48000,
+              "root_refs_checked": 5,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_66337b5be6ca",
+              "causal_status": "hypothesized"
+            },
+            {
+              "disposition": "merged",
+              "finding_id": "f_66337b5be6ca",
+              "symptom_id": "f_2700269481da",
+              "proposed_finding_id": "f_93678503634d"
+            },
+            {
+              "disposition": "merged",
+              "finding_id": "f_66337b5be6ca",
+              "symptom_id": "f_8129f2acebdb",
+              "proposed_finding_id": "f_8710b8e349c6"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "argument_valid",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 3790,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "state_merge_loss",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "state_invariant",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 1
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "state_invariant"
+            ],
+            "expected_categories": [
+              "state_invariant"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 4745,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 10896,
+              "budget": 48000,
+              "root_refs_checked": 1,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_1f56c7ea5a78",
+              "causal_status": "hypothesized"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "state_merge_valid",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 3501,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "loop_missing_stop",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "possible_loop",
+              "observed": {
+                "path": "subject.py",
+                "function": "run"
+              },
+              "roots": [
+                {
+                  "path": "subject.py",
+                  "line": 5
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "possible_loop"
+            ],
+            "expected_categories": [
+              "possible_loop"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 6472,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 13904,
+              "budget": 48000,
+              "root_refs_checked": 1,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "attributed",
+              "finding_id": "f_b743e365e53a",
+              "causal_status": "hypothesized"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "loop_stops",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 3779,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "intentional_polling",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 6681,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "prompt_conflict",
+          "faulty": true,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": true,
+          "repair_outcome": "repaired",
+          "locations": [
+            {
+              "category": "output_schema",
+              "observed": {
+                "path": "prompt.txt"
+              },
+              "roots": [
+                {
+                  "path": "prompt.txt",
+                  "line": 1
+                }
+              ]
+            },
+            {
+              "category": "prompt_conflict",
+              "observed": {
+                "path": "prompt.txt"
+              },
+              "roots": [
+                {
+                  "path": "prompt.txt",
+                  "line": 1
+                }
+              ]
+            }
+          ],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [
+              "prompt_conflict"
+            ],
+            "expected_categories": [
+              "prompt_conflict"
+            ],
+            "correct": true,
+            "localized": true,
+            "root_cause_localized": true,
+            "root_cause_correct": true,
+            "binary_outcome": "tp"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 4124,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            },
+            {
+              "operation": "patch_proposal",
+              "context_chars": 11756,
+              "budget": 48000,
+              "root_refs_checked": 2,
+              "distinct_root_source_refs": 1
+            }
+          ],
+          "classification_decisions": [
+            {
+              "disposition": "classified",
+              "finding_id": "f_a2703be4a4a6",
+              "symptom_id": "f_b1aee51dd095"
+            }
+          ],
+          "unclassified_symptoms": []
+        },
+        {
+          "case": "prompt_consistent",
+          "faulty": false,
+          "diagnosis_valid": true,
+          "legacy_correct": true,
+          "root_correct": true,
+          "repair_success": false,
+          "repair_outcome": "not_applicable",
+          "locations": [],
+          "error": null,
+          "warnings": [],
+          "diagnosis_score": {
+            "predicted_categories": [],
+            "expected_categories": [],
+            "correct": true,
+            "localized": null,
+            "root_cause_localized": null,
+            "root_cause_correct": true,
+            "binary_outcome": "tn"
+          },
+          "request_contexts": [
+            {
+              "operation": "semantic_analysis",
+              "context_chars": 3349,
+              "budget": 48000,
+              "root_refs_checked": 0,
+              "distinct_root_source_refs": 0
+            }
+          ],
+          "classification_decisions": [],
+          "unclassified_symptoms": []
+        }
+      ]
+    }
+  ]
+}

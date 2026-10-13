@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "project_name": "nested_retry_fault",
+  "source_paths": [
+    "subject.py",
+    "workflow/**"
+  ],
+  "tools": {
+    "status": {
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "ready_after": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ready_after"
+        ]
+      }
+    }
+  },
+  "checks": {
+    "loop_threshold": 3,
+    "preserve_state_keys": []
+  },
+  "validation": {
+    "repetitions": 2,
+    "commands": [
+      {
+        "name": "target",
+        "kind": "target",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "target"
+        ],
+        "timeout_seconds": 15,
+        "expected_cases": [
+          "target:1",
+          "target:2"
+        ]
+      },
+      {
+        "name": "regression",
+        "kind": "regression",
+        "argv": [
+          "{python}",
+          "-m",
+          "evaluator",
+          "regression"
+        ],
+        "timeout_seconds": 15,
+        "expected_cases": [
+          "regression:1",
+          "regression:2"
+        ]
+      }
+    ]
+  },
+  "policy": {
+    "max_candidates": 3,
+    "max_model_calls": 5,
+    "max_context_chars": 24000,
+    "max_changed_files": 3,
+    "max_changed_lines": 120,
+    "protected_paths": [
+      "recording.json",
+      "evaluator.py"
+    ]
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "suite_version": "independent-v1",
+  "agentdoctor_version": "0.2.0",
+  "started_at": "2026-10-12T15:46:14.882612+00:00",
+  "finished_at": "2026-10-12T15:46:28.867046+00:00",
+  "provider": "none",
+  "model": null,
+  "executor": "local",
+  "repetitions": 1,
+  "complete": true,
+  "planned_cases": 10,
+  "dataset_hash": "9d0424b1c87e47da6e297d7f278233791943ab7c93d58552ecb71aa470bcc3c8",
+  "implementation_hash": "c21725c684317b3bad1b1fd8e374ebe9afe88070c6e76534490040966fbe1b86",
+  "metrics": {
+    "scheduled_cases": 10,
+    "measured_cases": 10,
+    "invalid_or_incomplete_cases": 0,
+    "diagnosis_accuracy": {
+      "numerator": 8,
+      "denominator": 10,
+      "value": 0.8
+    },
+    "binary_detection_accuracy": {
+      "numerator": 8,
+      "denominator": 10,
+      "value": 0.8
+    },
+    "detection_precision": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "detection_recall": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "repair_success_rate": {
+      "numerator": 1,
+      "denominator": 5,
+      "value": 0.2
+    },
+    "candidate_regression_failure_rate": {
+      "numerator": 0,
+      "denominator": 1,
+      "value": 0.0
+    },
+    "candidate_count": 1,
+    "false_verified_rate": {
+      "numerator": 0,
+      "denominator": 1,
+      "value": 0.0
+    },
+    "confusion": {
+      "tp": 4,
+      "tn": 4,
+      "fp": 1,
+      "fn": 1
+    }
+  },
+  "by_family": {
+    "parameters": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_count": 1,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 2,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "prompt": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "binary_detection_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_precision": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "detection_recall": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 0,
+        "tn": 1,
+        "fp": 0,
+        "fn": 1
+      }
+    },
+    "state_merge": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "termination": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 1,
+        "fn": 0
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic integration cases, not a production accuracy estimate.",
+    "Prompt cases use a deterministic response simulator, not a live target LLM.",
+    "Labels and held-out cases are never passed to the repair model.",
+    "A low candidate regression rate is not evidence of broad repair coverage."
+  ],
+  "command": ".\\.venv\\Scripts\\python.exe -m agentdoctor benchmark",
+  "cases": [
+    {
+      "case_id": "argument_alias",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "repair_success": true,
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "argument_type",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "argument_valid",
+      "family": "parameters",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "state_merge_loss",
+      "family": "state_merge",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "state_invariant"
+        ],
+        "expected_categories": [
+          "state_invariant"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "state_merge_valid",
+      "family": "state_merge",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "loop_missing_stop",
+      "family": "termination",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [
+          "possible_loop"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "loop_stops",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "intentional_polling",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [],
+        "correct": false,
+        "localized": null,
+        "binary_outcome": "fp"
+      },
+      "engine_status": "diagnosed",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "prompt_conflict",
+      "family": "prompt",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [
+          "prompt_conflict"
+        ],
+        "correct": false,
+        "localized": false,
+        "binary_outcome": "fn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    },
+    {
+      "case_id": "prompt_consistent",
+      "family": "prompt",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "candidates": []
+    }
+  ]
+}

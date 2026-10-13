@@ -1,0 +1,1152 @@
+{
+  "schema_version": 1,
+  "suite_version": "independent-v2",
+  "agentdoctor_version": "0.3.0",
+  "started_at": "2026-10-12T16:10:36.827315+00:00",
+  "finished_at": "2026-10-12T16:10:51.549235+00:00",
+  "provider": "none",
+  "model": null,
+  "executor": "local",
+  "repetitions": 1,
+  "complete": true,
+  "planned_cases": 10,
+  "dataset_hash": "a9ceb5270100e69deeb8362f8398ecc9b2576ac1f5061f5c6606653ec588eaa5",
+  "implementation_hash": "a1e01dc2ac86f6455c2b17c36b35329280080b688da9ba66e570ece7a54c1fee",
+  "metrics": {
+    "scheduled_cases": 10,
+    "measured_cases": 10,
+    "invalid_or_incomplete_cases": 0,
+    "diagnosis_accuracy": {
+      "numerator": 8,
+      "denominator": 10,
+      "value": 0.8
+    },
+    "binary_detection_accuracy": {
+      "numerator": 8,
+      "denominator": 10,
+      "value": 0.8
+    },
+    "detection_precision": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "detection_recall": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "repair_success_rate": {
+      "numerator": 1,
+      "denominator": 5,
+      "value": 0.2
+    },
+    "candidate_regression_failure_rate": {
+      "numerator": 0,
+      "denominator": 1,
+      "value": 0.0
+    },
+    "candidate_count": 1,
+    "false_verified_rate": {
+      "numerator": 0,
+      "denominator": 1,
+      "value": 0.0
+    },
+    "confusion": {
+      "tp": 4,
+      "tn": 4,
+      "fp": 1,
+      "fn": 1
+    }
+  },
+  "by_family": {
+    "parameters": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_count": 1,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "confusion": {
+        "tp": 2,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "prompt": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "binary_detection_accuracy": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_precision": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "detection_recall": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 0,
+        "tn": 1,
+        "fp": 0,
+        "fn": 1
+      }
+    },
+    "state_merge": {
+      "scheduled_cases": 2,
+      "measured_cases": 2,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "termination": {
+      "scheduled_cases": 3,
+      "measured_cases": 3,
+      "invalid_or_incomplete_cases": 0,
+      "diagnosis_accuracy": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "binary_detection_accuracy": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "detection_precision": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "detection_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "repair_success_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "candidate_regression_failure_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "candidate_count": 0,
+      "false_verified_rate": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confusion": {
+        "tp": 1,
+        "tn": 1,
+        "fp": 1,
+        "fn": 0
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic integration cases, not a production accuracy estimate.",
+    "Prompt cases use a deterministic response simulator, not a live target LLM.",
+    "Labels and held-out cases are never passed to the repair model.",
+    "A low candidate regression rate is not evidence of broad repair coverage.",
+    "Completion evidence assumes trusted evaluators, not hostile in-process report forgery."
+  ],
+  "command": ".\\.venv\\Scripts\\python.exe -m agentdoctor benchmark",
+  "cases": [
+    {
+      "case_id": "argument_alias",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "verified",
+      "delivered": true,
+      "repair_success": true,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 1,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "e9bf2296b0d147809f13ba0a7964893c",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "error",
+                "detail": "TypeError: price() got an unexpected keyword argument 'units'"
+              },
+              {
+                "id": "target:2",
+                "status": "error",
+                "detail": "TypeError: price() got an unexpected keyword argument 'units'"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "24185c26320543abaf62755b4ae3866f",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": [
+        {
+          "number": 1,
+          "status": "verified",
+          "regression_evaluated": true,
+          "regression_failed": false,
+          "heldout_passed": true,
+          "heldout_evidence": [
+            {
+              "name": "heldout_target",
+              "kind": "target",
+              "repetition": 1,
+              "expected_cases": [
+                "target:1",
+                "target:2"
+              ],
+              "returncode": 0,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "6d1c5ada0ee94f42b87b93a4ee1f50c1",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "target:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 49, \"expected\": 49}"
+                  },
+                  {
+                    "id": "target:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": 77, \"expected\": 77}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            },
+            {
+              "name": "heldout_regression",
+              "kind": "regression",
+              "repetition": 1,
+              "expected_cases": [
+                "regression:1",
+                "regression:2"
+              ],
+              "returncode": 0,
+              "completion": {
+                "schema_version": 1,
+                "invocation_id": "242ddc4509a242f6b8cb4174bc39a173",
+                "completed": true,
+                "executed_count": 2,
+                "results": [
+                  {
+                    "id": "regression:1",
+                    "status": "passed",
+                    "detail": "{\"actual\": 39, \"expected\": 39}"
+                  },
+                  {
+                    "id": "regression:2",
+                    "status": "passed",
+                    "detail": "{\"actual\": -20, \"expected\": -20}"
+                  }
+                ],
+                "suite_error": null
+              },
+              "completion_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "argument_type",
+      "family": "parameters",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "tool_argument_schema"
+        ],
+        "expected_categories": [
+          "tool_argument_schema"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 1,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "346b48d647344179ba3b9d6dd8d1accf",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "error",
+                "detail": "TypeError: quantity must be a nonnegative integer"
+              },
+              {
+                "id": "target:2",
+                "status": "error",
+                "detail": "TypeError: quantity must be a nonnegative integer"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "ea77c01d28cb440d81f1fa31f5d15094",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "argument_valid",
+      "family": "parameters",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "79c2a234c6454a9480951792d7f764d7",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": 49, \"expected\": 49}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": 77, \"expected\": 77}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "2077238afda2406fa0c3f2ff8f1a438a",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "state_merge_loss",
+      "family": "state_merge",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "state_invariant"
+        ],
+        "expected_categories": [
+          "state_invariant"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 1,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "3301f7dd23994c72b9210523fad653a6",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": {\"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "failed",
+                "detail": "{\"actual\": {\"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "dc7ff409cafd451e9cf88c60683f25fd",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "state_merge_valid",
+      "family": "state_merge",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "ea5b5f51e05347788eb36d36cdd4c57d",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}, \"expected\": {\"request_id\": \"unseen-request\", \"constraints\": [\"no_email\", \"keep_currency\"], \"completed\": true, \"extra\": 13}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "cc0fe1076a9046999ab03be0c9c1f97c",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "loop_missing_stop",
+      "family": "termination",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [
+          "possible_loop"
+        ],
+        "correct": true,
+        "localized": true,
+        "binary_outcome": "tp"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 1,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "c251f08769e241539bf3a1257addd909",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": {\"attempts\": 6, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "59c92920530f4a9e8048ba06e4a6d410",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "loop_stops",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "4519873aa7de4000856d9adf130d74ad",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": true}, \"expected\": {\"attempts\": 1, \"done\": true}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "0b38cf71fe7345d2b924f996b74cd8fe",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "intentional_polling",
+      "family": "termination",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [
+          "possible_loop"
+        ],
+        "expected_categories": [],
+        "correct": false,
+        "localized": null,
+        "binary_outcome": "fp"
+      },
+      "engine_status": "diagnosed",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "2c799d2788a2454dbe319696cea4ff4c",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 6, \"done\": false}, \"expected\": {\"attempts\": 6, \"done\": false}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"attempts\": 1, \"done\": false}, \"expected\": {\"attempts\": 1, \"done\": false}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "5761965737af4eb3b4006eb7d9362fe0",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "prompt_conflict",
+      "family": "prompt",
+      "faulty": true,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [
+          "prompt_conflict"
+        ],
+        "correct": false,
+        "localized": false,
+        "binary_outcome": "fn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 1,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "10d854f9440c45f18c534cd7818d447f",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "failed",
+                "detail": "{\"actual\": \"17\", \"expected\": {\"answer\": 17}}"
+              },
+              {
+                "id": "target:2",
+                "status": "failed",
+                "detail": "{\"actual\": \"-9\", \"expected\": {\"answer\": -9}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "0ce74f4ce03a461892b93a0e47e2376b",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    },
+    {
+      "case_id": "prompt_consistent",
+      "family": "prompt",
+      "faulty": false,
+      "repetition": 1,
+      "status": "measured",
+      "diagnosis": {
+        "predicted_categories": [],
+        "expected_categories": [],
+        "correct": true,
+        "localized": null,
+        "binary_outcome": "tn"
+      },
+      "engine_status": "inconclusive",
+      "delivered": false,
+      "repair_success": false,
+      "heldout_baseline_evidence": [
+        {
+          "name": "heldout_target",
+          "kind": "target",
+          "repetition": 1,
+          "expected_cases": [
+            "target:1",
+            "target:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "1fd6c8eb73a84eb3a80e58d8095da7ca",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "target:1",
+                "status": "passed",
+                "detail": "{\"actual\": {\"answer\": 17}, \"expected\": {\"answer\": 17}}"
+              },
+              {
+                "id": "target:2",
+                "status": "passed",
+                "detail": "{\"actual\": {\"answer\": -9}, \"expected\": {\"answer\": -9}}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        },
+        {
+          "name": "heldout_regression",
+          "kind": "regression",
+          "repetition": 1,
+          "expected_cases": [
+            "regression:1",
+            "regression:2"
+          ],
+          "returncode": 0,
+          "completion": {
+            "schema_version": 1,
+            "invocation_id": "eef6f440efb541b38bdb55333931b3e5",
+            "completed": true,
+            "executed_count": 2,
+            "results": [
+              {
+                "id": "regression:1",
+                "status": "passed",
+                "detail": "{\"actual\": 39, \"expected\": 39}"
+              },
+              {
+                "id": "regression:2",
+                "status": "passed",
+                "detail": "{\"actual\": -20, \"expected\": -20}"
+              }
+            ],
+            "suite_error": null
+          },
+          "completion_error": null
+        }
+      ],
+      "candidates": []
+    }
+  ]
+}
